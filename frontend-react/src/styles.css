@@ -1,0 +1,35 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+
+.Link {
+  color: "white"
+}
+
+.container1 {
+  height: 100vh;
+  background: rgb(0, 0, 0);
+
+}
+
+.container2 {
+  height: 100vh;
+  background-size: cover;
+}
+
+.BackgroundPage {
+  background-size: cover;
+  background-color:rgb(82, 205, 209) ;
+}
+
+.BackgroundBottom {
+  background-size: cover;
+  background-color:rgb(52, 56, 56) ;
+}
+
+.BackgroundBottom2 {
+  background-size: cover;
+  background-color:rgb(92, 92, 92) ;
+}

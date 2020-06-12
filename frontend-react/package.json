@@ -1,0 +1,57 @@
+{
+  "name": "frontend-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.9.5",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.45",
+    "material-table": "^1.56.1",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-router-dom": "^5.1.2",
+    "react-router-sitemap": "^1.2.0",
+    "yarn": "^1.22.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && react-snapshot",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "sitemap": "babel-node sitemap-generator.js",
+	"deploy":"aws s3 sync build/ s3://www.balancetonphilosophe.com"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+	"proxy": "http://balancetonphilosophe.com:5000",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "reactSnapshot": {
+    "include": [
+      "/philosophes",
+      "/dissertations",
+      "/rating",
+      "/themes",
+      "/philosophe/Platon"
+    ],
+    "snapshotDelay": 300
+  },
+  "devDependencies": {
+    "history": "^4.10.1",
+    "react-ga": "^2.7.0",
+    "react-scripts": "^3.4.1",
+    "react-snapshot": "^1.3.0",
+    "terser-webpack-plugin": "^3.0.1"
+  }
+}
