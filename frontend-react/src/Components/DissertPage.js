@@ -11,7 +11,7 @@ const DissertPage = ({
 	DarkModeOn,
 	FuncShowRatingForm,
 	showBienvenue,
-	handleClick1,
+	reinitForm,
     responseDicts, ChangeResponseDicts, ChangeMots,mots,
     form, setForm,
     setDissert, dissert,
@@ -63,7 +63,7 @@ const DissertPage = ({
 		  
           <SelectionPanel
             showBienvenue={showBienvenue}
-            handleClick1={handleClick1} 
+            reinitForm={reinitForm} 
             ChangeResponseDicts={ChangeResponseDicts} 
             handleSubmit = {handleSubmit}
             form = {form}

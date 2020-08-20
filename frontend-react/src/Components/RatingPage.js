@@ -11,7 +11,7 @@ const RatingPage = ({
 	DarkModeOn,
 	FuncShowRatingForm,
 	showBienvenue,
-	handleClick1,handleClick2,handleClick3,handleSubmit,
+	reinitForm,handleSubmit,
     ChangeResponseDicts, ChangeMots,
     form, setForm,
     setDissert, dissert,
@@ -31,9 +31,7 @@ const RatingPage = ({
 		  
           <SelectionPanel
             showBienvenue={showBienvenue}
-            handleClick1={handleClick1} 
-            handleClick2={handleClick2} 
-            handleClick3={handleClick3} 
+            reinitForm={reinitForm}  
             ChangeResponseDicts={ChangeResponseDicts} 
             handleSubmit = {handleSubmit}
             form = {form}

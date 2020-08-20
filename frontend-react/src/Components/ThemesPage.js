@@ -11,7 +11,7 @@ const ThemesPage = ({
 	DarkModeOn,
 	FuncShowRatingForm,
 	showBienvenue,
-	handleClick1,handleSubmit,
+	reinitForm,handleSubmit,
     responseDicts, ChangeResponseDicts, ChangeMots,mots,
     form, setForm,
     setDissert, dissert,
@@ -31,7 +31,7 @@ const ThemesPage = ({
 		  
           <SelectionPanel
             showBienvenue={showBienvenue}
-            handleClick1={handleClick1} 
+            reinitForm={reinitForm} 
             ChangeResponseDicts={ChangeResponseDicts} 
             handleSubmit = {handleSubmit}
             form = {form}
