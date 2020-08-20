@@ -24,13 +24,13 @@ const DissertPage = ({
 
   const handleSubmit = async () =>  {
     setLoading(true);
-    const envoi1 = await fetch("https://54.173.202.138/SujetDissertation",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify(dissert)})
+    const envoi1 = await fetch("https://api.balancetonphilosophe.com/SujetDissertation",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify(dissert)})
     const retour1 = await envoi1.json();
     setForm({...form, Theme:retour1[0].ListeTheme,Mots:retour1[1].ListeMots});
     setLaunch(true)
     }
   async function fetchdata(){
-    const envoi2 = await fetch("https://54.173.202.138/form",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify(form)})
+    const envoi2 = await fetch("https://api.balancetonphilosophe.com/form",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify(form)})
     const retour2 = await envoi2.json();
     ChangeResponseDicts(retour2[0].ListReply);
     ChangeMots(retour2[1].ListeMots)
