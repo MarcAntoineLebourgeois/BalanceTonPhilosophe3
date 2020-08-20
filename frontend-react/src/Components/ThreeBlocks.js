@@ -6,7 +6,7 @@ import Background3 from "../Data/philosopherImage.jpg"
 import { makeStyles } from '@material-ui/core/styles';
 import { Link} from "react-router-dom";
 
-const ThreeBlocks = ({handleClick1,handleClick2,handleClick3}) => {
+const ThreeBlocks = ({handleClick1}) => {
     const useStyles = makeStyles(theme => ({
         media: {
           height: 0,
@@ -50,7 +50,7 @@ return(
     <Link to='/themes' style={{ textDecoration: 'none' }}>
         <Grid container item style={{width: '300px', height: '70vh' }}>
             <Grid item style={{height:"90%", margin: "auto"}}>
-                <Card onClick={handleClick2} >
+                <Card onClick={handleClick1} >
                     <CardActionArea>
                         <CardMedia className={classes.media} image={Background2} />
                         <CardContent style={{backgroundColor: "#ea8f8f" }}>
@@ -69,7 +69,7 @@ return(
     <Link to='/philosophes' style={{ textDecoration: 'none' }}>
         <Grid container item style={{width: '300px', height: '70vh' }}>
             <Grid item style={{height:"90%", margin: "auto"}}>
-                <Card onClick={handleClick3} >
+                <Card onClick={handleClick1} >
                     <CardActionArea>
                         <CardMedia className={classes.media} image={Background3} />
                         <CardContent style={{backgroundColor: "#ea8f8f" }}>

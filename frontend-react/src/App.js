@@ -77,23 +77,11 @@ const App = () => {
     setResponseDicts([]);
   };
 
-  const handleClick2 = () => {
-    setForm({Theme: [],Philosophe: [],Format: "Card",Mots:[]});
-    setResponseDicts([])
-  };
-    
-  const handleClick3 = () => {
-    setForm({Theme: [],Philosophe: [],Format: "Card",Mots:[]});
-    setResponseDicts([]);
-	};
-
-  //const ChangeThemes = themes => {setForm({ ...form, Theme: themes });};
-  //const ChangePhilosophes = philosophes => {setForm({ ...form, Philosophe: philosophes });};
   const ChangeResponseDicts = Response => {setResponseDicts(Response)};
   const ChangeMots = mots => {setMots(mots)};
 
   const handleSubmit = async (match) => {
-      const envoi1 = await fetch("https://54.173.202.138/form",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify(form)})
+      const envoi1 = await fetch("https://api.balancetonphilosophe.com/form",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify(form)})
       const retour1 = await envoi1.json();
       setResponseDicts(retour1[0].ListReply);
       setMots(retour1[1].ListeMots);
@@ -130,8 +118,6 @@ const App = () => {
 					FuncShowRatingForm={FuncShowRatingForm}
 					showBienvenue={showBienvenue}
 					handleClick1={handleClick1} 
-					handleClick2={handleClick2} 
-					handleClick3={handleClick3} 
 					ChangeResponseDicts={ChangeResponseDicts} 
 					handleSubmit = {handleSubmit}
 					form = {form}
@@ -157,8 +143,6 @@ const App = () => {
 					FuncShowRatingForm={FuncShowRatingForm}
 					showBienvenue={showBienvenue}
 					handleClick1={handleClick1} 
-					handleClick2={handleClick2} 
-					handleClick3={handleClick3} 
 					ChangeResponseDicts={ChangeResponseDicts} 
 					handleSubmit = {handleSubmit}
 					form = {form}
@@ -178,12 +162,10 @@ const App = () => {
 		  <Route exact path='/philosophes'
 			   render={() => (
 				<PhilosophesPage 
-					DarkModeOn={DarkModeOn}
+				   DarkModeOn={DarkModeOn}
 					FuncShowRatingForm={FuncShowRatingForm}
 					showBienvenue={showBienvenue}
 					handleClick1={handleClick1} 
-					handleClick2={handleClick2} 
-					handleClick3={handleClick3} 
 					ChangeResponseDicts={ChangeResponseDicts} 
 					handleSubmit = {handleSubmit}
 					form = {form}
@@ -203,13 +185,11 @@ const App = () => {
 			<Route exact path='/philosophe/:philosophe'
 			   render={(props) => (
 				<PhilosophePage 
-				{...props}
+					{...props}	
 					DarkModeOn={DarkModeOn}
 					FuncShowRatingForm={FuncShowRatingForm}
 					showBienvenue={showBienvenue}
 					handleClick1={handleClick1} 
-					handleClick2={handleClick2} 
-					handleClick3={handleClick3} 
 					ChangeResponseDicts={ChangeResponseDicts} 
 					handleSubmit = {handleSubmit}
 					form = {form}
@@ -236,8 +216,6 @@ const App = () => {
 					FuncShowRatingForm={FuncShowRatingForm}
 					showBienvenue={showBienvenue}
 					handleClick1={handleClick1} 
-					handleClick2={handleClick2} 
-					handleClick3={handleClick3} 
 					ChangeResponseDicts={ChangeResponseDicts} 
 					handleSubmit = {handleSubmit}
 					form = {form}
@@ -264,8 +242,6 @@ const App = () => {
 					FuncShowRatingForm={FuncShowRatingForm}
 					showBienvenue={showBienvenue}
 					handleClick1={handleClick1} 
-					handleClick2={handleClick2} 
-					handleClick3={handleClick3} 
 					ChangeResponseDicts={ChangeResponseDicts} 
 					handleSubmit = {handleSubmit}
 					form = {form}

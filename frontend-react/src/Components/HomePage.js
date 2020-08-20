@@ -11,7 +11,7 @@ const HomePage = ({
 	DarkModeOn,
 	FuncShowRatingForm,
 	showBienvenue,
-	handleClick1,handleClick2,handleClick3,handleSubmit,
+	handleClick1,handleSubmit,
     ChangeResponseDicts, ChangeMots,
     form, setForm,
     setDissert, dissert,
@@ -32,8 +32,6 @@ const HomePage = ({
           <SelectionPanel
             showBienvenue={showBienvenue}
             handleClick1={handleClick1} 
-            handleClick2={handleClick2} 
-            handleClick3={handleClick3} 
             ChangeResponseDicts={ChangeResponseDicts} 
             handleSubmit = {handleSubmit}
             form = {form}
@@ -53,8 +51,6 @@ const HomePage = ({
 
 	 <ThreeBlocks             
 		handleClick1={handleClick1} 
-		handleClick2={handleClick2} 
-		handleClick3={handleClick3}
 	  />
 
 	  <BottomBar/>

@@ -11,7 +11,7 @@ const PhilosophesPage = ({
 	DarkModeOn,
 	FuncShowRatingForm,
 	showBienvenue,
-	handleClick1,handleClick2,handleClick3,handleSubmit,
+	handleClick1,handleSubmit,
     responseDicts, ChangeResponseDicts, ChangeMots,mots,
     form, setForm,
     setDissert, dissert,
@@ -32,8 +32,6 @@ const PhilosophesPage = ({
           <SelectionPanel
             showBienvenue={showBienvenue}
             handleClick1={handleClick1} 
-            handleClick2={handleClick2} 
-            handleClick3={handleClick3} 
             ChangeResponseDicts={ChangeResponseDicts} 
             handleSubmit = {handleSubmit}
             form = {form}

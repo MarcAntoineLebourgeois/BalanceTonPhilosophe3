@@ -8,7 +8,7 @@ import InputPhilosophe from "./InputPhilosophe";
 import { Link,Route } from "react-router-dom";
 
 const SelectionPanel = ({    
-    handleClick1, handleClick2, handleClick3,
+    handleClick1,
     ChangeResponseDicts, 
     handleSubmit,
     form, setForm,
@@ -45,10 +45,10 @@ const SelectionPanel = ({
 			<StyledButton label="Disserts?" onClick={handleClick1} ></StyledButton>
 		</Link>
 		<Link to='/themes' style={{ textDecoration: 'none' }}>
-			<StyledButton label="Themes?" onClick={handleClick2} ></StyledButton>
+			<StyledButton label="Themes?" onClick={handleClick1} ></StyledButton>
 		</Link>
 		<Link to='/philosophes' style={{ textDecoration: 'none' }}>
-			<StyledButton label="Philosophes?" onClick={handleClick3} ></StyledButton>
+			<StyledButton label="Philosophes?" onClick={handleClick1} ></StyledButton>
 		</Link>
 			
       <Route path='/dissertations' render={props=>
