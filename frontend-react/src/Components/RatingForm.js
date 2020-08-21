@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import Rating from "@material-ui/lab/Rating";
 import {Typography,Button,Icon,Grid,TextField} from "@material-ui/core";
 
-const RatingForm = ({FuncShowRatingForm}) => {
+const RatingForm = (props) => {
 	
 	const [formRating, setFormRating] = useState(
       { 
@@ -24,8 +24,8 @@ const RatingForm = ({FuncShowRatingForm}) => {
 	const ChangeComment = comment => {setFormRating({ ...formRating, comment: comment });};
 	
 	const SendRatingForm = () => {
-    fetch("https://54.173.202.138/add_rating",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify({"formRating":formRating})});
-    FuncShowRatingForm();
+    fetch("https://api.balancetonphilosophe.com/add_rating",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify({"formRating":formRating})});
+    props.FuncShowRatingForm();
 	console.log(formRating);
   }
 

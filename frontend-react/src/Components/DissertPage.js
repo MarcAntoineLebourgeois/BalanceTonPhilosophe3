@@ -7,88 +7,48 @@ import SelectionPanel from "./SelectionPanel"
 import Rendu from "./Rendu"
 import BottomBar from "./BottomBar"
 
-const DissertPage = ({
-	DarkModeOn,
-	FuncShowRatingForm,
-	showBienvenue,
-	reinitForm,
-    responseDicts, ChangeResponseDicts, ChangeMots,mots,
-    form, setForm,
-    setDissert, dissert,
-    listeReplyTheme,ExempleThemes,
-    listeReplyPhilosophe,ExemplePhilosophe,
-	setShowRendu,setRoute,match,launch,setLaunch
-}) => {
+const DissertPage = (props) => {
 	  
 	const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () =>  {
     setLoading(true);
-    const envoi1 = await fetch("https://api.balancetonphilosophe.com/SujetDissertation",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify(dissert)})
+    const envoi1 = await fetch("https://api.balancetonphilosophe.com/SujetDissertation",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify(props.match.params.dissert)})
     const retour1 = await envoi1.json();
-    setForm({...form, Theme:retour1[0].ListeTheme,Mots:retour1[1].ListeMots});
-    setLaunch(true)
+    props.setForm({...props.form, Theme:retour1[0].ListeTheme,Mots:retour1[1].ListeMots});
+    props.setLaunch(true)
     }
   async function fetchdata(){
-    const envoi2 = await fetch("https://api.balancetonphilosophe.com/form",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify(form)})
+    const envoi2 = await fetch("https://api.balancetonphilosophe.com/form",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify(props.form)})
     const retour2 = await envoi2.json();
-    ChangeResponseDicts(retour2[0].ListReply);
-    ChangeMots(retour2[1].ListeMots)
+    props.ChangeResponseDicts(retour2[0].ListReply);
+    props.ChangeMots(retour2[1].ListeMots)
     setLoading(false);
   }  
   
-	console.log(match)
 	useEffect(()=>{
-		setDissert(match.params.dissert);
+		props.setDissert(props.match.params.dissert);
 	},[])
 
 	useEffect(()=>{
-		handleSubmit()
-	},[setDissert])
+    handleSubmit()
+	},[props.setDissert])
 
 
-  if (launch){
+  if (props.launch){
     fetchdata();
-    setLaunch(false)
+    props.setLaunch(false)
   }
   
 	return(
-	<>
+    <>
       <Grid className="BackgroundPage" style={{padding:10, height: '60vh'}}>
-          
-		  <AppBarFront 
-            DarkModeOn={DarkModeOn}
-            FuncShowRatingForm={FuncShowRatingForm}
-          />
-		  
-          <SelectionPanel
-            showBienvenue={showBienvenue}
-            reinitForm={reinitForm} 
-            ChangeResponseDicts={ChangeResponseDicts} 
-            handleSubmit = {handleSubmit}
-            form = {form}
-            setForm={setForm}
-            ChangeMots={ChangeMots}
-            setDissert={setDissert}
-            dissert={dissert}
-            ExempleThemes={ExempleThemes}
-            ExemplePhilosophe={ExemplePhilosophe}
-            setShowRendu={setShowRendu}
-            listeReplyTheme={listeReplyTheme}
-            listeReplyPhilosophe={listeReplyPhilosophe}
-			setRoute = {setRoute}
-            />
-			
+        <AppBarFront {...props}/>
+        <SelectionPanel {...props}/>
       </Grid>
-
-	 <Rendu             
-		  responseDicts={responseDicts}
-		  mots={mots}
-		  form={form}
-	  />
-
-	  <BottomBar/>
-	</> 
+      <Rendu {...props}/>
+      <BottomBar/>
+    </> 
 		  )
 }
 

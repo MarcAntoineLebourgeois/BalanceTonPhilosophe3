@@ -3,11 +3,11 @@ import {Input,InputLabel,MenuItem,FormControl,Select,Chip,Button,Link,Typography
 import { useStyles, MenuProps } from "../Styles/InputThemeStyles";
 import { Link as Links,Route } from "react-router-dom";
 
-const InputTheme = ({ form, setForm,listeReplyTheme,handleSubmit,ExempleThemes,match,setRoute,props }) => {
+const InputTheme = (props,{match}) => {
   const classes = useStyles();
   const handleSubmit2 = () => {
-		handleSubmit();
-		setRoute({match})
+		props.handleSubmit();
+		props.setRoute({match})
 	}
   return (
     <Grid container direction="column" justify="center" alignItems="center" className={classes.fronttext2}>
@@ -17,10 +17,8 @@ const InputTheme = ({ form, setForm,listeReplyTheme,handleSubmit,ExempleThemes,m
         <InputLabel style={{ fontSize: 14 }}>Selectionner un ou plusieurs themes</InputLabel>
         <Select
           multiple
-          value={form.Theme}
-          onChange={e => {
-            setForm({...form,Theme:e.target.value});
-          }}
+          value={props.form.Theme}
+          onChange={e => {props.setForm({...props.form,Theme:e.target.value})}}
           input={<Input/>}
           renderValue={selected => (
             <div className={classes.chips}>
@@ -37,7 +35,7 @@ const InputTheme = ({ form, setForm,listeReplyTheme,handleSubmit,ExempleThemes,m
           )}
           MenuProps={MenuProps}
         >
-          {listeReplyTheme.map(name => (
+          {props.listeReplyTheme.map(name => (
             <MenuItem key={name} value={name} style={{ fontSize: 14,lineHeight:0.2 }}>
               {name}
             </MenuItem>
@@ -45,12 +43,12 @@ const InputTheme = ({ form, setForm,listeReplyTheme,handleSubmit,ExempleThemes,m
         </Select>
       </FormControl>
       <p></p>
-	  <Links to={`theme/${form.Theme}`} style={{ textDecoration: 'none' }}>
+	  <Links to={`theme/${props.form.Theme}`} style={{ textDecoration: 'none' }}>
 		<Button variant="contained" endIcon={<Icon>send</Icon>} onClick={handleSubmit2} size="small"> Trouver les sources a mes themes </Button>
 	  </Links>
       <p></p>
       <Typography variant="subtitle1" style={{fontSize: 14}}>Cliquer sur l'exemple suivant: (sujet Bac ES 2019)</Typography>
-      <Button to="/" component={Link} onClick={ExempleThemes} size="small"> Morale et Politique </Button> 
+      <Button to="/" component={Link} onClick={props.ExempleThemes} size="small"> Morale et Politique </Button> 
     </Grid>
   );
 };

@@ -4,13 +4,13 @@ import "../styles.css";
 import { Link as Links,Route } from "react-router-dom";
 
 
-const SujetDissertPanel = ({ChangeResponseDicts,ChangeMots,setDissert,dissert,form, setForm, props}) => {
+const SujetDissertPanel = (props) => {
 
 
   /* Link to example */
   const preventDefault = event => {
     event.preventDefault();
-    setDissert('La morale est elle la meilleure des politiques ?');
+    props.setDissert('La morale est elle la meilleure des politiques ?');
   }
 
   return (
@@ -19,8 +19,8 @@ const SujetDissertPanel = ({ChangeResponseDicts,ChangeMots,setDissert,dissert,fo
       <p></p>
       <p></p>
         <TextField 
-          value={dissert} 
-          onChange={e => setDissert(e.target.value)} 
+          value={props.dissert} 
+          onChange={e => props.setDissert(e.target.value)} 
           placeholder="Ecrire ici le sujet de dissertation" 
           style={{width: 300}} 
           variant="outlined"           
@@ -29,20 +29,18 @@ const SujetDissertPanel = ({ChangeResponseDicts,ChangeMots,setDissert,dissert,fo
           size="small"
         />
         <p></p>
-		<Links to={`dissertation/${dissert}`} style={{ textDecoration: 'none' }}>
+		<Links to={`dissertation/${props.dissert}`} style={{ textDecoration: 'none' }}>
 			<Button 
 				variant="contained" 
-				
 				endIcon={<Icon>send</Icon>} 
 				size="small">
-
 			</Button>
 		</Links>
         <p></p>
         <Typography variant="subtitle1" style={{fontSize: 14}}>
             Cliquer sur l'exemple suivant: (sujet Bac ES 2019)
         </Typography>
-		<Links to={`dissertation/${dissert}`} style={{ textDecoration: 'none' }}>
+		<Links to={`dissertation/${props.dissert}`} style={{ textDecoration: 'none' }}>
 			<Button variant="text" to="/" component={Link} onClick={preventDefault} size="small" style={{fontSize: 12}} > 
 				  La morale est elle la meilleure des politiques ? 
 			</Button> 

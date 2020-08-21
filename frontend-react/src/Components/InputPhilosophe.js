@@ -4,36 +4,19 @@ import { useStyles, MenuProps } from "../Styles/InputThemeStyles";
 import { Link as Links,Route } from "react-router-dom";
 import listeReplyPhilosophe from "../Data/ListePhilosophes"
 
-const InputPhilosophe = ({ form, setForm,listeReplyPhilosophe,handleSubmit,ExemplePhilosophe,match,setRoute, props}) => {
+const InputPhilosophe = (props,{match}) => {
+  console.log(props)
   const classes = useStyles();
   const [launch,setLaunch] = useState(false)
+	const Check1 = props.listeReplyPhilosophe.includes(props.form.Philosophe[0])
 
-/*
-  useEffect(() => {
-  setForm({...form,Philosophe: [match.params.philosophe]})
-  setLaunch(true)
-	}, [match.params.philosophe])
-
-  if (launch){
-    handleSubmit();
-    setLaunch(false)
-  }
-*/
-	const Check1 = listeReplyPhilosophe.includes(form.Philosophe[0])
-	console.log(form.Philosophe[0])
-	console.log(match)
-
-	console.log(props)
-	console.log(Check1)
-	console.log(match.path + "/" + form.Philosophe)
-	if (Check1 && match.path.substring(0, 13) === "/philosophes"){console.log("double check:ok")}
-
-	useEffect(()=>{console.log("test reussi")},[match])
+	//if (Check1 && match.path.substring(0, 13) === "/philosophes"){console.log("double check:ok")}
+	//useEffect(()=>{console.log("test reussi")},[match])
 
 
 const handleSubmit2 = () => {
-	handleSubmit();
-	setRoute({match})
+	props.handleSubmit();
+	props.setRoute({match})
 }
 
   return (
@@ -45,9 +28,9 @@ const handleSubmit2 = () => {
           Selectionner un ou plusieurs philosophes
         </InputLabel>
         <Select
-          value={form.Philosophe}
+          value={props.form.Philosophe}
           onChange={e => {
-            setForm({...form,Philosophe:[e.target.value]});
+            props.setForm({...props.form,Philosophe:[e.target.value]});
           }}
           input={<Input />}
           renderValue={selected => (
@@ -63,7 +46,7 @@ const handleSubmit2 = () => {
           )}
           MenuProps={MenuProps}
         >
-          {listeReplyPhilosophe.map(name => (
+          {props.listeReplyPhilosophe.map(name => (
             <MenuItem key={name} value={name} style={{ fontSize: 14,lineHeight:0.2 }}>
               {name}
             </MenuItem>
@@ -71,12 +54,12 @@ const handleSubmit2 = () => {
         </Select>
       </FormControl>
       <p></p>
-	  <Links to={`philosophe/${form.Philosophe}`} style={{ textDecoration: 'none' }}>
+	  <Links to={`philosophe/${props.form.Philosophe}`} style={{ textDecoration: 'none' }}>
 		<Button variant="contained" endIcon={<Icon>send</Icon>} onClick={handleSubmit2} size="small"> Balance ce philosophe </Button>
 	  </Links>
       <p></p>
       <Typography variant="subtitle1" style={{fontSize: 14}}>Cliquer sur l'exemple suivant:</Typography>
-      <Button  to="/" component={Link} onClick={ExemplePhilosophe} size="small"> Nicolas Machiavel </Button>
+      <Button  to="/" component={Link} onClick={props.ExemplePhilosophe} size="small"> Nicolas Machiavel </Button>
 
     </Grid>
   );

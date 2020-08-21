@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   },
 
 }));
-const Cards = ({responseDicts, form}) => {
+const Cards = (props) => {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = (i) => {setOpen(expanded === i ? -1 : i)};
   const handleClose = () => {setOpen(false)};
@@ -38,7 +38,7 @@ const Cards = ({responseDicts, form}) => {
 
   return (
     <Grid container direction='row'alignItems="center" justify="center" spacing={2} >
-        {responseDicts.map((responseDict,i) => {
+        {props.responseDicts.map((responseDict,i) => {
             return(
             <Grid item>  
             <Card key={responseDict.Philosophe} style={{minWidth: 320,maxWidth: 320 ,padding: 5}}>
@@ -46,7 +46,7 @@ const Cards = ({responseDicts, form}) => {
                 <CardMedia className={classes.media} image={responseDict.Image} />
                 <Grid container direction='row'alignItems="center" justify="center" >
                   <Button variant="outlined" color="primary" onClick={() => handleClickOpen(i)}>
-                    {responseDict.Philosophe} {form.Theme.length > 0 && "sur"} {form.Theme.map(themes =>{return(themes + "/")})}
+                    {responseDict.Philosophe} {props.form.Theme.length > 0 && "sur"} {props.form.Theme.map(themes =>{return(themes + "/")})}
                   </Button>
                 </Grid>
                   <Dialog fullScreen open={open === i} onClose={handleClose} >

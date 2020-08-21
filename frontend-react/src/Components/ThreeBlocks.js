@@ -6,7 +6,7 @@ import Background3 from "../Data/philosopherImage.jpg"
 import { makeStyles } from '@material-ui/core/styles';
 import { Link} from "react-router-dom";
 
-const ThreeBlocks = ({reinitForm}) => {
+const ThreeBlocks = (props) => {
     const useStyles = makeStyles(theme => ({
         media: {
           height: 0,
@@ -31,7 +31,7 @@ return(
     <Link to='/dissertations' style={{ textDecoration: 'none' }}>
         <Grid container item style={{width: '300px', height: '70vh' }}>
             <Grid item style={{height:"90%", margin: "auto"}}>
-                <Card onClick={reinitForm} >
+                <Card onClick={props.reinitForm} >
                     <CardActionArea>
                         <CardMedia className={classes.media} image={Background1} />
                         <CardContent style={{backgroundColor: "#ea8f8f" }}>
@@ -50,7 +50,7 @@ return(
     <Link to='/themes' style={{ textDecoration: 'none' }}>
         <Grid container item style={{width: '300px', height: '70vh' }}>
             <Grid item style={{height:"90%", margin: "auto"}}>
-                <Card onClick={reinitForm} >
+                <Card onClick={props.reinitForm} >
                     <CardActionArea>
                         <CardMedia className={classes.media} image={Background2} />
                         <CardContent style={{backgroundColor: "#ea8f8f" }}>
@@ -69,7 +69,7 @@ return(
     <Link to='/philosophes' style={{ textDecoration: 'none' }}>
         <Grid container item style={{width: '300px', height: '70vh' }}>
             <Grid item style={{height:"90%", margin: "auto"}}>
-                <Card onClick={reinitForm} >
+                <Card onClick={props.reinitForm} >
                     <CardActionArea>
                         <CardMedia className={classes.media} image={Background3} />
                         <CardContent style={{backgroundColor: "#ea8f8f" }}>

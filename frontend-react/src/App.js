@@ -72,7 +72,7 @@ const App = () => {
   const [showBienvenue,] = useState(true)
   const [showRendu, setShowRendu] = useState(false)
 
-  const handleClick1 = () => {
+  const reinitForm = () => {
     setForm({Theme: [],Philosophe: [],Format: "Card",Mots:[]});
     setResponseDicts([]);
   };
@@ -80,7 +80,7 @@ const App = () => {
   const ChangeResponseDicts = Response => {setResponseDicts(Response)};
   const ChangeMots = mots => {setMots(mots)};
 
-  const handleSubmit = async (match) => {
+  const handleSubmit = async () => {
       const envoi1 = await fetch("https://api.balancetonphilosophe.com/form",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify(form)})
       const retour1 = await envoi1.json();
       setResponseDicts(retour1[0].ListReply);
@@ -117,7 +117,7 @@ const App = () => {
 					DarkModeOn={DarkModeOn}
 					FuncShowRatingForm={FuncShowRatingForm}
 					showBienvenue={showBienvenue}
-					handleClick1={handleClick1} 
+					reinitForm={reinitForm} 
 					ChangeResponseDicts={ChangeResponseDicts} 
 					handleSubmit = {handleSubmit}
 					form = {form}
@@ -142,7 +142,7 @@ const App = () => {
 					DarkModeOn={DarkModeOn}
 					FuncShowRatingForm={FuncShowRatingForm}
 					showBienvenue={showBienvenue}
-					handleClick1={handleClick1} 
+					reinitForm={reinitForm} 
 					ChangeResponseDicts={ChangeResponseDicts} 
 					handleSubmit = {handleSubmit}
 					form = {form}
@@ -160,12 +160,13 @@ const App = () => {
 				)}/>
 		  
 		  <Route exact path='/philosophes'
-			   render={() => (
+			   render={(props) => (
 				<PhilosophesPage 
+				{...props}
 				   DarkModeOn={DarkModeOn}
 					FuncShowRatingForm={FuncShowRatingForm}
 					showBienvenue={showBienvenue}
-					handleClick1={handleClick1} 
+					reinitForm={reinitForm} 
 					ChangeResponseDicts={ChangeResponseDicts} 
 					handleSubmit = {handleSubmit}
 					form = {form}
@@ -189,7 +190,7 @@ const App = () => {
 					DarkModeOn={DarkModeOn}
 					FuncShowRatingForm={FuncShowRatingForm}
 					showBienvenue={showBienvenue}
-					handleClick1={handleClick1} 
+					reinitForm={reinitForm} 
 					ChangeResponseDicts={ChangeResponseDicts} 
 					handleSubmit = {handleSubmit}
 					form = {form}
@@ -215,7 +216,7 @@ const App = () => {
 					DarkModeOn={DarkModeOn}
 					FuncShowRatingForm={FuncShowRatingForm}
 					showBienvenue={showBienvenue}
-					handleClick1={handleClick1} 
+					reinitForm={reinitForm} 
 					ChangeResponseDicts={ChangeResponseDicts} 
 					handleSubmit = {handleSubmit}
 					form = {form}
@@ -241,7 +242,7 @@ const App = () => {
 					DarkModeOn={DarkModeOn}
 					FuncShowRatingForm={FuncShowRatingForm}
 					showBienvenue={showBienvenue}
-					handleClick1={handleClick1} 
+					reinitForm={reinitForm} 
 					ChangeResponseDicts={ChangeResponseDicts} 
 					handleSubmit = {handleSubmit}
 					form = {form}
@@ -308,7 +309,7 @@ useref
   //Carrousel
   {hide && (
   <Carrousel
-    handleClick1={handleClick1}
+    reinitForm={reinitForm}
     handleClick2={handleClick2}
     handleClick3={handleClick3}
     setDissert={setDissert}

@@ -6,6 +6,8 @@ import AppBarFront from "./AppBar"
 import SelectionPanel from "./SelectionPanel"
 import Rendu from "./Rendu"
 import BottomBar from "./BottomBar"
+import InputPhilosophe from "./InputPhilosophe";
+import { Link,Route } from "react-router-dom";
 
 const PhilosophesPage = ({
 	DarkModeOn,
@@ -45,8 +47,10 @@ const PhilosophesPage = ({
             listeReplyTheme={listeReplyTheme}
             listeReplyPhilosophe={listeReplyPhilosophe}
 			setRoute = {setRoute}
-            />
-			
+            >
+              
+            </SelectionPanel>
+
       </Grid>
 
 	 <Rendu             

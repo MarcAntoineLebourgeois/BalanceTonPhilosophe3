@@ -21,6 +21,7 @@ const HomePage = ({
 }) => {
 
 	return(
+
 	<>
       <Grid className="BackgroundPage" style={{padding:10, height: '60vh'}}>
           

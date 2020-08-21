@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
   title: { flexGrow: 1 }
 }));
 
-const AppBarFront = ({DarkModeOn,FuncShowRatingForm}) => {
+const AppBarFront = (props) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -52,9 +52,9 @@ const AppBarFront = ({DarkModeOn,FuncShowRatingForm}) => {
               open={open}
               onClose={handleClose}
             >
-              <MenuItem onClick={DarkModeOn}>Dark/Light Mode</MenuItem>
+              <MenuItem onClick={props.DarkModeOn}>Dark/Light Mode</MenuItem>
             <Link to="/rating" style={{ textDecoration: 'none' }}>
-              <MenuItem onClick={FuncShowRatingForm}>Note moi!</MenuItem>
+              <MenuItem onClick={props.FuncShowRatingForm}>Note moi!</MenuItem>
             </Link>
             </Menu>
           </div>
