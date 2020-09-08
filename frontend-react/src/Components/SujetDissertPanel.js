@@ -1,11 +1,10 @@
- import React,{useState, useEffect} from "react";
+import React from "react";
 import { Grid, Typography, Button, TextField, Link,Icon } from "@material-ui/core";
 import "../styles.css";
-import { Link as Links,Route } from "react-router-dom";
+import { Link as Links } from "react-router-dom";
 
 
 const SujetDissertPanel = (props) => {
-
 
   /* Link to example */
   const preventDefault = event => {

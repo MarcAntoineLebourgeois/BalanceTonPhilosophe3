@@ -18,9 +18,6 @@ import listeReplyPhilosophe from "./Data/ListePhilosophes"
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 //import { blue,yellow,red } from '@material-ui/core/colors';
 
-import ReactGA from 'react-ga';
-
-
 const Maintheme = {
     palette: {
         primary: {

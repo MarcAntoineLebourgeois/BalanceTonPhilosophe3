@@ -1,23 +1,16 @@
-import React,{useState,useEffect} from "react";
+import React from "react";
 import {Input,InputLabel,MenuItem,FormControl,Select,Chip,Grid,Button,Typography,Icon,Link} from "@material-ui/core";
 import { useStyles, MenuProps } from "../Styles/InputThemeStyles";
-import { Link as Links,Route } from "react-router-dom";
-import listeReplyPhilosophe from "../Data/ListePhilosophes"
+import { Link as Links } from "react-router-dom";
+
 
 const InputPhilosophe = (props,{match}) => {
-  console.log(props)
+
   const classes = useStyles();
-  const [launch,setLaunch] = useState(false)
-	const Check1 = props.listeReplyPhilosophe.includes(props.form.Philosophe[0])
-
-	//if (Check1 && match.path.substring(0, 13) === "/philosophes"){console.log("double check:ok")}
-	//useEffect(()=>{console.log("test reussi")},[match])
-
-
-const handleSubmit2 = () => {
-	props.handleSubmit();
-	props.setRoute({match})
-}
+  const BTPapiSubmit = () => {
+    props.handleSubmit();
+    props.setRoute({match})
+  }
 
   return (
 	<Grid container direction="column" justify="center" alignItems="center"  className={classes.fronttext2}>
@@ -55,7 +48,7 @@ const handleSubmit2 = () => {
       </FormControl>
       <p></p>
 	  <Links to={`philosophe/${props.form.Philosophe}`} style={{ textDecoration: 'none' }}>
-		<Button variant="contained" endIcon={<Icon>send</Icon>} onClick={handleSubmit2} size="small"> Balance ce philosophe </Button>
+		<Button variant="contained" endIcon={<Icon>send</Icon>} onClick={BTPapiSubmit} size="small"> Balance ce philosophe </Button>
 	  </Links>
       <p></p>
       <Typography variant="subtitle1" style={{fontSize: 14}}>Cliquer sur l'exemple suivant:</Typography>
@@ -73,5 +66,7 @@ export default InputPhilosophe;
               mots={mots}
               form={form}
 			/>
-			)}/>
+      )}/>
+      //if (Check1 && match.path.substring(0, 13) === "/philosophes"){console.log("double check:ok")}
+//useEffect(()=>{console.log("test reussi")},[match])
 */
