@@ -5,7 +5,7 @@ import { render } from 'react-snapshot';
 import App from "./App";
 
 
-const rootElement = document.getElementById("root");
+//const rootElement = document.getElementById("root");
 
 /*
 ReactDOM.render(
