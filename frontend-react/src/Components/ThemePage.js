@@ -8,7 +8,7 @@ import Rendu from "./Rendu"
 import BottomBar from "./BottomBar"
 
 const ThemePage = (props) => {
-	  
+	console.log(props.match.params)  
 	useEffect(()=>{
 		props.setForm({...props.form,Theme: [props.match.params.theme]});
 		props.setLaunch(true);

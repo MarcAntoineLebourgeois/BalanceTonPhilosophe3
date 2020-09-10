@@ -3,12 +3,15 @@ import Cards from "./Card";
 import {Grid,Typography} from "@material-ui/core";
 
 const Rendu = (props) => {
-        if (props.responseDicts.length === 0) {return null}
+    
+    if (props.responseDicts.length === 0) {return null}
+
     else if ((typeof props.responseDicts.test != "undefined" && props.mots.length === 0) || (props.responseDicts === "nothing")){return(
       <Typography style={{padding: 5 }} variant="h6">
         Desole, notre IA n'a rien trouve concernant ces {props.form.Theme.length} themes. Tu devrais tenter autre chose.
       </Typography>
-      )}  
+      )} 
+
     else if (typeof props.responseDicts.test != "undefined" && props.mots.length > 0){return(
       <Grid container direction="column" justify="center" alignItems="center">
         <Typography style={{padding: 5 }} variant="h6"> 
@@ -23,7 +26,8 @@ const Rendu = (props) => {
           Rien dans la base de donnees sur  ces {props.responseDicts.test.length} themes. Tu devrais chercher manuellement via le bouton "Themes?"
         </Typography>
       </Grid>
-      )}    
+      )}  
+       
     else if (props.form.Format === "Card") {return (
         <Grid container direction="column" justify="center" alignItems="center">
             <Typography style={{padding: 5 }} variant="h6">L'IA a trouve les resultats suivants : </Typography>

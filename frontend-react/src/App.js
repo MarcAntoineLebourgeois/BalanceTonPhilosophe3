@@ -198,59 +198,59 @@ return (
 			/>
 			)}/>
 		
-			<Route exact path='/theme/:theme'
-			render={(props) => (
-			<ThemePage
-				{...props}				
-				DarkModeOn={DarkModeOn}
-				FuncShowRatingForm={FuncShowRatingForm}
-				showBienvenue={showBienvenue}
-				reinitForm={reinitForm} 
-				ChangeResponseDicts={ChangeResponseDicts} 
-				handleSubmit = {handleSubmit}
-				form = {form}
-				setForm={setForm}
-				ChangeMots={ChangeMots}
-				ExempleThemes={ExempleThemes}
-				ExemplePhilosophe={ExemplePhilosophe}
-				setShowRendu={setShowRendu}
-				listeReplyTheme={listeReplyTheme}
-				listeReplyPhilosophe={listeReplyPhilosophe}
-				setRoute = {setRoute}
-				mots={mots}
-				responseDicts={responseDicts}
-				launch={launch}
-				setLaunch={setLaunch}
-			/>
-			)}/>
-			
-			<Route exact path='/dissertation/:dissert'
-			render={(props) => (
-			<DissertPage 
-				{...props}
-				DarkModeOn={DarkModeOn}
-				FuncShowRatingForm={FuncShowRatingForm}
-				showBienvenue={showBienvenue}
-				reinitForm={reinitForm} 
-				ChangeResponseDicts={ChangeResponseDicts} 
-				handleSubmit = {handleSubmit}
-				form = {form}
-				setForm={setForm}
-				ChangeMots={ChangeMots}
-				setDissert={setDissert}
-				dissert={dissert}
-				ExempleThemes={ExempleThemes}
-				ExemplePhilosophe={ExemplePhilosophe}
-				setShowRendu={setShowRendu}
-				listeReplyTheme={listeReplyTheme}
-				listeReplyPhilosophe={listeReplyPhilosophe}
-				setRoute = {setRoute}
-				mots={mots}
-				responseDicts={responseDicts}
-				launch={launch}
-				setLaunch={setLaunch}
-			/>
-			)}/>
+		<Route exact path='/theme/:theme'
+		render={(props) => (
+		<ThemePage
+			{...props}				
+			DarkModeOn={DarkModeOn}
+			FuncShowRatingForm={FuncShowRatingForm}
+			showBienvenue={showBienvenue}
+			reinitForm={reinitForm} 
+			ChangeResponseDicts={ChangeResponseDicts} 
+			handleSubmit = {handleSubmit}
+			form = {form}
+			setForm={setForm}
+			ChangeMots={ChangeMots}
+			ExempleThemes={ExempleThemes}
+			ExemplePhilosophe={ExemplePhilosophe}
+			setShowRendu={setShowRendu}
+			listeReplyTheme={listeReplyTheme}
+			listeReplyPhilosophe={listeReplyPhilosophe}
+			setRoute = {setRoute}
+			mots={mots}
+			responseDicts={responseDicts}
+			launch={launch}
+			setLaunch={setLaunch}
+		/>
+		)}/>
+		
+		<Route exact path='/dissertation/:dissert'
+		render={(props) => (
+		<DissertPage 
+			{...props}
+			DarkModeOn={DarkModeOn}
+			FuncShowRatingForm={FuncShowRatingForm}
+			showBienvenue={showBienvenue}
+			reinitForm={reinitForm} 
+			ChangeResponseDicts={ChangeResponseDicts} 
+			handleSubmit = {handleSubmit}
+			form = {form}
+			setForm={setForm}
+			ChangeMots={ChangeMots}
+			setDissert={setDissert}
+			dissert={dissert}
+			ExempleThemes={ExempleThemes}
+			ExemplePhilosophe={ExemplePhilosophe}
+			setShowRendu={setShowRendu}
+			listeReplyTheme={listeReplyTheme}
+			listeReplyPhilosophe={listeReplyPhilosophe}
+			setRoute = {setRoute}
+			mots={mots}
+			responseDicts={responseDicts}
+			launch={launch}
+			setLaunch={setLaunch}
+		/>
+		)}/>
 			
 		<Route exact path='/rating' render={()=> <RatingPage FuncShowRatingForm={FuncShowRatingForm}/> }/>	  
 

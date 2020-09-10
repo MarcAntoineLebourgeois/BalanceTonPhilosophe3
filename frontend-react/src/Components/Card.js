@@ -29,7 +29,9 @@ const useStyles = makeStyles(theme => ({
   },
 
 }));
+
 const Cards = (props) => {
+
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = (i) => {setOpen(expanded === i ? -1 : i)};
   const handleClose = () => {setOpen(false)};
@@ -39,53 +41,53 @@ const Cards = (props) => {
   return (
     <Grid container direction='row'alignItems="center" justify="center" spacing={2} >
         {props.responseDicts.map((responseDict,i) => {
-            return(
-            <Grid item>  
-            <Card key={responseDict.Philosophe} style={{minWidth: 320,maxWidth: 320 ,padding: 5}}>
-                <CardHeader title={responseDict.Philosophe} />
-                <CardMedia className={classes.media} image={responseDict.Image} />
-                <Grid container direction='row'alignItems="center" justify="center" >
-                  <Button variant="outlined" color="primary" onClick={() => handleClickOpen(i)}>
-                    {responseDict.Philosophe} {props.form.Theme.length > 0 && "sur"} {props.form.Theme.map(themes =>{return(themes + "/")})}
-                  </Button>
-                </Grid>
-                  <Dialog fullScreen open={open === i} onClose={handleClose} >
-                    <AppBar>
-                      <Toolbar>
-                        <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
-                          <CloseIcon />
-                        </IconButton>
-                        <Typography variant="h6" className={classes.title}>
-                        {responseDict.Philosophe}
+        return(
+        <Grid item>  
+        <Card key={responseDict.Philosophe} style={{minWidth: 320,maxWidth: 320 ,padding: 5}}>
+            <CardHeader title={responseDict.Philosophe} />
+            <CardMedia className={classes.media} image={responseDict.Image} />
+            <Grid container direction='row'alignItems="center" justify="center" >
+              <Button variant="outlined" color="primary" onClick={() => handleClickOpen(i)}>
+                {responseDict.Philosophe} {props.form.Theme.length > 0 && "sur"} {props.form.Theme.map(themes =>{return(themes + "/")})}
+              </Button>
+            </Grid>
+              <Dialog fullScreen open={open === i} onClose={handleClose} >
+                <AppBar>
+                  <Toolbar>
+                    <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+                      <CloseIcon />
+                    </IconButton>
+                    <Typography variant="h6" className={classes.title}>
+                    {responseDict.Philosophe}
+                    </Typography>
+                  </Toolbar>
+                </AppBar>  
+                  <Grid 
+                    container 
+                    direction='row'
+                    alignItems="center" 
+                    justify="center" 
+                    style={{padding:10,marginTop: 50, marginLeft: 'auto',marginRight: 'auto'}}
+                    xs={11} sm={10} md={9} lg={8} xl={7} 
+                  >
+                    <Typography align='justify'>
+                      {responseDict.Siecle}<p />
+                      Nationalite: {responseDict.Nationalite}<p />
+                      {responseDict.Theme.map((ListeThemes,i) => {
+                        return(
+                        <Typography align='justify'> 
+                          Theme: {ListeThemes.map(themes => {return(themes +"/")})}<p />
+                          {responseDict.Texte[i]}<p />
                         </Typography>
-                      </Toolbar>
-                    </AppBar>  
-                      <Grid 
-                        container 
-                        direction='row'
-                        alignItems="center" 
-                        justify="center" 
-                        style={{padding:10,marginTop: 50, marginLeft: 'auto',marginRight: 'auto'}}
-                        xs={11} sm={10} md={9} lg={8} xl={7} 
-                      >
-                        <Typography align='justify'>
-                          {responseDict.Siecle}<p />
-                          Nationalite: {responseDict.Nationalite}<p />
-                          {responseDict.Theme.map((ListeThemes,i) => {
-                            return(
-                            <Typography align='justify'> 
-                              Theme: {ListeThemes.map(themes => {return(themes +"/")})}<p />
-                              {responseDict.Texte[i]}<p />
-                            </Typography>
-                            )
-                          })} 
-                        </Typography>
-                      </Grid>
-                  </Dialog>
-            </Card>
-            </Grid> 
-            
-            )})}
+                        )
+                      })} 
+                    </Typography>
+                  </Grid>
+              </Dialog>
+        </Card>
+        </Grid> 
+        
+        )})}
     </Grid>
   );
 }
