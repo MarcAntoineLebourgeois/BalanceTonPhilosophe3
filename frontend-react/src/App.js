@@ -15,15 +15,8 @@ import DissertPage from "./Components/DissertPage"
 import listeReplyTheme from "./Data/ListeThemes"
 import listeReplyPhilosophe from "./Data/ListePhilosophes"
 
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-//import { blue,yellow,red } from '@material-ui/core/colors';
-
-
 const App = () => {
 	
-const [ theme, DarkModeOn ] = useDarkMode();
-const Maintheme = createMuiTheme(theme)
-
 const [launch,setLaunch] = useState(false);
 const [,setRoute] = useState('')
 const [responseDicts, setResponseDicts] = useState([]);
@@ -56,14 +49,11 @@ const ExemplePhilosophe = () => {setForm({...form,Philosophe:['Nicolas Machiavel
 
 //Formulaire de rating
 const [showRatingForm,setShowRatingForm] = useState(false)
-const FuncShowRatingForm = () => {
-setShowRatingForm(!showRatingForm)
-};
-
+const FuncShowRatingForm = () => {setShowRatingForm(!showRatingForm)};
 
 
 return (
-<MuiThemeProvider theme={Maintheme} >
+<>
 	<Router >
 		<CssBaseline/>
 		
@@ -76,7 +66,6 @@ return (
 		<Route exact path='/dissertations'
 			render={() => (
 			<DissertsPage 
-				DarkModeOn={DarkModeOn}
 				FuncShowRatingForm={FuncShowRatingForm}
 				showBienvenue={showBienvenue}
 				reinitForm={reinitForm} 
@@ -101,7 +90,6 @@ return (
 		<Route exact path='/themes'
 			render={() => (
 			<ThemesPage 
-				DarkModeOn={DarkModeOn}
 				FuncShowRatingForm={FuncShowRatingForm}
 				showBienvenue={showBienvenue}
 				reinitForm={reinitForm} 
@@ -125,7 +113,6 @@ return (
 			render={(props) => (
 			<PhilosophesPage 
 			{...props}
-				DarkModeOn={DarkModeOn}
 				FuncShowRatingForm={FuncShowRatingForm}
 				showBienvenue={showBienvenue}
 				reinitForm={reinitForm} 
@@ -149,7 +136,6 @@ return (
 			render={(props) => (
 			<PhilosophePage 
 				{...props}	
-				DarkModeOn={DarkModeOn}
 				FuncShowRatingForm={FuncShowRatingForm}
 				showBienvenue={showBienvenue}
 				reinitForm={reinitForm} 
@@ -175,7 +161,6 @@ return (
 		render={(props) => (
 		<ThemePage
 			{...props}				
-			DarkModeOn={DarkModeOn}
 			FuncShowRatingForm={FuncShowRatingForm}
 			showBienvenue={showBienvenue}
 			reinitForm={reinitForm} 
@@ -201,7 +186,6 @@ return (
 		render={(props) => (
 		<DissertPage 
 			{...props}
-			DarkModeOn={DarkModeOn}
 			FuncShowRatingForm={FuncShowRatingForm}
 			showBienvenue={showBienvenue}
 			reinitForm={reinitForm} 
@@ -228,7 +212,7 @@ return (
 		<Route exact path='/rating' render={()=> <RatingPage FuncShowRatingForm={FuncShowRatingForm}/> }/>	  
 
 	</Router> 
-</MuiThemeProvider>
+</>
   );
 }
 

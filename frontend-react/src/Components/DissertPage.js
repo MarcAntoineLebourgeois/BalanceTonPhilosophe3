@@ -9,7 +9,7 @@ import BottomBar from "./BottomBar"
 
 const DissertPage = (props) => {
 	  
-	const [loading, setLoading] = useState(false);
+	const [, setLoading] = useState(false);
 
   const handleSubmit = async () =>  {
     setLoading(true);
