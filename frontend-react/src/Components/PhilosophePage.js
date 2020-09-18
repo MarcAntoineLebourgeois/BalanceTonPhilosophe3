@@ -7,7 +7,7 @@ import SelectionPanel from "./SelectionPanel"
 import Rendu from "./Rendu"
 import BottomBar from "./BottomBar"
 
-const PhilosophesPage = (props) => {
+const PhilosophePage = (props) => {
 	  
 	useEffect(()=>{
 		props.setForm({...props.form,Philosophe: [props.match.params.philosophe]});
@@ -31,4 +31,4 @@ const PhilosophesPage = (props) => {
 		  )
 }
 
-export default PhilosophesPage;
+export default PhilosophePage;

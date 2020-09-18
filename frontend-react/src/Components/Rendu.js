@@ -4,7 +4,7 @@ import {Grid,Typography} from "@material-ui/core";
 
 const Rendu = (props) => {
     
-    if (props.responseDicts.length === 0) {return null}
+    if (props.responseDicts.length === 0) {return (<h1>coucou</h1>)}
 
     else if ((typeof props.responseDicts.test != "undefined" && props.mots.length === 0) || (props.responseDicts === "nothing")){return(
       <Typography style={{padding: 5 }} variant="h6">

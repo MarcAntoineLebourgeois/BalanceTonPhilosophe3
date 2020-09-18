@@ -169,8 +169,9 @@ return (
 			)}/>
 		
 		<Route exact path='/philosophe/:philosophe'
-			render={() => (
-			<PhilosophePage 
+			render={(props) => (
+			<PhilosophePage
+				{...props}
 				FuncShowRatingForm={FuncShowRatingForm}
 				showBienvenue={showBienvenue}
 				reinitForm={reinitForm} 
@@ -193,8 +194,9 @@ return (
 			)}/>
 		
 		<Route exact path='/theme/:theme'
-		render={() => (
+		render={(props) => (
 		<ThemePage
+			{...props}
 			FuncShowRatingForm={FuncShowRatingForm}
 			showBienvenue={showBienvenue}
 			reinitForm={reinitForm} 
@@ -217,8 +219,9 @@ return (
 		)}/>
 		
 		<Route exact path='/dissertation/:dissert'
-		render={() => (
-		<DissertPage 
+		render={(props) => (
+		<DissertPage
+			{...props}
 			FuncShowRatingForm={FuncShowRatingForm}
 			showBienvenue={showBienvenue}
 			reinitForm={reinitForm} 

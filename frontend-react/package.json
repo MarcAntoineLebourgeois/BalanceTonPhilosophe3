@@ -43,7 +43,6 @@
     "include": [
       "/philosophes",
       "/dissertations",
-      "/rating",
       "/themes",
       "/philosophe/Platon"
     ],
