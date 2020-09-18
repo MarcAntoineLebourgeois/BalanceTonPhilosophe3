@@ -118,6 +118,7 @@ def form():
             dico = {i:dico[i] for i in dico if dico[i] != "x"}
             dico['Theme'] = ListeXTheme
             ListReply.append(dico)
+        print(ListReply)
         #concatenate and delete duplicates for one single philosophe
         ListeIndex = []
         ListeThemesPhilosophe = []
