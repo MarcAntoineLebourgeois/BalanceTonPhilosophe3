@@ -48,7 +48,7 @@ const useDarkMode = () => {
 
 const App = () => {
 	
-const [ theme, DarkModeOn ] = useDarkMode();
+const [ theme ] = useDarkMode();
 const Maintheme = createMuiTheme(theme)
 
 const [launch,setLaunch] = useState(false);
@@ -103,7 +103,6 @@ return (
 		<Route exact path='/dissertations'
 			render={() => (
 			<DissertsPage 
-				DarkModeOn={DarkModeOn}
 				FuncShowRatingForm={FuncShowRatingForm}
 				showBienvenue={showBienvenue}
 				reinitForm={reinitForm} 
@@ -128,7 +127,6 @@ return (
 		<Route exact path='/themes'
 			render={() => (
 			<ThemesPage 
-				DarkModeOn={DarkModeOn}
 				FuncShowRatingForm={FuncShowRatingForm}
 				showBienvenue={showBienvenue}
 				reinitForm={reinitForm} 
@@ -149,10 +147,8 @@ return (
 			)}/>
 		
 		<Route exact path='/philosophes'
-			render={(props) => (
+			render={() => (
 			<PhilosophesPage 
-			{...props}
-				DarkModeOn={DarkModeOn}
 				FuncShowRatingForm={FuncShowRatingForm}
 				showBienvenue={showBienvenue}
 				reinitForm={reinitForm} 
@@ -173,10 +169,8 @@ return (
 			)}/>
 		
 		<Route exact path='/philosophe/:philosophe'
-			render={(props) => (
+			render={() => (
 			<PhilosophePage 
-				{...props}	
-				DarkModeOn={DarkModeOn}
 				FuncShowRatingForm={FuncShowRatingForm}
 				showBienvenue={showBienvenue}
 				reinitForm={reinitForm} 
@@ -199,10 +193,8 @@ return (
 			)}/>
 		
 		<Route exact path='/theme/:theme'
-		render={(props) => (
+		render={() => (
 		<ThemePage
-			{...props}				
-			DarkModeOn={DarkModeOn}
 			FuncShowRatingForm={FuncShowRatingForm}
 			showBienvenue={showBienvenue}
 			reinitForm={reinitForm} 
@@ -225,10 +217,8 @@ return (
 		)}/>
 		
 		<Route exact path='/dissertation/:dissert'
-		render={(props) => (
+		render={() => (
 		<DissertPage 
-			{...props}
-			DarkModeOn={DarkModeOn}
 			FuncShowRatingForm={FuncShowRatingForm}
 			showBienvenue={showBienvenue}
 			reinitForm={reinitForm} 
