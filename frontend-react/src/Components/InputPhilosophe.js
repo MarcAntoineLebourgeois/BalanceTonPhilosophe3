@@ -3,13 +3,23 @@ import {Input,InputLabel,MenuItem,FormControl,Select,Chip,Grid,Button,Typography
 import { useStyles, MenuProps } from "../Styles/InputThemeStyles";
 import { Link as Links } from "react-router-dom";
 
+import ListDictsPhilosophers from "../Data/ListDictsPhilosophers"
 
 const InputPhilosophe = (props,{match}) => {
 
   const classes = useStyles();
   const BTPapiSubmit = () => {
-    props.handleSubmit();
-    props.setRoute({match})
+    //props.handleSubmit();
+    //props.setRoute({match})
+    
+    console.log(props.form.Philosophe[0])
+    {ListDictsPhilosophers.map(dict => {
+      if (dict.Philosophe === props.form.Philosophe[0]) {
+        props.ChangeResponseDicts([dict])
+        console.log(props.responseDicts)
+      }
+    })}
+    
   }
 
   return (
@@ -59,14 +69,3 @@ const InputPhilosophe = (props,{match}) => {
 };
 
 export default InputPhilosophe;
-/*
-      <Route path={`${match.path}/:philosophe`} render={() => (
-			<Rendu 
-			  responseDicts={responseDicts}
-              mots={mots}
-              form={form}
-			/>
-      )}/>
-      //if (Check1 && match.path.substring(0, 13) === "/philosophes"){console.log("double check:ok")}
-//useEffect(()=>{console.log("test reussi")},[match])
-*/

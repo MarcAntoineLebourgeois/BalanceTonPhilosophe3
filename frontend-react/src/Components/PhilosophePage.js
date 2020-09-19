@@ -8,7 +8,7 @@ import Rendu from "./Rendu"
 import BottomBar from "./BottomBar"
 
 const PhilosophePage = (props) => {
-	  
+	/*
 	useEffect(()=>{
 		props.setForm({...props.form,Philosophe: [props.match.params.philosophe]});
 		props.setLaunch(true);
@@ -18,7 +18,8 @@ const PhilosophePage = (props) => {
     props.handleSubmit();
     props.setLaunch(false)
   }
-  
+  */
+ 
 	return(
       <>
         <Grid className="BackgroundPage" style={{padding:10, height: '60vh'}}>

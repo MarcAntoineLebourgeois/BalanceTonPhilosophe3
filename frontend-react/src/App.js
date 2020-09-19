@@ -74,7 +74,6 @@ const handleSubmit = async () => {
 	const retour1 = await envoi1.json();
 	setResponseDicts(retour1[0].ListReply);
 	setMots(retour1[1].ListeMots);
-	setShowRendu(true)
 }
 
 /* Link to example */
@@ -86,7 +85,6 @@ const [showRatingForm,setShowRatingForm] = useState(false)
 const FuncShowRatingForm = () => {
 setShowRatingForm(!showRatingForm)
 };
-
 
 
 return (
