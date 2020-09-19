@@ -2,7 +2,6 @@ import React from "react";
 import {Input,InputLabel,MenuItem,FormControl,Select,Chip,Grid,Button,Typography,Icon,Link} from "@material-ui/core";
 import { useStyles, MenuProps } from "../Styles/InputThemeStyles";
 import { Link as Links } from "react-router-dom";
-
 import ListDictsPhilosophers from "../Data/ListDictsPhilosophers"
 
 const InputPhilosophe = (props,{match}) => {
@@ -11,12 +10,9 @@ const InputPhilosophe = (props,{match}) => {
   const BTPapiSubmit = () => {
     //props.handleSubmit();
     //props.setRoute({match})
-    
-    console.log(props.form.Philosophe[0])
     {ListDictsPhilosophers.map(dict => {
       if (dict.Philosophe === props.form.Philosophe[0]) {
         props.ChangeResponseDicts([dict])
-        console.log(props.responseDicts)
       }
     })}
     

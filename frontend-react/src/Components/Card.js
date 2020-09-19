@@ -62,27 +62,36 @@ const Cards = (props) => {
                     </Typography>
                   </Toolbar>
                 </AppBar>  
-                  <Grid 
-                    container 
-                    direction='row'
-                    alignItems="center" 
-                    justify="center" 
-                    style={{padding:10,marginTop: 50, marginLeft: 'auto',marginRight: 'auto'}}
-                    xs={11} sm={10} md={9} lg={8} xl={7} 
-                  >
-                    <Typography align='justify'>
-                      {responseDict.Siecle}<p />
-                      Nationalite: {responseDict.Nationalite}<p />
-                      {responseDict.Theme.map((ListeThemes,i) => {
-                        return(
-                        <Typography align='justify'> 
-                          Theme: {ListeThemes.map(themes => {return(themes +"/")})}<p />
-                          {responseDict.Texte[i]}<p />
-                        </Typography>
-                        )
-                      })} 
-                    </Typography>
-                  </Grid>
+                <Grid 
+                  item
+                  style={{padding:10,marginTop: 50, marginLeft: 'auto',marginRight: 'auto'}}
+                  xs={11} sm={10} md={9} lg={8} xl={7} 
+                >
+                  <>
+                  <Typography>
+                    {responseDict.Siecle}
+                  </Typography>
+                  <p/>
+                  <Typography>
+                    Nationalite: {responseDict.Nationalite}
+                  </Typography>
+                  <p/>
+                  {responseDict.Theme.map((ListeThemes,i) => {
+                    return(
+                    <>
+                      <p/>
+                      <Typography > 
+                        Theme: {ListeThemes.map(themes => {return(themes +"/")})}
+                      </Typography>
+                      <p/>
+                      <Typography >   
+                        {responseDict.Texte[i]}
+                      </Typography>
+                    </>
+                    )
+                    })} 
+                  </>
+                </Grid>
               </Dialog>
         </Card>
         </Grid> 
