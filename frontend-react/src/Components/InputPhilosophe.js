@@ -2,21 +2,10 @@ import React from "react";
 import {Input,InputLabel,MenuItem,FormControl,Select,Chip,Grid,Button,Typography,Icon,Link} from "@material-ui/core";
 import { useStyles, MenuProps } from "../Styles/InputThemeStyles";
 import { Link as Links } from "react-router-dom";
-import ListDictsPhilosophers from "../Data/ListDictsPhilosophers"
 
-const InputPhilosophe = (props,{match}) => {
+const InputPhilosophe = (props) => {
 
   const classes = useStyles();
-  const BTPapiSubmit = () => {
-    //props.handleSubmit();
-    //props.setRoute({match})
-    {ListDictsPhilosophers.map(dict => {
-      if (dict.Philosophe === props.form.Philosophe[0]) {
-        props.ChangeResponseDicts(dict)
-      }
-    })}
-    
-  }
 
   return (
 	<Grid container direction="column" justify="center" alignItems="center"  className={classes.fronttext2}>
@@ -54,7 +43,7 @@ const InputPhilosophe = (props,{match}) => {
       </FormControl>
       <p></p>
 	  <Links to={`philosophe/${props.form.Philosophe}`} style={{ textDecoration: 'none' }}>
-		  <Button variant="contained" endIcon={<Icon>send</Icon>} onClick={BTPapiSubmit} size="small"> Balance ce philosophe </Button>
+		  <Button variant="contained" endIcon={<Icon>send</Icon>} size="small"> Balance ce philosophe </Button>
 	  </Links>
     <p></p>
     <Typography variant="subtitle1" style={{fontSize: 14}}>Cliquer sur l'exemple suivant:</Typography>
