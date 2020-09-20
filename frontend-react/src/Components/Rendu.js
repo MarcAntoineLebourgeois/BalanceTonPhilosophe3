@@ -20,7 +20,7 @@ const Rendu = (props) => {
         {props.responseDicts.test.map(themes => {
           var i = props.responseDicts.test.indexOf(themes);
           return(
-              <Typography style={{padding: 5}} display="inline" variant="substitle1">Mot: {props.mots[i]} => Theme: {themes}</Typography>
+              <Typography style={{padding: 5}} display="inline" variant="substitle1">Mot: {props.mots[i]} renvoie a Theme: {themes}</Typography>
           )})}
         <Typography style={{padding: 5 }} variant="h6"> 
           Rien dans la base de donnees sur  ces {props.responseDicts.test.length} themes. Tu devrais chercher manuellement via le bouton "Themes?"
@@ -34,7 +34,7 @@ const Rendu = (props) => {
           {props.form.Theme.map(themes => {          
             var i = props.form.Theme.indexOf(themes);
               return(
-                  <Typography style={{padding: 5}} display="inline" variant="substitle1">Mot: {props.mots[i]} => Theme: {themes}</Typography>
+                  <Typography style={{padding: 5}} display="inline" variant="substitle1">Mot: {props.mots[i]} renvoie a Theme: {themes}</Typography>
               )})}
           <Cards {...props}/>
         </Grid>
