@@ -12,7 +12,7 @@ const InputPhilosophe = (props,{match}) => {
     //props.setRoute({match})
     {ListDictsPhilosophers.map(dict => {
       if (dict.Philosophe === props.form.Philosophe[0]) {
-        props.ChangeResponseDicts([dict])
+        props.ChangeResponseDicts(dict)
       }
     })}
     

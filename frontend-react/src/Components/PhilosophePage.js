@@ -4,7 +4,7 @@ import {Grid} from "@material-ui/core";
 
 import AppBarFront from "./AppBar"
 import SelectionPanel from "./SelectionPanel"
-import Rendu from "./Rendu"
+import RenduPhilosophe from "./RenduPhilosophe"
 import BottomBar from "./BottomBar"
 import ListDictsPhilosophers from "../Data/ListDictsPhilosophers"
 
@@ -16,26 +16,28 @@ const PhilosophePage = (props) => {
 	},[])
 
   if (props.launch){
-    //props.handleSubmit();
     {ListDictsPhilosophers.map(dict => {
       if (dict.Philosophe === props.form.Philosophe[0]) {
-        props.ChangeResponseDicts([dict])
+        props.ChangeResponseDicts(dict);
       }
     })}
     props.setLaunch(false)
   }
 
- 
+
+  if (props.responseDicts.length === 0) {return null}
+  else{
 	return(
       <>
         <Grid className="BackgroundPage" style={{padding:10, height: '60vh'}}>
           <AppBarFront {...props}/>
           <SelectionPanel {...props}/>
         </Grid>
-        <Rendu {...props} />
+        <RenduPhilosophe {...props} />
         <BottomBar/>
       </> 
-		  )
+      )
+  }
 }
 
 export default PhilosophePage;
