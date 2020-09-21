@@ -15,7 +15,6 @@ const DissertsPage = (props) => {
         <AppBarFront {...props}/>
         <SelectionPanel {...props}/>
       </Grid>
-    <Rendu {...props}/>
     <BottomBar/>
     </>
 		  )

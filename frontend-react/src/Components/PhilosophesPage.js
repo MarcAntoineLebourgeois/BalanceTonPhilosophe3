@@ -16,7 +16,6 @@ const PhilosophesPage = (props) => {
       <AppBarFront {...props}/>
       <SelectionPanel { ...props}/>
     </Grid>
-	  <Rendu {...props}/>
 	  <BottomBar/>
 	</> 
 		  )

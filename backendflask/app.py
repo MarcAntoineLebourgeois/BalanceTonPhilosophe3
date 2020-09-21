@@ -83,7 +83,8 @@ def ratings():
 
 
 def ReadDatabase():
-    dfPhilo = pandas.read_csv('/home/ec2-user/BalanceTonPhilosophe3/backendflask/db_philo_v4.0.csv',encoding='utf-8',delimiter = ',',header=0)
+    #dfPhilo = pandas.read_csv('/home/ec2-user/BalanceTonPhilosophe3/backendflask/db_philo_v4.0.csv',encoding='utf-8',delimiter = ',',header=0)
+    dfPhilo = pandas.read_csv('db_philo_v4.0.csv',encoding='utf-8',delimiter = ',',header=0)
     return dfPhilo
 
 def mergeDict(dict1, dict2):
@@ -103,7 +104,9 @@ def form():
     ListeTheme = RequestFromUser['Theme']
     ListePhilosophe = RequestFromUser['Philosophe']
     ListeMots = RequestFromUser['Mots']
-        
+    print("1 " + ListeTheme[0])
+    ListeTheme = ListeTheme[0].split(',')
+
     if len(ListeTheme)==0:
         dfPhilo = dfPhilo.loc[dfPhilo['Philosophe'].isin(ListePhilosophe)]
         dfPhilo = dfPhilo.replace(np.nan, 'null', regex=True)

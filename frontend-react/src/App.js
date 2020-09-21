@@ -59,9 +59,6 @@ const [dissert, setDissert] = useState('');
 const [form, setForm] = useState({Theme: [],Philosophe: [],Format: "Card",Mots:[]});
 const [mots,setMots] = useState([])
 
-const [showBienvenue,] = useState(true)
-const [, setShowRendu] = useState(false)
-
 const reinitForm = () => {
 setForm({Theme: [],Philosophe: [],Format: "Card",Mots:[]});
 setResponseDicts([]);
@@ -104,23 +101,12 @@ return (
 				render={() => (
 				<DissertsPage 
 					FuncShowRatingForm={FuncShowRatingForm}
-					showBienvenue={showBienvenue}
 					reinitForm={reinitForm} 
-					ChangeResponseDicts={ChangeResponseDicts} 
 					handleSubmit = {handleSubmit}
 					form = {form}
-					setForm={setForm}
 					ChangeMots={ChangeMots}
 					setDissert={setDissert}
 					dissert={dissert}
-					ExempleThemes={ExempleThemes}
-					ExemplePhilosophe={ExemplePhilosophe}
-					setShowRendu={setShowRendu}
-					listeReplyTheme={listeReplyTheme}
-					listeReplyPhilosophe={listeReplyPhilosophe}
-					setRoute = {setRoute}
-					mots={mots}
-					responseDicts={responseDicts}
 				/>
 				)}/>
 			
@@ -128,21 +114,12 @@ return (
 				render={() => (
 				<ThemesPage 
 					FuncShowRatingForm={FuncShowRatingForm}
-					showBienvenue={showBienvenue}
 					reinitForm={reinitForm} 
-					ChangeResponseDicts={ChangeResponseDicts} 
 					handleSubmit = {handleSubmit}
 					form = {form}
-					setForm={setForm}
-					ChangeMots={ChangeMots}
 					ExempleThemes={ExempleThemes}
-					ExemplePhilosophe={ExemplePhilosophe}
-					setShowRendu={setShowRendu}
 					listeReplyTheme={listeReplyTheme}
-					listeReplyPhilosophe={listeReplyPhilosophe}
 					setRoute = {setRoute}
-					mots={mots}
-					responseDicts={responseDicts}
 				/>
 				)}/>
 			
@@ -150,21 +127,10 @@ return (
 				render={() => (
 				<PhilosophesPage 
 					FuncShowRatingForm={FuncShowRatingForm}
-					showBienvenue={showBienvenue}
 					reinitForm={reinitForm} 
-					ChangeResponseDicts={ChangeResponseDicts} 
-					handleSubmit = {handleSubmit}
 					form = {form}
-					setForm={setForm}
-					ChangeMots={ChangeMots}
-					ExempleThemes={ExempleThemes}
 					ExemplePhilosophe={ExemplePhilosophe}
-					setShowRendu={setShowRendu}
-					listeReplyTheme={listeReplyTheme}
 					listeReplyPhilosophe={listeReplyPhilosophe}
-					setRoute = {setRoute}
-					mots={mots}
-					responseDicts={responseDicts}
 				/>
 				)}/>
 		
@@ -177,22 +143,9 @@ return (
 					<PhilosophePage
 						responseDicts={route}
 						FuncShowRatingForm={FuncShowRatingForm}
-						showBienvenue={showBienvenue}
 						reinitForm={reinitForm} 
-						ChangeResponseDicts={ChangeResponseDicts} 
-						handleSubmit = {handleSubmit}
 						form = {form}
-						setForm={setForm}
-						ChangeMots={ChangeMots}
-						ExempleThemes={ExempleThemes}
 						ExemplePhilosophe={ExemplePhilosophe}
-						setShowRendu={setShowRendu}
-						listeReplyTheme={listeReplyTheme}
-						listeReplyPhilosophe={listeReplyPhilosophe}
-						setRoute = {setRoute}
-						mots={mots}
-						launch={launch}
-						setLaunch={setLaunch}
 					/>
 					)}/>
 				))}
@@ -204,7 +157,6 @@ return (
 		<ThemePage
 			{...props}
 			FuncShowRatingForm={FuncShowRatingForm}
-			showBienvenue={showBienvenue}
 			reinitForm={reinitForm} 
 			ChangeResponseDicts={ChangeResponseDicts} 
 			handleSubmit = {handleSubmit}
@@ -213,7 +165,6 @@ return (
 			ChangeMots={ChangeMots}
 			ExempleThemes={ExempleThemes}
 			ExemplePhilosophe={ExemplePhilosophe}
-			setShowRendu={setShowRendu}
 			listeReplyTheme={listeReplyTheme}
 			listeReplyPhilosophe={listeReplyPhilosophe}
 			setRoute = {setRoute}
@@ -229,7 +180,6 @@ return (
 		<DissertPage
 			{...props}
 			FuncShowRatingForm={FuncShowRatingForm}
-			showBienvenue={showBienvenue}
 			reinitForm={reinitForm} 
 			ChangeResponseDicts={ChangeResponseDicts} 
 			handleSubmit = {handleSubmit}
@@ -240,7 +190,6 @@ return (
 			dissert={dissert}
 			ExempleThemes={ExempleThemes}
 			ExemplePhilosophe={ExemplePhilosophe}
-			setShowRendu={setShowRendu}
 			listeReplyTheme={listeReplyTheme}
 			listeReplyPhilosophe={listeReplyPhilosophe}
 			setRoute = {setRoute}
