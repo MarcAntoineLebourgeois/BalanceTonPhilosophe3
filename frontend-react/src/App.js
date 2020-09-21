@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./styles.css";
 import {CssBaseline} from "@material-ui/core";
-import { BrowserRouter as Router, Route, Redirect  } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect,Switch} from "react-router-dom";
 
 import HomePage from "./Components/HomePage"
 import DissertsPage from "./Components/DissertsPage"
@@ -16,7 +16,8 @@ import listeReplyTheme from "./Data/ListeThemes"
 import listeReplyPhilosophe from "./Data/ListePhilosophes"
 
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-//import { blue,yellow,red } from '@material-ui/core/colors';
+import ListDictsPhilosophers from "./Data/ListDictsPhilosophers"
+
 
 const Maintheme = {
     palette: {
@@ -91,106 +92,113 @@ return (
 <MuiThemeProvider theme={Maintheme} >
 	<Router >
 		<CssBaseline/>
+
+		<Switch>
+			<Route exact path="/">
+				<Redirect to="/home" /> 
+			</Route>
+			
+			<Route exact path='/home' render={() => ( <HomePage/> )}/>
+			
+			<Route exact path='/dissertations'
+				render={() => (
+				<DissertsPage 
+					FuncShowRatingForm={FuncShowRatingForm}
+					showBienvenue={showBienvenue}
+					reinitForm={reinitForm} 
+					ChangeResponseDicts={ChangeResponseDicts} 
+					handleSubmit = {handleSubmit}
+					form = {form}
+					setForm={setForm}
+					ChangeMots={ChangeMots}
+					setDissert={setDissert}
+					dissert={dissert}
+					ExempleThemes={ExempleThemes}
+					ExemplePhilosophe={ExemplePhilosophe}
+					setShowRendu={setShowRendu}
+					listeReplyTheme={listeReplyTheme}
+					listeReplyPhilosophe={listeReplyPhilosophe}
+					setRoute = {setRoute}
+					mots={mots}
+					responseDicts={responseDicts}
+				/>
+				)}/>
+			
+			<Route exact path='/themes'
+				render={() => (
+				<ThemesPage 
+					FuncShowRatingForm={FuncShowRatingForm}
+					showBienvenue={showBienvenue}
+					reinitForm={reinitForm} 
+					ChangeResponseDicts={ChangeResponseDicts} 
+					handleSubmit = {handleSubmit}
+					form = {form}
+					setForm={setForm}
+					ChangeMots={ChangeMots}
+					ExempleThemes={ExempleThemes}
+					ExemplePhilosophe={ExemplePhilosophe}
+					setShowRendu={setShowRendu}
+					listeReplyTheme={listeReplyTheme}
+					listeReplyPhilosophe={listeReplyPhilosophe}
+					setRoute = {setRoute}
+					mots={mots}
+					responseDicts={responseDicts}
+				/>
+				)}/>
+			
+			<Route exact path='/philosophes'
+				render={() => (
+				<PhilosophesPage 
+					FuncShowRatingForm={FuncShowRatingForm}
+					showBienvenue={showBienvenue}
+					reinitForm={reinitForm} 
+					ChangeResponseDicts={ChangeResponseDicts} 
+					handleSubmit = {handleSubmit}
+					form = {form}
+					setForm={setForm}
+					ChangeMots={ChangeMots}
+					ExempleThemes={ExempleThemes}
+					ExemplePhilosophe={ExemplePhilosophe}
+					setShowRendu={setShowRendu}
+					listeReplyTheme={listeReplyTheme}
+					listeReplyPhilosophe={listeReplyPhilosophe}
+					setRoute = {setRoute}
+					mots={mots}
+					responseDicts={responseDicts}
+				/>
+				)}/>
 		
-		<Route exact path="/">
-			<Redirect to="/home" /> 
-		</Route>
-		
-		<Route exact path='/home' render={() => ( <HomePage/> )}/>
-		
-		<Route exact path='/dissertations'
-			render={() => (
-			<DissertsPage 
-				FuncShowRatingForm={FuncShowRatingForm}
-				showBienvenue={showBienvenue}
-				reinitForm={reinitForm} 
-				ChangeResponseDicts={ChangeResponseDicts} 
-				handleSubmit = {handleSubmit}
-				form = {form}
-				setForm={setForm}
-				ChangeMots={ChangeMots}
-				setDissert={setDissert}
-				dissert={dissert}
-				ExempleThemes={ExempleThemes}
-				ExemplePhilosophe={ExemplePhilosophe}
-				setShowRendu={setShowRendu}
-				listeReplyTheme={listeReplyTheme}
-				listeReplyPhilosophe={listeReplyPhilosophe}
-				setRoute = {setRoute}
-				mots={mots}
-				responseDicts={responseDicts}
-			/>
-			)}/>
-		
-		<Route exact path='/themes'
-			render={() => (
-			<ThemesPage 
-				FuncShowRatingForm={FuncShowRatingForm}
-				showBienvenue={showBienvenue}
-				reinitForm={reinitForm} 
-				ChangeResponseDicts={ChangeResponseDicts} 
-				handleSubmit = {handleSubmit}
-				form = {form}
-				setForm={setForm}
-				ChangeMots={ChangeMots}
-				ExempleThemes={ExempleThemes}
-				ExemplePhilosophe={ExemplePhilosophe}
-				setShowRendu={setShowRendu}
-				listeReplyTheme={listeReplyTheme}
-				listeReplyPhilosophe={listeReplyPhilosophe}
-				setRoute = {setRoute}
-				mots={mots}
-				responseDicts={responseDicts}
-			/>
-			)}/>
-		
-		<Route exact path='/philosophes'
-			render={() => (
-			<PhilosophesPage 
-				FuncShowRatingForm={FuncShowRatingForm}
-				showBienvenue={showBienvenue}
-				reinitForm={reinitForm} 
-				ChangeResponseDicts={ChangeResponseDicts} 
-				handleSubmit = {handleSubmit}
-				form = {form}
-				setForm={setForm}
-				ChangeMots={ChangeMots}
-				ExempleThemes={ExempleThemes}
-				ExemplePhilosophe={ExemplePhilosophe}
-				setShowRendu={setShowRendu}
-				listeReplyTheme={listeReplyTheme}
-				listeReplyPhilosophe={listeReplyPhilosophe}
-				setRoute = {setRoute}
-				mots={mots}
-				responseDicts={responseDicts}
-			/>
-			)}/>
-		
-		<Route exact path='/philosophe/:philosophe'
-			render={(props) => (
-			<PhilosophePage
-				{...props}
-				FuncShowRatingForm={FuncShowRatingForm}
-				showBienvenue={showBienvenue}
-				reinitForm={reinitForm} 
-				ChangeResponseDicts={ChangeResponseDicts} 
-				handleSubmit = {handleSubmit}
-				form = {form}
-				setForm={setForm}
-				ChangeMots={ChangeMots}
-				ExempleThemes={ExempleThemes}
-				ExemplePhilosophe={ExemplePhilosophe}
-				setShowRendu={setShowRendu}
-				listeReplyTheme={listeReplyTheme}
-				listeReplyPhilosophe={listeReplyPhilosophe}
-				setRoute = {setRoute}
-				mots={mots}
-				responseDicts={responseDicts}
-				launch={launch}
-				setLaunch={setLaunch}
-			/>
-			)}/>
-		
+			{ListDictsPhilosophers.map((route, i) => (
+				<Route 
+					exact 
+					key={i}
+					path={route.route}
+					render={() => (
+					<PhilosophePage
+						responseDicts={route}
+						FuncShowRatingForm={FuncShowRatingForm}
+						showBienvenue={showBienvenue}
+						reinitForm={reinitForm} 
+						ChangeResponseDicts={ChangeResponseDicts} 
+						handleSubmit = {handleSubmit}
+						form = {form}
+						setForm={setForm}
+						ChangeMots={ChangeMots}
+						ExempleThemes={ExempleThemes}
+						ExemplePhilosophe={ExemplePhilosophe}
+						setShowRendu={setShowRendu}
+						listeReplyTheme={listeReplyTheme}
+						listeReplyPhilosophe={listeReplyPhilosophe}
+						setRoute = {setRoute}
+						mots={mots}
+						launch={launch}
+						setLaunch={setLaunch}
+					/>
+					)}/>
+				))}
+		</Switch>
+
+
 		<Route exact path='/theme/:theme'
 		render={(props) => (
 		<ThemePage

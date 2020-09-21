@@ -16,10 +16,11 @@ for item in ListPhilosophe:
     response = requests.post(url, json={"Theme":[],"Philosophe":[item],"Mots":[]})
     response = response.text
     response = json.loads(response)
+    response[0]['ListReply'][0]['route'] = "/philosophe/"+item
     ListDictsPhilosophers.append(response[0]['ListReply'][0])
     #print(ListDictsPhilosophers)
 
-with open('ListDictsPhilosophers.json', 'w') as output:
+with open('ListDictsPhilosophers.json', 'w', encoding='utf-8') as output:
     json.dump(ListDictsPhilosophers , output, ensure_ascii=False)
 
 
