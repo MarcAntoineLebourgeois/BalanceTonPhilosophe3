@@ -104,7 +104,6 @@ def form():
     ListeTheme = RequestFromUser['Theme']
     ListePhilosophe = RequestFromUser['Philosophe']
     ListeMots = RequestFromUser['Mots']
-    print("1 " + ListeTheme[0])
     ListeTheme = ListeTheme[0].split(',')
 
     if len(ListeTheme)==0:

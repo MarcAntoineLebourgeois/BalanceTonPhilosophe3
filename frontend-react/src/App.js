@@ -107,6 +107,7 @@ return (
 					ChangeMots={ChangeMots}
 					setDissert={setDissert}
 					dissert={dissert}
+					setForm={setForm}
 				/>
 				)}/>
 			
@@ -120,6 +121,7 @@ return (
 					ExempleThemes={ExempleThemes}
 					listeReplyTheme={listeReplyTheme}
 					setRoute = {setRoute}
+					setForm={setForm}
 				/>
 				)}/>
 			
@@ -131,6 +133,7 @@ return (
 					form = {form}
 					ExemplePhilosophe={ExemplePhilosophe}
 					listeReplyPhilosophe={listeReplyPhilosophe}
+					setForm={setForm}
 				/>
 				)}/>
 		
@@ -146,6 +149,7 @@ return (
 						reinitForm={reinitForm} 
 						form = {form}
 						ExemplePhilosophe={ExemplePhilosophe}
+						setForm={setForm}
 					/>
 					)}/>
 				))}
@@ -164,9 +168,7 @@ return (
 			setForm={setForm}
 			ChangeMots={ChangeMots}
 			ExempleThemes={ExempleThemes}
-			ExemplePhilosophe={ExemplePhilosophe}
 			listeReplyTheme={listeReplyTheme}
-			listeReplyPhilosophe={listeReplyPhilosophe}
 			setRoute = {setRoute}
 			mots={mots}
 			responseDicts={responseDicts}
