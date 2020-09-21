@@ -5,10 +5,7 @@ import { Link as Links } from "react-router-dom";
 
 const InputTheme = (props,{match}) => {
   const classes = useStyles();
-  const BTPapiSubmit = () => {
-		props.handleSubmit();
-		props.setRoute({match})
-	}
+
   return (
     <Grid container direction="column" justify="center" alignItems="center" className={classes.fronttext2}>
       <p></p>
@@ -44,7 +41,7 @@ const InputTheme = (props,{match}) => {
       </FormControl>
       <p></p>
 	  <Links to={`theme/${props.form.Theme}`} style={{ textDecoration: 'none' }}>
-		<Button variant="contained" endIcon={<Icon>send</Icon>} onClick={BTPapiSubmit} size="small"> Trouver les sources a mes themes </Button>
+		  <Button variant="contained" endIcon={<Icon>send</Icon>} size="small"> Trouver les sources a mes themes </Button>
 	  </Links>
       <p></p>
       <Typography variant="subtitle1" style={{fontSize: 14}}>Cliquer sur l'exemple suivant: (sujet Bac ES 2019)</Typography>
