@@ -2,7 +2,7 @@ import React from "react";
 import {Grid, Chip, Typography} from "@material-ui/core";
 import { emphasize, withStyles } from "@material-ui/core/styles";
 import { useStyles } from "../Styles/FrontPageStyles";
-import SujetDissertPanel from "./SujetDissertPanel";
+import SujetDissertPanel from "./InputDissert";
 import InputTheme from "./InputTheme";
 import InputPhilosophe from "./InputPhilosophe";
 import { Link,Route } from "react-router-dom";

@@ -3,7 +3,7 @@ import {Input,InputLabel,MenuItem,FormControl,Select,Chip,Button,Link,Typography
 import { useStyles, MenuProps } from "../Styles/InputThemeStyles";
 import { Link as Links } from "react-router-dom";
 
-const InputTheme = (props,{match}) => {
+const InputTheme = (props) => {
   const classes = useStyles();
 
   return (

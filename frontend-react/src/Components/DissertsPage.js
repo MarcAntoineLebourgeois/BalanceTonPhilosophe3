@@ -4,7 +4,6 @@ import {Grid} from "@material-ui/core";
 
 import AppBarFront from "./AppBar"
 import SelectionPanel from "./SelectionPanel"
-import Rendu from "./Rendu"
 import BottomBar from "./BottomBar"
 
 const DissertsPage = (props) => {
