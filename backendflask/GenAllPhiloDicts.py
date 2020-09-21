@@ -1,3 +1,4 @@
+#The goal of this file is to generate the list of dicts use by App.js in order to pre render all routes /philosophe
 import pandas
 import requests
 import json
