@@ -11,6 +11,7 @@ import RatingPage from "./Components/RatingPage"
 import PhilosophePage from "./Components/PhilosophePage"
 import ThemePage from "./Components/ThemePage"
 import DissertPage from "./Components/DissertPage"
+import QuizPage from "./Components/QuizPage"
 
 import listeReplyTheme from "./Data/ListeThemes"
 import listeReplyPhilosophe from "./Data/ListePhilosophes"
@@ -60,8 +61,8 @@ const [form, setForm] = useState({Theme: [],Philosophe: [],Format: "Card",Mots:[
 const [mots,setMots] = useState([])
 
 const reinitForm = () => {
-setForm({Theme: [],Philosophe: [],Format: "Card",Mots:[]});
-setResponseDicts([]);
+	setForm({Theme: [],Philosophe: [],Format: "Card",Mots:[]});
+	setResponseDicts([]);
 };
 
 const ChangeResponseDicts = Response => {setResponseDicts(Response)};
@@ -80,9 +81,7 @@ const ExemplePhilosophe = () => {setForm({...form,Philosophe:['Nicolas Machiavel
 
 //Formulaire de rating
 const [showRatingForm,setShowRatingForm] = useState(false)
-const FuncShowRatingForm = () => {
-setShowRatingForm(!showRatingForm)
-};
+const FuncShowRatingForm = () => {setShowRatingForm(!showRatingForm)};
 
 
 return (
@@ -116,7 +115,6 @@ return (
 				<ThemesPage 
 					FuncShowRatingForm={FuncShowRatingForm}
 					reinitForm={reinitForm} 
-					handleSubmit = {handleSubmit}
 					form = {form}
 					ExempleThemes={ExempleThemes}
 					listeReplyTheme={listeReplyTheme}
@@ -137,6 +135,16 @@ return (
 				/>
 				)}/>
 		
+			<Route path='/quiz'render={()=>(
+				<QuizPage
+					reinitForm={reinitForm} 
+					form = {form}
+					listeReplyTheme={listeReplyTheme}
+					setForm={setForm}
+				/>
+				)}
+				/>
+
 			{ListDictsPhilosophers.map((route, i) => (
 				<Route 
 					exact 
@@ -153,57 +161,78 @@ return (
 					/>
 					)}/>
 				))}
-		</Switch>
-
-
-		<Route exact path='/theme/:theme'
-		render={(props) => (
-		<ThemePage
-			{...props}
-			FuncShowRatingForm={FuncShowRatingForm}
-			reinitForm={reinitForm} 
-			ChangeResponseDicts={ChangeResponseDicts} 
-			handleSubmit = {handleSubmit}
-			form = {form}
-			setForm={setForm}
-			ChangeMots={ChangeMots}
-			ExempleThemes={ExempleThemes}
-			listeReplyTheme={listeReplyTheme}
-			setRoute = {setRoute}
-			mots={mots}
-			responseDicts={responseDicts}
-			launch={launch}
-			setLaunch={setLaunch}
-		/>
-		)}/>
 		
-		<Route exact path='/dissertation/:dissert'
-		render={(props) => (
-		<DissertPage
-			{...props}
-			FuncShowRatingForm={FuncShowRatingForm}
-			reinitForm={reinitForm} 
-			ChangeResponseDicts={ChangeResponseDicts} 
-			handleSubmit = {handleSubmit}
-			form = {form}
-			setForm={setForm}
-			ChangeMots={ChangeMots}
-			setDissert={setDissert}
-			dissert={dissert}
-			ExempleThemes={ExempleThemes}
-			ExemplePhilosophe={ExemplePhilosophe}
-			listeReplyTheme={listeReplyTheme}
-			listeReplyPhilosophe={listeReplyPhilosophe}
-			setRoute = {setRoute}
-			mots={mots}
-			responseDicts={responseDicts}
-			launch={launch}
-			setLaunch={setLaunch}
-		/>
-		)}/>
+			<Route exact path='/theme/:theme'
+			render={(props) => (
+			<ThemePage
+				{...props}
+				FuncShowRatingForm={FuncShowRatingForm}
+				reinitForm={reinitForm} 
+				ChangeResponseDicts={ChangeResponseDicts} 
+				handleSubmit = {handleSubmit}
+				form = {form}
+				setForm={setForm}
+				ChangeMots={ChangeMots}
+				ExempleThemes={ExempleThemes}
+				listeReplyTheme={listeReplyTheme}
+				setRoute = {setRoute}
+				mots={mots}
+				responseDicts={responseDicts}
+				launch={launch}
+				setLaunch={setLaunch}
+				/>
+			)}/>
 			
-		<Route exact path='/rating' render={()=> <RatingPage FuncShowRatingForm={FuncShowRatingForm}/> }/>	  
+			<Route exact path='/dissertation/:dissert'
+			render={(props) => (
+			<DissertPage
+				{...props}
+				FuncShowRatingForm={FuncShowRatingForm}
+				reinitForm={reinitForm} 
+				ChangeResponseDicts={ChangeResponseDicts} 
+				handleSubmit = {handleSubmit}
+				form = {form}
+				setForm={setForm}
+				ChangeMots={ChangeMots}
+				setDissert={setDissert}
+				dissert={dissert}
+				ExempleThemes={ExempleThemes}
+				ExemplePhilosophe={ExemplePhilosophe}
+				listeReplyTheme={listeReplyTheme}
+				listeReplyPhilosophe={listeReplyPhilosophe}
+				setRoute = {setRoute}
+				mots={mots}
+				responseDicts={responseDicts}
+				launch={launch}
+				setLaunch={setLaunch}
+			/>
+			)}/>
+				
+			<Route path='/quiz/:theme'render={()=>(
+			<QuizPage
+				FuncShowRatingForm={FuncShowRatingForm}
+				reinitForm={reinitForm} 
+				ChangeResponseDicts={ChangeResponseDicts} 
+				handleSubmit = {handleSubmit}
+				form = {form}
+				setForm={setForm}
+				ChangeMots={ChangeMots}
+				ExempleThemes={ExempleThemes}
+				listeReplyTheme={listeReplyTheme}
+				setRoute = {setRoute}
+				mots={mots}
+				responseDicts={responseDicts}
+				launch={launch}
+				setLaunch={setLaunch}
+				/>
+			)}/>
 
+
+			<Route exact path='/rating' render={()=> <RatingPage FuncShowRatingForm={FuncShowRatingForm}/> }/>
+
+
+
+		</Switch>
 	</Router> 
 </MuiThemeProvider>
   );

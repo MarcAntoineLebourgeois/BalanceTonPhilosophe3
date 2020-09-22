@@ -5,6 +5,7 @@ import { useStyles } from "../Styles/FrontPageStyles";
 import SujetDissertPanel from "./InputDissert";
 import InputTheme from "./InputTheme";
 import InputPhilosophe from "./InputPhilosophe";
+import InputQuiz from "./InputQuiz";
 import { Link,Route } from "react-router-dom";
 
 const SelectionPanel = (props) => {
@@ -40,10 +41,14 @@ const SelectionPanel = (props) => {
 		<Link to='/philosophes' style={{ textDecoration: 'none' }}>
 			<StyledButton label="Philosophes?" onClick={props.reinitForm} ></StyledButton>
 		</Link>
-			
+		<Link to='/quiz' style={{ textDecoration: 'none' }}>
+			<StyledButton label="Quiz" onClick={props.reinitForm} ></StyledButton>
+		</Link>		
+
     <Route path='/dissertations' render={()=><SujetDissertPanel {...props}/>}/>
-	  <Route path='/themes' render={()=><InputTheme {...props}/>}/>
     <Route path='/philosophes' render={()=><InputPhilosophe {...props}/>}/>
+	  <Route path='/themes' render={()=><InputTheme {...props} />}/>
+	  <Route path='/quiz' render={()=> <InputQuiz {...props} />} />
 
     <Route path='/home' component={()=>
         <Grid container direction="column" justify="center" alignItems="center"  className={classes.fronttext2}>
