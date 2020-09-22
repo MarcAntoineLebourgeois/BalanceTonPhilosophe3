@@ -8,11 +8,15 @@ import Rendu from "./Rendu"
 import BottomBar from "./BottomBar"
 
 const ThemePage = (props) => {
-	console.log(props.match.params)  
+
+  if (props.match.params.theme.includes(','))
+       {var ListeThemeUrl = props.match.params.theme.split(',')}
+  else {var ListeThemeUrl = [props.match.params.theme]}
+
 	useEffect(()=>{
-		props.setForm({...props.form,Theme: [props.match.params.theme]});
+		props.setForm({...props.form,Theme: ListeThemeUrl});
 		props.setLaunch(true);
-	},[])
+	},[props.match.params.theme])
 
   if (props.launch){
     props.handleSubmit();

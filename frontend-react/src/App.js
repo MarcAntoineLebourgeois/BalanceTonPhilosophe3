@@ -2,19 +2,13 @@ import React, {useState} from "react";
 import "./styles.css";
 import {CssBaseline} from "@material-ui/core";
 import { BrowserRouter as Router, Route, Redirect,Switch} from "react-router-dom";
-
 import HomePage from "./Components/HomePage"
-import DissertsPage from "./Components/DissertsPage"
-import ThemesPage from "./Components/ThemesPage"
-import PhilosophesPage from "./Components/PhilosophesPage"
+import SelectionPage from "./Components/SelectionPage"
+import QuizPage from "./Components/QuizPage"
 import RatingPage from "./Components/RatingPage"
 import PhilosophePage from "./Components/PhilosophePage"
 import ThemePage from "./Components/ThemePage"
 import DissertPage from "./Components/DissertPage"
-import QuizPage from "./Components/QuizPage"
-
-import listeReplyTheme from "./Data/ListeThemes"
-import listeReplyPhilosophe from "./Data/ListePhilosophes"
 
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import ListDictsPhilosophers from "./Data/ListDictsPhilosophers"
@@ -75,9 +69,6 @@ const handleSubmit = async () => {
 	setMots(retour1[1].ListeMots);
 }
 
-/* Link to example */
-const ExempleThemes = () => {setForm({...form,Theme:['morale','politique']})}
-const ExemplePhilosophe = () => {setForm({...form,Philosophe:['Nicolas Machiavel']})}
 
 //Formulaire de rating
 const [showRatingForm,setShowRatingForm] = useState(false)
@@ -96,9 +87,9 @@ return (
 			
 			<Route exact path='/home' render={() => ( <HomePage/> )}/>
 			
-			<Route exact path='/dissertations'
+			<Route exact path={["/dissertation", "/philosophe", "/theme","/quiz"]}
 				render={() => (
-				<DissertsPage 
+				<SelectionPage 
 					FuncShowRatingForm={FuncShowRatingForm}
 					reinitForm={reinitForm} 
 					handleSubmit = {handleSubmit}
@@ -109,41 +100,6 @@ return (
 					setForm={setForm}
 				/>
 				)}/>
-			
-			<Route exact path='/themes'
-				render={() => (
-				<ThemesPage 
-					FuncShowRatingForm={FuncShowRatingForm}
-					reinitForm={reinitForm} 
-					form = {form}
-					ExempleThemes={ExempleThemes}
-					listeReplyTheme={listeReplyTheme}
-					setRoute = {setRoute}
-					setForm={setForm}
-				/>
-				)}/>
-			
-			<Route exact path='/philosophes'
-				render={() => (
-				<PhilosophesPage 
-					FuncShowRatingForm={FuncShowRatingForm}
-					reinitForm={reinitForm} 
-					form = {form}
-					ExemplePhilosophe={ExemplePhilosophe}
-					listeReplyPhilosophe={listeReplyPhilosophe}
-					setForm={setForm}
-				/>
-				)}/>
-		
-			<Route path='/quiz'render={()=>(
-				<QuizPage
-					reinitForm={reinitForm} 
-					form = {form}
-					listeReplyTheme={listeReplyTheme}
-					setForm={setForm}
-				/>
-				)}
-				/>
 
 			{ListDictsPhilosophers.map((route, i) => (
 				<Route 
@@ -156,7 +112,6 @@ return (
 						FuncShowRatingForm={FuncShowRatingForm}
 						reinitForm={reinitForm} 
 						form = {form}
-						ExemplePhilosophe={ExemplePhilosophe}
 						setForm={setForm}
 					/>
 					)}/>
@@ -173,8 +128,6 @@ return (
 				form = {form}
 				setForm={setForm}
 				ChangeMots={ChangeMots}
-				ExempleThemes={ExempleThemes}
-				listeReplyTheme={listeReplyTheme}
 				setRoute = {setRoute}
 				mots={mots}
 				responseDicts={responseDicts}
@@ -196,10 +149,6 @@ return (
 				ChangeMots={ChangeMots}
 				setDissert={setDissert}
 				dissert={dissert}
-				ExempleThemes={ExempleThemes}
-				ExemplePhilosophe={ExemplePhilosophe}
-				listeReplyTheme={listeReplyTheme}
-				listeReplyPhilosophe={listeReplyPhilosophe}
 				setRoute = {setRoute}
 				mots={mots}
 				responseDicts={responseDicts}
@@ -217,8 +166,6 @@ return (
 				form = {form}
 				setForm={setForm}
 				ChangeMots={ChangeMots}
-				ExempleThemes={ExempleThemes}
-				listeReplyTheme={listeReplyTheme}
 				setRoute = {setRoute}
 				mots={mots}
 				responseDicts={responseDicts}

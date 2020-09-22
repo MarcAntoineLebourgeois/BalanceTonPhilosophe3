@@ -32,22 +32,22 @@ const SelectionPanel = (props) => {
 
   <Grid item container direction="row" justify="flex-start" alignItems="flex-start" >
 			
-		<Link to='/dissertations' style={{ textDecoration: 'none' }}>
+		<Link to='/dissertation' style={{ textDecoration: 'none' }}>
 			<StyledButton label="Disserts?" onClick={props.reinitForm} ></StyledButton>
 		</Link>
-		<Link to='/themes' style={{ textDecoration: 'none' }}>
+		<Link to='/theme' style={{ textDecoration: 'none' }}>
 			<StyledButton label="Themes?" onClick={props.reinitForm} ></StyledButton>
 		</Link>
-		<Link to='/philosophes' style={{ textDecoration: 'none' }}>
+		<Link to='/philosophe' style={{ textDecoration: 'none' }}>
 			<StyledButton label="Philosophes?" onClick={props.reinitForm} ></StyledButton>
 		</Link>
 		<Link to='/quiz' style={{ textDecoration: 'none' }}>
 			<StyledButton label="Quiz" onClick={props.reinitForm} ></StyledButton>
 		</Link>		
 
-    <Route path='/dissertations' render={()=><SujetDissertPanel {...props}/>}/>
-    <Route path='/philosophes' render={()=><InputPhilosophe {...props}/>}/>
-	  <Route path='/themes' render={()=><InputTheme {...props} />}/>
+    <Route path='/dissertation' render={()=><SujetDissertPanel {...props}/>}/>
+    <Route path='/philosophe' render={()=><InputPhilosophe {...props}/>}/>
+	  <Route path='/theme' render={()=><InputTheme {...props} />}/>
 	  <Route path='/quiz' render={()=> <InputQuiz {...props} />} />
 
     <Route path='/home' component={()=>

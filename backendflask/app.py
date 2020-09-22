@@ -104,7 +104,9 @@ def form():
     ListeTheme = RequestFromUser['Theme']
     ListePhilosophe = RequestFromUser['Philosophe']
     ListeMots = RequestFromUser['Mots']
-    ListeTheme = ListeTheme[0].split(',')
+
+    if len(ListeTheme) == 1:
+        ListeTheme = ListeTheme[0].split(',')
 
     if len(ListeTheme)==0:
         dfPhilo = dfPhilo.loc[dfPhilo['Philosophe'].isin(ListePhilosophe)]
@@ -159,13 +161,10 @@ def form():
             ListeIndex = []
             if len(ListReply) > 1:
                 for i in range(-1,len(ListReply)-1):
-                    print(ListReply[i]['Philosophe'])
                     if (ListReply[i-1]['Philosophe'] != ListReply[i]['Philosophe'])and(ListReply[i]['Philosophe'] == ListReply[i+1]['Philosophe']):
                         ListReply[i+1] = mergeDict(ListReply[i], ListReply[i+1])
                         ListeIndex.append(i)
-                        print('(diff -1 et pareil +1)')
                     elif (ListReply[i-1]['Philosophe'] == ListReply[i]['Philosophe'])and(ListReply[i]['Philosophe'] == ListReply[i+1]['Philosophe']):
-                        print('(pareil -1 et +1)')
                         ListReply[i+1]['Theme'] = [ListReply[i+1]['Theme']]
                         ListReply[i+1]['Texte'] = [ListReply[i+1]['Texte']]
                         for item in ListReply[i]['Theme']:
@@ -173,9 +172,7 @@ def form():
                         for item in ListReply[i]['Texte']:
                             ListReply[i+1]['Texte'].append(item)
                         ListeIndex.append(i)
-                        print(ListReply[i+1]['Theme'])
                     elif (ListReply[i]['Philosophe'] != ListReply[i+1]['Philosophe'])and(ListReply[i-1]['Philosophe'] != ListReply[i]['Philosophe']):
-                        print('(diff -1 et +1)')
                         ListReply[i]['Theme'] = [ListReply[i]['Theme']]
                         ListReply[i]['Texte'] = [ListReply[i]['Texte']]
                 ListeIndex = ListeIndex[::-1]        
