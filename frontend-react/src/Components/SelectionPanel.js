@@ -5,7 +5,7 @@ import { useStyles } from "../Styles/FrontPageStyles";
 import SujetDissertPanel from "./InputDissert";
 import InputTheme from "./InputTheme";
 import InputPhilosophe from "./InputPhilosophe";
-import InputQuiz from "./InputQuiz";
+import InputQuiz from "./Quiz Components/InputQuiz";
 import { Link,Route } from "react-router-dom";
 
 const SelectionPanel = (props) => {

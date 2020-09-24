@@ -4,7 +4,7 @@ import {CssBaseline} from "@material-ui/core";
 import { BrowserRouter as Router, Route, Redirect,Switch} from "react-router-dom";
 import HomePage from "./Components/HomePage"
 import SelectionPage from "./Components/SelectionPage"
-import QuizPage from "./Components/QuizPage"
+import QuizPage from "./Components/Quiz Components/QuizPage"
 import RatingPage from "./Components/RatingPage"
 import PhilosophePage from "./Components/PhilosophePage"
 import ThemePage from "./Components/ThemePage"
@@ -69,11 +69,9 @@ const handleSubmit = async () => {
 	setMots(retour1[1].ListeMots);
 }
 
-
 //Formulaire de rating
 const [showRatingForm,setShowRatingForm] = useState(false)
 const FuncShowRatingForm = () => {setShowRatingForm(!showRatingForm)};
-
 
 return (
 <MuiThemeProvider theme={Maintheme} >
@@ -157,8 +155,9 @@ return (
 			/>
 			)}/>
 				
-			<Route path='/quiz/:theme'render={()=>(
+			<Route path='/quiz/:theme'render={(props)=>(
 			<QuizPage
+				{...props}
 				FuncShowRatingForm={FuncShowRatingForm}
 				reinitForm={reinitForm} 
 				ChangeResponseDicts={ChangeResponseDicts} 

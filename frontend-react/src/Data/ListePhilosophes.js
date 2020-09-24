@@ -3,22 +3,3 @@ const listeReplyPhilosophe =
 
 export default listeReplyPhilosophe
 
-/*
-const ListeSujetDissert = [
-
-     {img: 'https://upload.wikimedia.org/wikipedia/commons/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg',
-     title: 'Rene Descartes'},
-     {img: 'https://upload.wikimedia.org/wikipedia/commons/2/23/Nietzsche1882.jpg',
-     title: 'Friedrich Nietzsche'},
-     {img: 'https://upload.wikimedia.org/wikipedia/commons/f/f2/Kant_gemaelde_3.jpg',
-     title: 'Emmanuel Kant'},
-     {img: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Socrates_and_Plato_Socrates_y_Platon%2C_Escuela_de_Atenas%2C_Raffae.jpg',
-     title: 'Platon'},
-     {img: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Giambattista-Vico.jpg',
-     title: 'Giambattista Vico'},
-     {img: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/Charles_Montesquieu.jpg',
-     title: 'Montesquieu'},
-     {img: 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Sartre_1967_crop.jpg',
-     title: 'Jean-Paul Sartre'},
-];
-*/

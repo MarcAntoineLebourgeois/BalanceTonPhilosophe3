@@ -12,17 +12,17 @@ const BottomBar = () => {
 
             <Grid container item style={{width: '300px', height: '20vh' }}>
               <Grid className="BackgroundBottom2" item style={{width:"100%", height:"90%", margin: "auto"}}>
-                x
+                contact : balancetonphilosophe@gmail.com
               </Grid>
             </Grid>
             <Grid container item style={{width: '300px', height: '20vh' }}>
               <Grid className="BackgroundBottom2" item style={{width:"100%", height:"90%", margin: "auto"}}>
-                x
+                projet opensource
               </Grid>
             </Grid>
             <Grid container item style={{width: '300px', height: '20vh' }}>
               <Grid className="BackgroundBottom2" item style={{width:"100%", height:"90%", margin: "auto"}}>
-                x
+                N'hesitez a nous rejoindre!
               </Grid>
             </Grid>
             
