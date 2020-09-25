@@ -10,7 +10,7 @@ import PhilosophePage from "./Components/PhilosophePage"
 import ThemePage from "./Components/ThemePage"
 import DissertPage from "./Components/DissertPage"
 
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, MuiThemeProvider,responsiveFontSizes } from '@material-ui/core/styles';
 import ListDictsPhilosophers from "./Data/ListDictsPhilosophers"
 
 
@@ -45,7 +45,8 @@ const useDarkMode = () => {
 const App = () => {
 	
 const [ theme ] = useDarkMode();
-const Maintheme = createMuiTheme(theme)
+let Maintheme = createMuiTheme(theme)
+Maintheme = responsiveFontSizes(Maintheme)
 
 const [launch,setLaunch] = useState(false);
 const [,setRoute] = useState('')

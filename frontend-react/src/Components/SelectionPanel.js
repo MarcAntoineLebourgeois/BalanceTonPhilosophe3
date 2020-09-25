@@ -51,7 +51,7 @@ const SelectionPanel = (props) => {
 	  <Route path='/quiz' render={()=> <InputQuiz {...props} />} />
 
     <Route path='/home' component={()=>
-        <Grid container direction="column" justify="center" alignItems="center"  className={classes.fronttext2}>
+        <Grid container item  direction="column" justify="center" alignItems="center"  >
           <p></p>
           <p></p>
           <Typography variant="h5"> Bienvenue sur BalanceTonPhilosophe!</Typography>

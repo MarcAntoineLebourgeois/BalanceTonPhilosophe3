@@ -17,8 +17,7 @@ const HomePage = (props) => {
       <SelectionPanel {...props}  />
     </Grid>
 	  <ThreeBlocks {...props} />
-	  <BottomBar/>
-	  
+	  <BottomBar/> 
 	</>  
 		  )
 }

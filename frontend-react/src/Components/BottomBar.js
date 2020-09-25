@@ -7,7 +7,7 @@ const BottomBar = () => {
 	
 	return(
       <Grid className="BackgroundBottom" 
-        style={{padding:15, position: 'relative', bottom: 0, width: '100%', height: '20vh'}}>
+        style={{padding:15, position: 'relative', bottom: 0, width: '100%', height: '20%'}}>
         <Grid container item direction='row' alignItems="center" justify="space-around" 
           xs={12} sm={12} md={10} lg={8} xl={8} style={{margin: "auto"}}>
 
