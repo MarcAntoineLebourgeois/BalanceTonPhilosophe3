@@ -12,12 +12,13 @@ const HomePage = (props) => {
 	return(
 
 	<>
-    <Grid className="BackgroundPage" style={{padding:10, height: '60vh'}}>
+    <Grid className="BackgroundPage" style={{padding:10, height: '50vh'}}>
       <AppBarFront {...props} />
       <SelectionPanel {...props}  />
     </Grid>
 	  <ThreeBlocks {...props} />
 	  <BottomBar/>
+	  
 	</>  
 		  )
 }

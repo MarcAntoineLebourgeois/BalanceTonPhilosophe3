@@ -12,9 +12,10 @@ const SelectionPage = (props) => {
     <>
       <Grid className="BackgroundPage" style={{padding:0, height: '50vh'}}>   
         <AppBarFront {...props}/>
-        <SelectionPanel {...props}/>
-      </Grid>
-    <BottomBar/>
+        <SelectionPanel {...props}/>      
+    </Grid>
+    <div style={{height:'30vh'}}/>
+    <BottomBar />
     </>
 		  )
 }
