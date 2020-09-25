@@ -3,21 +3,11 @@
   text-align: center;
 }
 
-
 .Link {
   color: "white"
 }
 
-.container1 {
-  height: 100vh;
-  background: rgb(0, 0, 0);
 
-}
-
-.container2 {
-  height: 100vh;
-  background-size: cover;
-}
 
 .BackgroundPage {
   background-size: cover;

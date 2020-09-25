@@ -6,7 +6,7 @@ import {Grid} from "@material-ui/core";
 const BottomBar = () => {
 	
 	return(
-      <Grid className="BackgroundBottom" style={{padding:15}}>
+      <Grid className="BackgroundBottom" style={{padding:15,position: 'fixed', bottom: 0, width: '100%'}}>
         <Grid container item direction='row' alignItems="center" justify="space-around" 
           xs={12} sm={12} md={10} lg={8} xl={8} style={{margin: "auto"}}>
 

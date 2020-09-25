@@ -173,10 +173,7 @@ return (
 				/>
 			)}/>
 
-
 			<Route exact path='/rating' render={()=> <RatingPage FuncShowRatingForm={FuncShowRatingForm}/> }/>
-
-
 
 		</Switch>
 	</Router> 
