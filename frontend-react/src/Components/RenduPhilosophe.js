@@ -38,6 +38,7 @@ const RenduPhilosophe = (props) => {
             </>
             )
             })} 
+            <p></p>
         </>
     </Grid>
 

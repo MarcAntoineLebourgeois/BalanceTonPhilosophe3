@@ -32,7 +32,7 @@ const ThreeBlocks = (props) => {
             style={{margin: "auto"}}
         >
         
-        <Link to='/dissertations' style={{ textDecoration: 'none' }}>
+        <Link to='/dissertation' style={{ textDecoration: 'none' }}>
             <Grid container item style={{width: '280px' }}>
 
                 <Card onClick={props.reinitForm} >
@@ -55,7 +55,7 @@ const ThreeBlocks = (props) => {
 
             </Grid>
         </Link>
-        <Link to='/themes' style={{ textDecoration: 'none' }}>
+        <Link to='/theme' style={{ textDecoration: 'none' }}>
             <Grid container item style={{width: '280px'}}>
                 <Card onClick={props.reinitForm} >
                         <CardActionArea>
@@ -76,7 +76,7 @@ const ThreeBlocks = (props) => {
                     </Card>                
             </Grid>
         </Link>
-        <Link to='/philosophes' style={{ textDecoration: 'none' }}>
+        <Link to='/philosophe' style={{ textDecoration: 'none' }}>
             <Grid container item style={{width: '280px' }}>
                 <Card onClick={props.reinitForm} >
                     <CardActionArea>
