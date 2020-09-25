@@ -1,7 +1,6 @@
 import React from "react";
 import {Grid, Chip, Typography} from "@material-ui/core";
 import { emphasize, withStyles } from "@material-ui/core/styles";
-import { useStyles } from "../Styles/FrontPageStyles";
 import SujetDissertPanel from "./InputDissert";
 import InputTheme from "./InputTheme";
 import InputPhilosophe from "./InputPhilosophe";
@@ -10,8 +9,7 @@ import { Link,Route } from "react-router-dom";
 
 const SelectionPanel = (props) => {
 
-    const classes = useStyles();
-    const StyledButton = withStyles(theme => ({
+  const StyledButton = withStyles(theme => ({
         root: {
           backgroundColor: theme.palette.grey[100],
           color: theme.palette.grey[800],
@@ -51,8 +49,7 @@ const SelectionPanel = (props) => {
 	  <Route path='/quiz' render={()=> <InputQuiz {...props} />} />
 
     <Route path='/home' component={()=>
-        <Grid container item  direction="column" justify="center" alignItems="center"  >
-          <p></p>
+        <Grid container item  direction="column" alignItems="center" align="center" >
           <p></p>
           <Typography variant="h5"> Bienvenue sur BalanceTonPhilosophe!</Typography>
           <p></p>
@@ -60,7 +57,7 @@ const SelectionPanel = (props) => {
             BTP est un outil pour trouver les sources a tes dissertations.
           </Typography>
           <Typography variant="subtitle1" > 
-            Grace a sa BDD et son IA, tu as plusieurs centaines de combinaisons a disposition.
+            Grace a sa base de donnees et son intelligence artificielle, tu as plusieurs centaines de combinaisons a disposition.
           </Typography>
           <Typography variant="subtitle1" > 
             De quoi etre inspire pour sortir la bonne punchline pour appuyer tes arguments.

@@ -1,16 +1,11 @@
 import React,{useState} from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import { Grid,Toolbar,Typography,IconButton,MenuItem,Menu } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 
-const useStyles = makeStyles(theme => ({
-  menuButton: { marginRight: theme.spacing(2) },
-  title: { flexGrow: 1 }
-}));
 
 const AppBarFront = (props) => {
-  const classes = useStyles();
+
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleMenu = event => {setAnchorEl(event.currentTarget)};
@@ -21,14 +16,13 @@ const AppBarFront = (props) => {
         <Toolbar >
           <Grid container direction="column" justify="center" alignItems="flex-start" >
 
-              
-            <Typography variant="h6" className={classes.title} color="textPrimary">
+            <Typography variant="h6"  color="textPrimary">
               <Link to="/home" style={{ textDecoration: 'none' }}>
                 Balance Ton Philosophe 
               </Link>
             </Typography>
               
-            <Typography className={classes.title} color="textPrimary">
+            <Typography  color="textPrimary">
                pour trouver les sources a tes disserts !
             </Typography>
           </Grid>
