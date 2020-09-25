@@ -9,10 +9,10 @@ import BottomBar from "./BottomBar"
 
 const DissertPage = (props) => {
 	  
-	const [, setLoading] = useState(false);
+
 
   const handleSubmit = async () =>  {
-    setLoading(true);
+
     const envoi1 = await fetch("https://api.balancetonphilosophe.com/SujetDissertation",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify(props.match.params.dissert)})
     const retour1 = await envoi1.json();
     props.setForm({...props.form, Theme:retour1[0].ListeTheme,Mots:retour1[1].ListeMots});
@@ -23,7 +23,7 @@ const DissertPage = (props) => {
     const retour2 = await envoi2.json();
     props.ChangeResponseDicts(retour2[0].ListReply);
     props.ChangeMots(retour2[1].ListeMots)
-    setLoading(false);
+
   }  
   
 	useEffect(()=>{

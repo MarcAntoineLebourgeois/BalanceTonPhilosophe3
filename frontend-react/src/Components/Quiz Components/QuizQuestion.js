@@ -24,8 +24,7 @@ const QuizQuestions = (props) => {
 
     return(
         <>
-            <h2>QuizQuestions</h2>
-            <h3>Question {indexQuestion + 1} : {props.quiz.questions[indexQuestion].name}</h3>
+            <h3>Question {indexQuestion + 1}/{props.quiz.questions.length} : {props.quiz.questions[indexQuestion].name}</h3>
             <form>
             <FormControl className={classes.formControl}>
                 <RadioGroup >

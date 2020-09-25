@@ -21,12 +21,6 @@ const Quiz = (props) => {
             {mode === 'quiz' && <QuizQuestion {...props} changeQuiz={changeQuiz} setChangeQuiz={setChangeQuiz} />}
             {mode === 'submit' && <QuizResult {...props} changeQuiz={changeQuiz} />} 
             <Grid container direction="row" justify="center" alignItems="center">
-                <Button type="submit" variant="outlined" color="primary" className={classes.button} onClick={() => setMode('quiz')}>
-                    Quiz
-                </Button>
-                <Button type="submit" variant="outlined" color="primary" className={classes.button} onClick={() => setMode('review')}>
-                    Revoir les questions
-                </Button> 
                 <Button type="submit" variant="outlined" color="primary" className={classes.button} onClick={() => setMode('submit')}>
                     Soumettre le quiz
                 </Button>

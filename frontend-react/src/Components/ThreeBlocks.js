@@ -19,7 +19,7 @@ const ThreeBlocks = (props) => {
     return(
     <div > 
         <Grid style={{height:"70px",margin:"auto"}} container direction='row' alignItems="flex-end" justify="space-around">
-            <Typography> Utiliser BalanceTonPhilosophe </Typography>
+            <Typography> Comment utiliser BalanceTonPhilosophe ? </Typography>
         </Grid>
         <p></p>
         <Grid 
