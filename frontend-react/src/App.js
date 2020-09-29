@@ -9,7 +9,6 @@ import RatingPage from "./Components/RatingPage"
 import PhilosophePage from "./Components/PhilosophePage"
 import ThemePage from "./Components/ThemePage"
 import DissertPage from "./Components/DissertPage"
-
 import { createMuiTheme, MuiThemeProvider,responsiveFontSizes } from '@material-ui/core/styles';
 import ListDictsPhilosophers from "./Data/ListDictsPhilosophers"
 
@@ -46,7 +45,20 @@ const App = () => {
 	
 const [ theme ] = useDarkMode();
 let Maintheme = createMuiTheme(theme)
-Maintheme = responsiveFontSizes(Maintheme)
+//Maintheme = responsiveFontSizes(Maintheme)
+Maintheme.typography.h5 = {
+	fontSize: "1.2rem",
+	[Maintheme.breakpoints.up("sm")]: {
+	  fontSize: "1.3rem"
+	},
+	[Maintheme.breakpoints.up("md")]: {
+	  fontSize: "1.5rem"
+	},
+	[Maintheme.breakpoints.up("lg")]: {
+	  fontSize: "1.7rem"
+	}
+  };
+
 
 const [launch,setLaunch] = useState(false);
 const [,setRoute] = useState('')
@@ -84,7 +96,7 @@ return (
 				<Redirect to="/home" /> 
 			</Route>
 			
-			<Route exact path='/home' render={() => ( <HomePage/> )}/>
+			<Route exact path='/home' render={() => ( <HomePage /> )}/>
 			
 			<Route exact path={["/dissertation", "/philosophe", "/theme","/quiz"]}
 				render={() => (

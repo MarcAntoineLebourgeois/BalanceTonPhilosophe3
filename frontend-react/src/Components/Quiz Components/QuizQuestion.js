@@ -46,10 +46,6 @@ const QuizQuestions = (props) => {
 
 
             <Grid container direction="row" justify="center" alignItems="center">
-                <Button type="submit" variant="outlined" color="primary" className={classes.button} 
-                        onClick={() => setIndexQuestion(0)}>
-                    Premiere question
-                </Button>
                 <Button id="back" type="submit" variant="outlined" color="primary" className={classes.button} 
                         onClick={() => setIndexQuestion(indexQuestion - 1)}
                         disabled={indexQuestion <= 0}>
@@ -60,13 +56,21 @@ const QuizQuestions = (props) => {
                         disabled={indexQuestion >= props.quiz.questions.length - 1}>
                     Suivant
                 </Button>
-                <Button type="submit" variant="outlined" color="primary" className={classes.button} 
-                        onClick={() => setIndexQuestion(props.quiz.questions.length - 1)}>
-                    Derniere question
-                </Button>
+                <p></p>
             </Grid>  
         </>
     )
 }
 
 export default QuizQuestions;
+
+/*
+                <Button type="submit" variant="outlined" color="primary" className={classes.button} 
+                        onClick={() => setIndexQuestion(0)}>
+                    Premiere question
+                </Button>
+                <Button type="submit" variant="outlined" color="primary" className={classes.button} 
+                        onClick={() => setIndexQuestion(props.quiz.questions.length - 1)}>
+                    Derniere question
+                </Button>
+*/

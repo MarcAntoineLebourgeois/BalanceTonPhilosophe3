@@ -53,15 +53,11 @@ const SelectionPanel = (props) => {
           <p></p>
           <Typography variant="h5"> Bienvenue sur BalanceTonPhilosophe!</Typography>
           <p></p>
+          <Grid>
           <Typography variant="subtitle1" > 
             BTP est un outil pour trouver les sources a tes dissertations.
           </Typography>
-          <Typography variant="subtitle1" > 
-            Grace a sa base de donnees et son intelligence artificielle, tu as plusieurs centaines de combinaisons a disposition.
-          </Typography>
-          <Typography variant="subtitle1" > 
-            De quoi etre inspire pour sortir la bonne punchline pour appuyer tes arguments.
-          </Typography>
+          </Grid>
         </Grid>
       }
       />

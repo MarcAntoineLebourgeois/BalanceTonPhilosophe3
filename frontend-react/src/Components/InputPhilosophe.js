@@ -11,7 +11,6 @@ const InputPhilosophe = (props) => {
   return (
 	<Grid container direction="column" justify="center" alignItems="center"  className={classes.fronttext2}>
       <p></p>
-      <p></p>
       <FormControl className={classes.formControl} size="small">
         <InputLabel style={{ fontSize: 14 }}>
           Selectionner un ou plusieurs philosophes

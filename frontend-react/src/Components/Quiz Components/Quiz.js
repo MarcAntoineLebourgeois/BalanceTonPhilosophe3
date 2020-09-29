@@ -24,7 +24,8 @@ const Quiz = (props) => {
                 <Button type="submit" variant="outlined" color="primary" className={classes.button} onClick={() => setMode('submit')}>
                     Soumettre le quiz
                 </Button>
-            </Grid>               
+            </Grid> 
+            <p></p>              
         </Grid>
         )
 

@@ -19,7 +19,7 @@ const ThreeBlocks = (props) => {
     return(
     <div > 
         <Grid style={{height:"70px",margin:"auto"}} container direction='row' alignItems="flex-end" justify="space-around">
-            <Typography> Comment utiliser BalanceTonPhilosophe ? </Typography>
+            <Typography variant="h6"> Comment utiliser BalanceTonPhilosophe ? </Typography>
         </Grid>
         <p></p>
         <Grid 
@@ -39,7 +39,7 @@ const ThreeBlocks = (props) => {
                         <CardActionArea>
                             <CardMedia className={classes.media} image={Background1} />
                             <CardContent style={{backgroundColor: "#ea8f8f" }}>
-                            <Typography gutterBottom variant="h5" component="h2"> Pour les dissertations </Typography>
+                            <Typography gutterBottom variant="h6" > Pour les dissertations </Typography>
                             <Typography variant="body2" color="textSecondary" align='justify'>
                                 Si tu cherches des sources a un sujet de dissertation, notre IA peut t'aider. 
                             </Typography>
@@ -61,7 +61,7 @@ const ThreeBlocks = (props) => {
                         <CardActionArea>
                             <CardMedia className={classes.media} image={Background2} />
                             <CardContent style={{backgroundColor: "#ea8f8f" }}>
-                            <Typography gutterBottom variant="h5" component="h2"> Pour les themes </Typography>
+                            <Typography gutterBottom variant="h6" > Pour les themes </Typography>
                             <Typography variant="body2" color="textSecondary" align='justify'>
                                 Ici, tu peux chercher quel philosophe a ecrit sur un theme.
                             </Typography> 
@@ -82,7 +82,7 @@ const ThreeBlocks = (props) => {
                     <CardActionArea>
                         <CardMedia className={classes.media} image={Background3} />
                         <CardContent style={{backgroundColor: "#ea8f8f" }}>
-                        <Typography gutterBottom variant="h5" component="h2"> Pour les philosophes </Typography>
+                        <Typography gutterBottom variant="h6" > Pour les philosophes </Typography>
                         <Typography variant="body2" color="textSecondary" align='justify'>
                             Difficile de trouver un resume convenable de la pensee d'un philosophe sur les themes du bac?
                         </Typography>
@@ -100,7 +100,7 @@ const ThreeBlocks = (props) => {
                     <CardActionArea>
                         <CardMedia className={classes.media} image={Background4} />
                         <CardContent style={{backgroundColor: "#ea8f8f" }}>
-                        <Typography gutterBottom variant="h5" component="h2"> Les Quiz </Typography>
+                        <Typography gutterBottom variant="h6" > Les Quiz </Typography>
                         <Typography variant="body2" color="textSecondary" align='justify'>
                             Teste tes connaissances avec ces quiz qui t'entraineront a te rappeler des diverses punchlines. 
                         </Typography>

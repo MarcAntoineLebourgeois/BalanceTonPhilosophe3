@@ -16,13 +16,13 @@ const AppBarFront = (props) => {
         <Toolbar >
           <Grid container direction="column" justify="center" alignItems="flex-start" >
 
-            <Typography variant="h6"  color="textPrimary">
+            <Typography variant="h5"  color="textPrimary">
               <Link to="/home" style={{ textDecoration: 'none' }}>
                 Balance Ton Philosophe 
               </Link>
             </Typography>
               
-            <Typography  color="textPrimary">
+            <Typography color="textPrimary">
                pour trouver les sources a tes disserts !
             </Typography>
           </Grid>
