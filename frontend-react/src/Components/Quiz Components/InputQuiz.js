@@ -2,18 +2,23 @@ import React  from "react";
 import {Input,InputLabel,MenuItem,FormControl,Select,Chip,Button,Link,Typography,Icon,Grid} from "@material-ui/core";
 import { useStyles, MenuProps } from "../../Styles/InputThemeStyles";
 import { Link as Links } from "react-router-dom";
-import listeReplyTheme from "../../Data/ListeThemes"
+import listQuiz from "../../Data/ListQuiz"
 
 const InputQuiz = (props) => {
+
   const classes = useStyles();
+  let ListeThemeQuiz = []
+  {listQuiz.map(quiz => {
+    ListeThemeQuiz.push(quiz.name) 
+  })}
+
   const ExempleThemes = () => {props.setForm({...props.form,Theme:['science']})}
   return (
     <Grid container direction="column" justify="center" alignItems="center" className={classes.fronttext2}>
       <p></p>
       <Typography>Tous les quiz proviennent de <a href={'https://la-philosophie.com/'}>la-philosophie.com</a>, que les honneurs leur reviennent.</Typography>
-      <p></p>
       <FormControl className={classes.formControl} size="small">
-        <InputLabel style={{ fontSize: 14 }}>Selectionner un ou plusieurs themes</InputLabel>
+        <InputLabel style={{ fontSize: 14 }}>Selectionner un theme pour le quiz</InputLabel>
         <Select
           value={props.form.Theme}
           onChange={e => {props.setForm({...props.form,Theme:e.target.value})}}
@@ -31,7 +36,7 @@ const InputQuiz = (props) => {
           )}
           MenuProps={MenuProps}
         >
-          {listeReplyTheme.map(name => (
+          {ListeThemeQuiz.map(name => (
             <MenuItem key={name} value={name} style={{ fontSize: 14,lineHeight:0.2 }}>
               {name}
             </MenuItem>
