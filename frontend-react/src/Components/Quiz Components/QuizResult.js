@@ -2,10 +2,15 @@ import React from "react";
 import {Typography} from '@material-ui/core';
 
 const QuizResult = (props) => {
+    let score = 0;
+    {props.changeQuiz.questions.map((question, i) => {
+        (question.answer_given === question.good_answer)? score++ :score = score
+    })}
 
     return(
         <>
         <h1>Resultat du quiz!</h1>
+        <h1>Score : {score}/{props.quiz.questions.length}</h1>
         {props.changeQuiz.questions.map((question, i) => {
             return(
                 <div key={i}>

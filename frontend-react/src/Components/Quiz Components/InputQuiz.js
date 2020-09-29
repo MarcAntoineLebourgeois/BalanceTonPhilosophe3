@@ -10,6 +10,7 @@ const InputQuiz = (props) => {
   return (
     <Grid container direction="column" justify="center" alignItems="center" className={classes.fronttext2}>
       <p></p>
+      <Typography>Tous les quiz proviennent de <a href={'https://la-philosophie.com/'}>la-philosophie.com</a>, que les honneurs leur reviennent.</Typography>
       <p></p>
       <FormControl className={classes.formControl} size="small">
         <InputLabel style={{ fontSize: 14 }}>Selectionner un ou plusieurs themes</InputLabel>

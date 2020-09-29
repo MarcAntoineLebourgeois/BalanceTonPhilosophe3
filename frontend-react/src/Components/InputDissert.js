@@ -16,7 +16,8 @@ const SujetDissertPanel = (props) => {
 
     <Grid container direction="column" justify="center" alignItems="center" >
       <p></p>
-      <p></p>
+      <Typography>EXPERIMENTAL</Typography>
+
         <TextField 
           value={props.dissert} 
           onChange={e => props.setDissert(e.target.value)} 
