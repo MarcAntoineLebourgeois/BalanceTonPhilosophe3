@@ -86,6 +86,8 @@ const handleSubmit = async () => {
 const [showRatingForm,setShowRatingForm] = useState(false)
 const FuncShowRatingForm = () => {setShowRatingForm(!showRatingForm)};
 
+console.log(responseDicts)
+
 return (
 <MuiThemeProvider theme={Maintheme} >
 	<Router >
@@ -128,6 +130,16 @@ return (
 					)}/>
 				))}
 		
+			<Route exact path={'/theme/:theme/:philosophe'} render={() => (
+					<PhilosophePage
+						responseDicts={responseDicts}
+						FuncShowRatingForm={FuncShowRatingForm}
+						reinitForm={reinitForm} 
+						form = {form}
+						setForm={setForm}
+					/>)}
+					/>
+
 			<Route exact path='/theme/:theme'
 			render={(props) => (
 			<ThemePage

@@ -2,7 +2,7 @@ import React from "react";
 import {Grid,Typography,Paper} from '@material-ui/core';
 
 const RenduPhilosophe = (props) => {
-
+    console.log(props.responseDicts)
     return(
 
 <Grid container direction="column" justify="center" alignItems="center" > 

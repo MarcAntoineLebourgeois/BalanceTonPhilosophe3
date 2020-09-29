@@ -1,19 +1,7 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {
-  Grid,
-  Card,
-  CardHeader,
-  CardMedia,
-  Button,
-  Dialog,
-  AppBar,
-  IconButton,
-  Typography,
-  Toolbar
-} from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
-
+import { Grid, Card, CardHeader, CardMedia, Button} from '@material-ui/core';
+import { Link as Links } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   media: {
@@ -31,12 +19,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Cards = (props) => {
-
-  const [open, setOpen] = React.useState(false);
-  const handleClickOpen = (i) => {setOpen(expanded === i ? -1 : i)};
-  const handleClose = () => {setOpen(false)};
   const classes = useStyles();
-  const [expanded] = useState(false);
 
   return (
     <Grid container direction='row'alignItems="center" justify="center" spacing={2} >
@@ -47,10 +30,52 @@ const Cards = (props) => {
             <CardHeader title={responseDict.Philosophe} />
             <CardMedia className={classes.media} image={responseDict.Image} />
             <Grid container direction='row'alignItems="center" justify="center" >
-              <Button variant="outlined" color="primary" onClick={() => handleClickOpen(i)}>
+            <Links to={`/theme/${props.form.Theme}/${responseDict.Philosophe}`} style={{ textDecoration: 'none' }}>
+              <Button variant="outlined" color="primary" onClick={() => props.ChangeResponseDicts(responseDict)}>
                 {responseDict.Philosophe} {props.form.Theme.length > 0 && "sur"} {props.form.Theme.map(themes =>{return(themes + "/")})}
               </Button>
+            </Links>
             </Grid>
+        </Card>
+        </Grid> 
+        
+        )})}
+    </Grid>
+  );
+}
+//{ListeThemes.map(themes => {return(themes +"/")})}<p />
+
+export default Cards;
+
+/* 
+
+
+                <CardActions disableSpacing>
+                    <IconButton
+                    className={clsx(classes.expand, {[classes.expandOpen]: expanded,})}
+                    onClick={() => handleExpandClick(i)}
+                    aria-expanded={expanded === i}
+                    >
+                        <ExpandMoreIcon />
+                    </IconButton>
+                </CardActions>
+                <Collapse in={expanded === i} timeout="auto" unmountOnExit>
+                    <CardContent>
+                        <Typography>                
+                            Siecle: {responseDict.Siecle}<p />
+                            Nation: {responseDict.Nationalite}<p />
+                            Theme: {responseDict.Theme.map(themes => {return(themes +"/")})}<p />
+                            {responseDict.Texte}
+                        </Typography>
+                    </CardContent>
+                </Collapse>
+
+
+  const handleClickOpen = (i) => {setOpen(expanded === i ? -1 : i)};
+  const handleClose = () => {setOpen(false)};
+  const [open, setOpen] = React.useState(false);
+  const [expanded] = useState(false);
+
               <Dialog fullScreen open={open === i} onClose={handleClose} >
                 <AppBar>
                   <Toolbar>
@@ -93,41 +118,6 @@ const Cards = (props) => {
                   </>
                 </Grid>
               </Dialog>
-        </Card>
-        </Grid> 
-        
-        )})}
-    </Grid>
-  );
-}
-//{ListeThemes.map(themes => {return(themes +"/")})}<p />
-
-export default Cards;
-
-/* 
-
-                <CardActions disableSpacing>
-                    <IconButton
-                    className={clsx(classes.expand, {[classes.expandOpen]: expanded,})}
-                    onClick={() => handleExpandClick(i)}
-                    aria-expanded={expanded === i}
-                    >
-                        <ExpandMoreIcon />
-                    </IconButton>
-                </CardActions>
-                <Collapse in={expanded === i} timeout="auto" unmountOnExit>
-                    <CardContent>
-                        <Typography>                
-                            Siecle: {responseDict.Siecle}<p />
-                            Nation: {responseDict.Nationalite}<p />
-                            Theme: {responseDict.Theme.map(themes => {return(themes +"/")})}<p />
-                            {responseDict.Texte}
-                        </Typography>
-                    </CardContent>
-                </Collapse>
-
-
-
 
 
 
