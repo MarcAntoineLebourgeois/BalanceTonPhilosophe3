@@ -17,7 +17,7 @@ const AppBarFront = (props) => {
           <Grid container direction="column" justify="center" alignItems="flex-start" >
 
             <Typography variant="h5"  color="textPrimary">
-              <Link to="/home" style={{ textDecoration: 'none' }}>
+              <Link to="/home" style={{ textDecoration: 'none', color: '#551A8B' }}>
                 Balance Ton Philosophe 
               </Link>
             </Typography>

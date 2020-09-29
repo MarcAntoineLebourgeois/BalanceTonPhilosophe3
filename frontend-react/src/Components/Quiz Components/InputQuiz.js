@@ -6,7 +6,7 @@ import listeReplyTheme from "../../Data/ListeThemes"
 
 const InputQuiz = (props) => {
   const classes = useStyles();
-  const ExempleThemes = () => {props.setForm({...props.form,Theme:['morale']})}
+  const ExempleThemes = () => {props.setForm({...props.form,Theme:['science']})}
   return (
     <Grid container direction="column" justify="center" alignItems="center" className={classes.fronttext2}>
       <p></p>
@@ -43,7 +43,7 @@ const InputQuiz = (props) => {
 		  <Button variant="contained" endIcon={<Icon>send</Icon>} size="small"> Commencer le quiz sur {props.form.Theme} </Button>
 	  </Links>
     <p></p>
-    <Button to="/" component={Link} onClick={ExempleThemes} size="small"> Morale </Button> 
+    <Button to="/" component={Link} onClick={ExempleThemes} size="small"> Exemple de Quiz : science </Button> 
 
     </Grid>
   );

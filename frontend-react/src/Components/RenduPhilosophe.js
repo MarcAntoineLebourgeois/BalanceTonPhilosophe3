@@ -24,7 +24,6 @@ const RenduPhilosophe = (props) => {
         return(
         <>
         <Paper style={{padding: "20px"}}>
-            <p/>
             <Typography > 
             Theme: {ListeThemes.map(themes => {return(themes +"/")})}
             </Typography>

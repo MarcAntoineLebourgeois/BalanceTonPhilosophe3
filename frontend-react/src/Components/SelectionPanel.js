@@ -51,7 +51,7 @@ const SelectionPanel = (props) => {
     <Route path='/home' component={()=>
         <Grid container item  direction="column" alignItems="center" align="justify" >
           <p></p>
-          <Typography variant="h5"> Bienvenue sur BalanceTonPhilosophe!</Typography>
+          <Typography variant="h5" style={{color: '#551A8B'}}> Bienvenue sur BalanceTonPhilosophe!</Typography>
           <p></p>
           <Grid>
           <Typography variant="subtitle1" > 
