@@ -7,7 +7,6 @@ import SelectionPanel from "./SelectionPanel"
 import BottomBar from "./BottomBar"
 
 const LoginPage = (props) => {
-
 	const [email,setEmail] = useState('')
 	const [password,setPassword] = useState('')
   	function validateForm() {
@@ -18,11 +17,10 @@ const LoginPage = (props) => {
 		  event.preventDefault();
 
 		  try {
-			      await Auth.signIn(email, password);
-			      alert("Logged in");
-			    } catch (e) {
-				        alert(e.message);
-				      }
+			await Auth.signIn(email, password);
+			props.setIsAuthenticated(true)	    
+		  } 
+		  catch (e) {alert(e.message)}
 	}
 
 
@@ -37,6 +35,9 @@ const LoginPage = (props) => {
 	 
 	<form onSubmit={handleSubmit}>
 	<Grid container direction="column" justify="center" alignItems="center">
+	{props.isAuthenticated 
+		? <Button onClick={() => {props.setIsAuthenticated(false)}}>Log Out</Button>
+		:<>
 		<TextField 
 			value={email} 
 			onChange={e => setEmail(e.target.value)}  
@@ -52,6 +53,8 @@ const LoginPage = (props) => {
 			style={{width:300}}
 			variant="outlined"/>
 		<Button disabled={!validateForm()} type="submit">Login</Button>
+		</>
+	}
 	</Grid>
 	</form>
 	  <BottomBar/> 
