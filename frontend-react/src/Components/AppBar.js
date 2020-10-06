@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { Grid,Toolbar,Typography,IconButton,MenuItem,Menu } from "@material-ui/core";
+import { Grid,Toolbar,Typography,IconButton,MenuItem,Menu,Button } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 
@@ -28,7 +28,8 @@ const AppBarFront = (props) => {
           </Grid>
           
           <div>
-            <IconButton
+          <Link to="/login" style={{ textDecoration:'none'}}><Button>Login</Button></Link>  
+	  <IconButton
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"

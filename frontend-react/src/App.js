@@ -3,6 +3,7 @@ import "./styles.css";
 import {CssBaseline} from "@material-ui/core";
 import { BrowserRouter as Router, Route, Redirect,Switch} from "react-router-dom";
 import HomePage from "./Components/HomePage"
+import LoginPage from "./Components/LoginPage"
 import SelectionPage from "./Components/SelectionPage"
 import QuizPage from "./Components/Quiz Components/QuizPage"
 import RatingPage from "./Components/RatingPage"
@@ -24,6 +25,7 @@ const Maintheme = {
         type: 'light'
     }
 }
+
 
 const useDarkMode = () => {
     const [theme,setTheme] = useState(Maintheme)
@@ -99,6 +101,8 @@ return (
 			</Route>
 			
 			<Route exact path='/home' render={() => ( <HomePage /> )}/>
+			
+			<Route exact path='/login' render={() => ( <LoginPage /> )}/>
 			
 			<Route exact path={["/dissertation", "/philosophe", "/theme","/quiz"]}
 				render={() => (
