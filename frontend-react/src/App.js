@@ -4,6 +4,7 @@ import {CssBaseline} from "@material-ui/core";
 import { BrowserRouter as Router, Route, Redirect,Switch} from "react-router-dom";
 import HomePage from "./Components/HomePage"
 import LoginPage from "./Components/LoginPage"
+import SignUpPage from "./Components/SignUpPage"
 import SelectionPage from "./Components/SelectionPage"
 import QuizPage from "./Components/Quiz Components/QuizPage"
 import RatingPage from "./Components/RatingPage"
@@ -88,7 +89,8 @@ const handleSubmit = async () => {
 const [showRatingForm,setShowRatingForm] = useState(false)
 const FuncShowRatingForm = () => {setShowRatingForm(!showRatingForm)};
 
-console.log(responseDicts)
+//Login Session
+const [isAuthenticated,setIsAuthenticated] = useState(false)
 
 return (
 <MuiThemeProvider theme={Maintheme} >
@@ -102,7 +104,17 @@ return (
 			
 			<Route exact path='/home' render={() => ( <HomePage /> )}/>
 			
-			<Route exact path='/login' render={() => ( <LoginPage /> )}/>
+			<Route exact path='/signup' render={() => ( 
+				<SignUpPage
+					isAuthenticated={isAuthenticated}
+					setIsAuthenticated={setIsAuthenticated}
+				/> )}/>
+			
+			<Route exact path='/login' render={() => ( 
+				<LoginPage
+					isAuthenticated={isAuthenticated}
+					setIsAuthenticated={setIsAuthenticated}
+				/> )}/>
 			
 			<Route exact path={["/dissertation", "/philosophe", "/theme","/quiz"]}
 				render={() => (

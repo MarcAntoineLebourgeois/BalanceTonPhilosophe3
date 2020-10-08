@@ -36,7 +36,9 @@ const LoginPage = (props) => {
 	<form onSubmit={handleSubmit}>
 	<Grid container direction="column" justify="center" alignItems="center">
 	{props.isAuthenticated 
-		? <Button onClick={() => {props.setIsAuthenticated(false)}}>Log Out</Button>
+		?<>
+		<Button onClick={() => {props.setIsAuthenticated(false)}}>Log Out</Button>	
+		</>
 		:<>
 		<TextField 
 			value={email} 

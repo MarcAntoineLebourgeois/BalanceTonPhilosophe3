@@ -7,6 +7,7 @@ import pandas
 import numpy as np
 from bs4 import BeautifulSoup
 import requests
+import datetime
 
 db = SQLAlchemy()
 #app = Flask(__name__,static_folder='../frontend-react/build',static_url_path='/')
@@ -30,6 +31,14 @@ class Rating(db.Model):
     philo_quantite = db.Column(db.Integer)
     bugs = db.Column(db.String(64))
     comment = db.Column(db.String(64))
+
+class QuizScore_table(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(64))
+    quiz_name = db.Column(db.String(64))
+    quiz_score = db.Column(db.String(64))
+    date = db.Column(db.DateTime,default=datetime.datetime.utcnow)
+
 
 '''
 @app.route('/')
@@ -62,6 +71,22 @@ def add_rating():
     db.session.commit()
     return 'Done', 201
 	
+
+@app.route('/add_quiz_score', methods=['POST'])
+def add_quiz_score():
+    #quiz_score_data = request.get_json()
+    #formQuizScore = quiz_score_data['formQuizScore']
+    formQuizScore = request.get_json()
+    print(formQuizScore)
+    new_quiz_score = QuizScore_table(
+        username=formQuizScore['username'],
+	quiz_name=formQuizScore['quiz_name'],
+	quiz_score=formQuizScore['quiz_score'],
+                )
+    db.session.add(new_quiz_score)
+    db.session.commit()
+    return 'Done', 201
+
 @app.route('/ratings')
 def ratings():
     rating_list = Rating.query.all()
@@ -81,6 +106,20 @@ def ratings():
 		})
     return jsonify({'ratings' : ratings})
 
+
+@app.route('/scores')
+def scores():
+    print('coucou')
+    scores_list = QuizScore_table.query.all()
+    scores = []
+    for score in scores_list:
+        scores.append(
+		{'username' : score.username,
+		'quiz_name' : score.quiz_name,
+		'quiz_score' : score.quiz_score,
+	        'date' : score.date,	
+		})
+    return jsonify(scores)
 
 def ReadDatabase():
     #dfPhilo = pandas.read_csv('/home/ec2-user/BalanceTonPhilosophe3/backendflask/db_philo_v4.0.csv',encoding='utf-8',delimiter = ',',header=0)

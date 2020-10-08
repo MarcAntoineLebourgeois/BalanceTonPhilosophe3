@@ -27,8 +27,7 @@ const AppBarFront = (props) => {
             </Typography>
           </Grid>
           
-          <div>
-          <Link to="/login" style={{ textDecoration:'none'}}><Button>Login</Button></Link>  
+          <Grid container direction="row" justify="flex-end" alignItems="flex-end">
 	  <IconButton
               aria-label="account of current user"
               aria-controls="menu-appbar"
@@ -51,8 +50,11 @@ const AppBarFront = (props) => {
             <Link to="/rating" style={{ textDecoration: 'none' }}>
               <MenuItem onClick={props.FuncShowRatingForm}>Note moi!</MenuItem>
             </Link>
-            </Menu>
-          </div>
+          <Link to="/login" style={{ textDecoration:'none'}}><MenuItem>Login</MenuItem></Link>  
+          <Link to="/signup" style={{ textDecoration:'none'}}><MenuItem>Sign Up</MenuItem></Link>  
+          
+           </Menu>
+	  </Grid>
         </Toolbar>
     </Grid>
   );

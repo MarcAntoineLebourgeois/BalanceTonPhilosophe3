@@ -1,11 +1,24 @@
-import React from "react";
-import {Typography} from '@material-ui/core';
+import React,{ useState } from "react";
+import {Typography, Button} from '@material-ui/core';
 
 const QuizResult = (props) => {
     let score = 0;
     {props.changeQuiz.questions.map((question, i) => {
         (question.answer_given === question.good_answer)? score++ :score = score
     })}
+    
+    const [quizScoreForm, setQuizScoreForm] = useState({
+    	username : "" ,
+	quiz_name :"" ,
+	quiz_score : ""
+    })
+
+    const handleScoreSubmit = async () => {
+	setQuizScoreForm({username:"test",quiz_name:props.changeQuiz.name,quiz_score:score + "/" + props.quiz.questions.length});
+	const envoi1 = await fetch("https://api.balancetonphilosophe.com/add_quiz_score",{method:'POST',headers:{"Content-type":"application/json"},body: JSON.stringify(quizScoreForm)})
+	const retour1 = await envoi1.json();
+	console.log(quizScoreForm);
+    }
 
     return(
         <>
@@ -31,6 +44,7 @@ const QuizResult = (props) => {
                 </div>
             )
         })}
+	<Button onClick={() => handleScoreSubmit()}>Send Form to score API</Button>
         </>
     )
 }
