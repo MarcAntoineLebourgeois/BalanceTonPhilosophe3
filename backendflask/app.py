@@ -8,6 +8,8 @@ import numpy as np
 from bs4 import BeautifulSoup
 import requests
 import datetime
+from sqlalchemy import create_engine
+import json
 
 db = SQLAlchemy()
 #app = Flask(__name__,static_folder='../frontend-react/build',static_url_path='/')
@@ -74,10 +76,7 @@ def add_rating():
 
 @app.route('/add_quiz_score', methods=['POST'])
 def add_quiz_score():
-    #quiz_score_data = request.get_json()
-    #formQuizScore = quiz_score_data['formQuizScore']
     formQuizScore = request.get_json()
-    print(formQuizScore)
     new_quiz_score = QuizScore_table(
         username=formQuizScore['username'],
 	quiz_name=formQuizScore['quiz_name'],
@@ -109,7 +108,6 @@ def ratings():
 
 @app.route('/scores')
 def scores():
-    print('coucou')
     scores_list = QuizScore_table.query.all()
     scores = []
     for score in scores_list:
@@ -120,6 +118,24 @@ def scores():
 	        'date' : score.date,	
 		})
     return jsonify(scores)
+
+
+@app.route('/user_scores',methods=['POST'])
+def user_scores():
+    cnx = create_engine('sqlite:///database.db').connect()
+    df = pandas.read_sql_table('quiz_score_table',cnx)
+    RequestFromUser = request.get_json()
+    user = RequestFromUser['user']
+    df[df['username'] == user]
+    print(df)
+    result = df.to_json(orient="records")
+    parsed = json.loads(result)
+    scores = json.dumps(parsed)  
+
+    return jsonify(scores)
+
+
+
 
 def ReadDatabase():
     #dfPhilo = pandas.read_csv('/home/ec2-user/BalanceTonPhilosophe3/backendflask/db_philo_v4.0.csv',encoding='utf-8',delimiter = ',',header=0)
