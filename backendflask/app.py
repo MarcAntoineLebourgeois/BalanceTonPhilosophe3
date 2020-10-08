@@ -126,12 +126,10 @@ def user_scores():
     df = pandas.read_sql_table('quiz_score_table',cnx)
     RequestFromUser = request.get_json()
     user = RequestFromUser['user']
-    df[df['username'] == user]
+    df = df[df['username'] == user]
+    print(user)
     print(df)
-    result = df.to_json(orient="records")
-    parsed = json.loads(result)
-    scores = json.dumps(parsed)  
-
+    scores = df.to_dict('records')  
     return jsonify(scores)
 
 
