@@ -51,8 +51,8 @@ const AppBarFront = (props) => {
               <MenuItem onClick={props.FuncShowRatingForm}>Note moi!</MenuItem>
             </Link>
           <Link to="/login" style={{ textDecoration:'none'}}><MenuItem>Login</MenuItem></Link>  
-          <Link to="/signup" style={{ textDecoration:'none'}}><MenuItem>Sign Up</MenuItem></Link>  
-          
+          <Link to="/signup" style={{ textDecoration:'none'}}><MenuItem>Sign Up</MenuItem></Link>   
+          <Link to="/user_scores" style={{ textDecoration:'none'}}><MenuItem>Mes Scores</MenuItem></Link>  
            </Menu>
 	  </Grid>
         </Toolbar>

@@ -14,11 +14,16 @@ const QuizResult = (props) => {
     })
 
     const handleScoreSubmit = async () => {
-	setQuizScoreForm({username:"test",quiz_name:props.changeQuiz.name,quiz_score:score + "/" + props.quiz.questions.length});
+	//setQuizScoreForm({username:"marc.antoine.lebourgeois@gmail.com",quiz_name:props.changeQuiz.name,quiz_score:score + "/" + props.quiz.questions.length});
 	const envoi1 = await fetch("https://api.balancetonphilosophe.com/add_quiz_score",{method:'POST',headers:{"Content-type":"application/json"},body: JSON.stringify(quizScoreForm)})
 	const retour1 = await envoi1.json();
 	console.log(quizScoreForm);
     }
+
+	React.useEffect(() => {
+	
+	setQuizScoreForm({username:"marc.antoine.lebourgeois@gmail.com",quiz_name:props.changeQuiz.name,quiz_score:score + "/" + props.quiz.questions.length});
+	},[])
 
     return(
         <>

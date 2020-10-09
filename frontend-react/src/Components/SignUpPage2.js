@@ -8,26 +8,31 @@ import BottomBar from "./BottomBar"
 import { useHistory } from "react-router-dom";
 
 const SignUpPage = (props) => {
+	const [fields, handleFieldChange] = useState({
+	    'email': "",
+	    'password': "",
+	    'confirmPassword': "",
+	    'confirmationCode': "",
+	  });
 	  const history = useHistory();
 	  const [newUser, setNewUser] = useState(null);
 	  function validateForm() {
 		      return (
-			            props.fields.email.length > 0 &&
-			            props.fields.password.length > 0 &&
-			            props.fields.password === props.fields.confirmPassword
+			            fields.email.length > 0 &&
+			            fields.password.length > 0 &&
+			            fields.password === fields.confirmPassword
 			          );
-		  props.setUser({user:props.fields.email})
 		    }
 
 	  function validateConfirmationForm() {
-		      return props.fields.confirmationCode.length > 0;
+		      return fields.confirmationCode.length > 0;
 		    }
 
 async function handleSubmit(event) {
 	  event.preventDefault();
 		      const newUser = await Auth.signUp({
-			            username: props.fields.email,
-			            password: props.fields.password,
+			            username: fields.email,
+			            password: fields.password,
 			          });
 		      setNewUser(newUser);
 
@@ -37,8 +42,8 @@ async function handleSubmit(event) {
 async function handleConfirmationSubmit(event) {
 	  event.preventDefault();
 	  try {
-		      await Auth.confirmSignUp(props.fields.email, props.fields.confirmationCode);
-		      await Auth.signIn(props.fields.email, props.fields.password);
+		      await Auth.confirmSignUp(fields.email, fields.confirmationCode);
+		      await Auth.signIn(fields.email, fields.password);
 		      history.push("/");
 		      props.setIsAuthenticated(true);
 
@@ -50,8 +55,8 @@ async function handleConfirmationSubmit(event) {
 		            <form onSubmit={handleConfirmationSubmit}>
 		      		<Grid container direction="column" justify="center" alignItems="center">      
 					<TextField 
-		      				value={props.fields.confirmationCode}
-		      				onChange={e => {props.handleFieldChange({...props.fields,confirmationCode:e.target.value})}}
+		      				value={fields.confirmationCode}
+		      				onChange={e => {handleFieldChange({...fields,confirmationCode:e.target.value})}}
 		      				placeholder="Confirmation Code"
 		      				label="Confirmation Code"
 		      				style={{width:300}}
@@ -67,22 +72,22 @@ async function handleConfirmationSubmit(event) {
 			            <form onSubmit={handleSubmit}>
 					<Grid container direction="column" justify="center" alignItems="center">
 					<TextField 
-		      				value={props.fields.email}
-		      				onChange={e => {props.handleFieldChange({...props.fields,email:e.target.value})}}
+		      				value={fields.email}
+		      				onChange={e => {handleFieldChange({...fields,email:e.target.value})}}
 			      			placeholder="Email"
 		      				label="Email"
 		      				style={{width:300}}
 		      				variant="outlined"/>
 					<TextField 
-		      				value={props.fields.password}
-		      				onChange={e => {props.handleFieldChange({...props.fields,password:e.target.value})}}
+		      				value={fields.password}
+		      				onChange={e => {handleFieldChange({...fields,password:e.target.value})}}
 			      			placeholder="Password"
 		      				label="Password"
 		      				style={{width:300}}
 		      				variant="outlined"/>
 					<TextField 
-		      				value={props.fields.confirmPassword}
-		      				onChange={e => {props.handleFieldChange({...props.fields,confirmPassword:e.target.value})}}
+		      				value={fields.confirmPassword}
+		      				onChange={e => {handleFieldChange({...fields,confirmPassword:e.target.value})}}
 		      				placeholder="confirmation Password"
 		      				label="confirmation Password"
 		      				style={{width:300}}

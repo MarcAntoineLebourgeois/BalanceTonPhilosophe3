@@ -11,6 +11,7 @@ import RatingPage from "./Components/RatingPage"
 import PhilosophePage from "./Components/PhilosophePage"
 import ThemePage from "./Components/ThemePage"
 import DissertPage from "./Components/DissertPage"
+import UserQuizPage from "./Components/Quiz Components/UserQuizPage"
 import { createMuiTheme, MuiThemeProvider,responsiveFontSizes } from '@material-ui/core/styles';
 import ListDictsPhilosophers from "./Data/ListDictsPhilosophers"
 
@@ -91,6 +92,14 @@ const FuncShowRatingForm = () => {setShowRatingForm(!showRatingForm)};
 
 //Login Session
 const [isAuthenticated,setIsAuthenticated] = useState(false)
+const [user,setUser] = useState({user:"test"})
+const [fields, handleFieldChange] = useState({
+	"email":"",
+	"password":"",
+	"confirmPassqord":"",
+	"confirmationCode":""
+})
+console.log(user)
 
 return (
 <MuiThemeProvider theme={Maintheme} >
@@ -102,23 +111,38 @@ return (
 				<Redirect to="/home" /> 
 			</Route>
 			
-			<Route exact path='/home' render={() => ( <HomePage /> )}/>
+			<Route exact path='/home' render={() => ( <HomePage 
+				user={user}
+				setUser={setUser}
+				/> )}/>
 			
 			<Route exact path='/signup' render={() => ( 
 				<SignUpPage
+					user={user}
+					setUser={setUser}
+					fields={fields}
+					handleFieldChange={handleFieldChange}
 					isAuthenticated={isAuthenticated}
 					setIsAuthenticated={setIsAuthenticated}
 				/> )}/>
 			
+			<Route exact path='/user_scores' render={() => ( 
+				<UserQuizPage user={user} setUser={setUser}
+				/> )}/>
+		
 			<Route exact path='/login' render={() => ( 
 				<LoginPage
+					user={user}
+					setUser={setUser}
 					isAuthenticated={isAuthenticated}
 					setIsAuthenticated={setIsAuthenticated}
 				/> )}/>
 			
 			<Route exact path={["/dissertation", "/philosophe", "/theme","/quiz"]}
 				render={() => (
-				<SelectionPage 
+				<SelectionPage
+					user={user}
+					setUser={setUser}
 					FuncShowRatingForm={FuncShowRatingForm}
 					reinitForm={reinitForm} 
 					handleSubmit = {handleSubmit}
@@ -137,6 +161,8 @@ return (
 					path={route.route}
 					render={() => (
 					<PhilosophePage
+						setUser={setUser}
+						user={user}
 						responseDicts={route}
 						FuncShowRatingForm={FuncShowRatingForm}
 						reinitForm={reinitForm} 
@@ -148,6 +174,8 @@ return (
 		
 			<Route exact path={'/theme/:theme/:philosophe'} render={() => (
 					<PhilosophePage
+						user={user}
+						setUser={setUser}
 						responseDicts={responseDicts}
 						FuncShowRatingForm={FuncShowRatingForm}
 						reinitForm={reinitForm} 
@@ -160,6 +188,8 @@ return (
 			render={(props) => (
 			<ThemePage
 				{...props}
+				user={user}
+				setUser={setUser}
 				FuncShowRatingForm={FuncShowRatingForm}
 				reinitForm={reinitForm} 
 				ChangeResponseDicts={ChangeResponseDicts} 
@@ -179,6 +209,8 @@ return (
 			render={(props) => (
 			<DissertPage
 				{...props}
+				user={user}
+				setUser={setUser}
 				FuncShowRatingForm={FuncShowRatingForm}
 				reinitForm={reinitForm} 
 				ChangeResponseDicts={ChangeResponseDicts} 
@@ -199,6 +231,8 @@ return (
 			<Route path='/quiz/:theme'render={(props)=>(
 			<QuizPage
 				{...props}
+				user={user}
+				setUser={setUser}
 				FuncShowRatingForm={FuncShowRatingForm}
 				reinitForm={reinitForm} 
 				ChangeResponseDicts={ChangeResponseDicts} 

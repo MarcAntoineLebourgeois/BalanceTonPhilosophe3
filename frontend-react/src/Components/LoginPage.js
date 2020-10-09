@@ -18,7 +18,8 @@ const LoginPage = (props) => {
 
 		  try {
 			await Auth.signIn(email, password);
-			props.setIsAuthenticated(true)	    
+			props.setIsAuthenticated(true)	   
+			props.setUser({user:email})  
 		  } 
 		  catch (e) {alert(e.message)}
 	}
