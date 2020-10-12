@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import { Grid,Toolbar,Typography,IconButton,MenuItem,Menu,Button } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
-
+import { Auth } from "aws-amplify";
 
 const AppBarFront = (props) => {
 
@@ -10,7 +10,10 @@ const AppBarFront = (props) => {
   const open = Boolean(anchorEl);
   const handleMenu = event => {setAnchorEl(event.currentTarget)};
   const handleClose = () => {setAnchorEl(null)};
-
+  const handleLogout = async () => {
+	await Auth.signOut();
+	props.setIsAuthenticated(false);
+  }
   return (
     <Grid>
         <Toolbar >
@@ -26,7 +29,7 @@ const AppBarFront = (props) => {
                pour trouver les sources a tes disserts !
             </Typography>
           </Grid>
-          
+  
 	  <IconButton
               aria-label="account of current user"
               aria-controls="menu-appbar"
@@ -55,7 +58,10 @@ const AppBarFront = (props) => {
 	  </>
 	  }
 	  {props.isAuthenticated === true &&
-	  <Link to="/user_scores" style={{ textDecoration:'none'}}><MenuItem>Mes Scores</MenuItem></Link>  
+	  <>		  
+	  	<Link to="/user_scores" style={{ textDecoration:'none'}}><MenuItem>Mes Scores</MenuItem></Link>  
+	  	<Link to="/home" onClick={() => handleLogout()} style={{ textDecoration:'none'}}><MenuItem>Log Out</MenuItem></Link>  
+	  </>
 	  } 
 		</Menu>
         </Toolbar>
