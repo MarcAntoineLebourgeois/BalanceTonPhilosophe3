@@ -6,8 +6,19 @@ import AppBarFront from "./AppBar"
 import SelectionPanel from "./SelectionPanel"
 import BottomBar from "./BottomBar"
 import { useHistory } from "react-router-dom";
+import Loader from 'react-loader-spinner';
 
 const SignUpPage = (props) => {
+
+	const LoadingIndicator = () => {
+	    return (
+		    <div style={{ width: "100%", height: "100", display: "flex", justifyContent: "center", alignItems: "center"}}>
+		    <Loader type="ThreeDots" color="#ea8f8f" height="100" width="100" />
+		    </div>
+		      );
+	  }
+	  
+	  const [launch,setLaunch] = useState(false)
 	  const history = useHistory();
 	  const [newUser, setNewUser] = useState(null);
 	  function validateForm() {
@@ -25,31 +36,33 @@ const SignUpPage = (props) => {
 
 async function handleSubmit(event) {
 	  event.preventDefault();
+	  setLaunch(true)
 		      const newUser = await Auth.signUp({
 			            username: props.fields.email,
 			            password: props.fields.password,
 			          });
 		      setNewUser(newUser);
-
+	  setLaunch(false)
 	  }
 
 
 async function handleConfirmationSubmit(event) {
 	  event.preventDefault();
 	  try {
+		      setLaunch(true)
 		      await Auth.confirmSignUp(props.fields.email, props.fields.confirmationCode);
 		      await Auth.signIn(props.fields.email, props.fields.password);
+		      setLaunch(false)
 		      history.push("/");
 		      props.setIsAuthenticated(true);
-
-		    } catch (e) {console.log(e)
-			      }
+		    } catch (e) {alert(e)}
 }
   function renderConfirmationForm() {
 	      return (
 		            <form onSubmit={handleConfirmationSubmit}>
 		      		<Grid container direction="column" justify="center" alignItems="center">      
-					<TextField 
+		      			{launch? <LoadingIndicator/> : <></>}
+		      			<TextField 
 		      				value={props.fields.confirmationCode}
 		      				onChange={e => {props.handleFieldChange({...props.fields,confirmationCode:e.target.value})}}
 		      				placeholder="Confirmation Code"
@@ -66,7 +79,8 @@ async function handleConfirmationSubmit(event) {
 		      return (
 			            <form onSubmit={handleSubmit}>
 					<Grid container direction="column" justify="center" alignItems="center">
-					<TextField 
+					{launch? <LoadingIndicator/> : <></>}
+			      		<TextField 
 		      				value={props.fields.email}
 		      				onChange={e => {props.handleFieldChange({...props.fields,email:e.target.value})}}
 			      			placeholder="Email"
