@@ -1,14 +1,12 @@
 import React from "react";
 import "../styles.css";
 import {Grid} from "@material-ui/core";
-
 import AppBarFront from "./AppBar"
 import SelectionPanel from "./SelectionPanel"
 import ThreeBlocks from "./ThreeBlocks"
 import BottomBar from "./BottomBar"
 
 const HomePage = (props) => {
-
 	return(
 
 	<>
