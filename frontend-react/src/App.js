@@ -88,7 +88,6 @@ const handleSubmit = async () => {
 
 //Formulaire de rating
 const [showRatingForm,setShowRatingForm] = useState(false)
-const FuncShowRatingForm = () => {setShowRatingForm(!showRatingForm)};
 
 //Login Session
 const [isAuthenticated,setIsAuthenticated] = useState(false)
@@ -114,6 +113,8 @@ return (
 			<Route exact path='/home' render={() => ( <HomePage 
 				user={user}
 				setUser={setUser}
+					isAuthenticated={isAuthenticated}
+					setIsAuthenticated={setIsAuthenticated}
 				/> )}/>
 			
 			<Route exact path='/signup' render={() => ( 
@@ -123,6 +124,7 @@ return (
 					fields={fields}
 					handleFieldChange={handleFieldChange}
 					isAuthenticated={isAuthenticated}
+					Maintheme={Maintheme}
 					setIsAuthenticated={setIsAuthenticated}
 				/> )}/>
 			
@@ -132,6 +134,7 @@ return (
 		
 			<Route exact path='/login' render={() => ( 
 				<LoginPage
+					Maintheme={Maintheme}
 					user={user}
 					setUser={setUser}
 					isAuthenticated={isAuthenticated}
@@ -143,13 +146,14 @@ return (
 				<SelectionPage
 					user={user}
 					setUser={setUser}
-					FuncShowRatingForm={FuncShowRatingForm}
 					reinitForm={reinitForm} 
 					handleSubmit = {handleSubmit}
 					form = {form}
 					ChangeMots={ChangeMots}
 					setDissert={setDissert}
 					dissert={dissert}
+					isAuthenticated={isAuthenticated}
+					setIsAuthenticated={setIsAuthenticated}
 					setForm={setForm}
 				/>
 				)}/>
@@ -161,10 +165,12 @@ return (
 					path={route.route}
 					render={() => (
 					<PhilosophePage
+
+					isAuthenticated={isAuthenticated}
+					setIsAuthenticated={setIsAuthenticated}
 						setUser={setUser}
 						user={user}
 						responseDicts={route}
-						FuncShowRatingForm={FuncShowRatingForm}
 						reinitForm={reinitForm} 
 						form = {form}
 						setForm={setForm}
@@ -177,10 +183,12 @@ return (
 						user={user}
 						setUser={setUser}
 						responseDicts={responseDicts}
-						FuncShowRatingForm={FuncShowRatingForm}
 						reinitForm={reinitForm} 
 						form = {form}
 						setForm={setForm}
+
+					isAuthenticated={isAuthenticated}
+					setIsAuthenticated={setIsAuthenticated}
 					/>)}
 					/>
 
@@ -190,7 +198,6 @@ return (
 				{...props}
 				user={user}
 				setUser={setUser}
-				FuncShowRatingForm={FuncShowRatingForm}
 				reinitForm={reinitForm} 
 				ChangeResponseDicts={ChangeResponseDicts} 
 				handleSubmit = {handleSubmit}
@@ -202,6 +209,9 @@ return (
 				responseDicts={responseDicts}
 				launch={launch}
 				setLaunch={setLaunch}
+
+					isAuthenticated={isAuthenticated}
+					setIsAuthenticated={setIsAuthenticated}
 				/>
 			)}/>
 			
@@ -211,7 +221,6 @@ return (
 				{...props}
 				user={user}
 				setUser={setUser}
-				FuncShowRatingForm={FuncShowRatingForm}
 				reinitForm={reinitForm} 
 				ChangeResponseDicts={ChangeResponseDicts} 
 				handleSubmit = {handleSubmit}
@@ -225,6 +234,9 @@ return (
 				responseDicts={responseDicts}
 				launch={launch}
 				setLaunch={setLaunch}
+
+					isAuthenticated={isAuthenticated}
+					setIsAuthenticated={setIsAuthenticated}
 			/>
 			)}/>
 				
@@ -233,7 +245,6 @@ return (
 				{...props}
 				user={user}
 				setUser={setUser}
-				FuncShowRatingForm={FuncShowRatingForm}
 				reinitForm={reinitForm} 
 				ChangeResponseDicts={ChangeResponseDicts} 
 				handleSubmit = {handleSubmit}
@@ -245,10 +256,13 @@ return (
 				responseDicts={responseDicts}
 				launch={launch}
 				setLaunch={setLaunch}
+
+					isAuthenticated={isAuthenticated}
+					setIsAuthenticated={setIsAuthenticated}
 				/>
 			)}/>
 
-			<Route exact path='/rating' render={()=> <RatingPage FuncShowRatingForm={FuncShowRatingForm}/> }/>
+			<Route exact path='/rating' render={()=> <RatingPage/> }/>
 
 		</Switch>
 	</Router> 

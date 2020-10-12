@@ -41,7 +41,7 @@ const LoginPage = (props) => {
 			props.setUser({user:email})  
 			setLaunch(false) 	
 			setLaunchSnackBar(true)  
-			//history.push("/")  
+		//	history.push("/")  
 		  } 
 		  catch (e) {alert(e.message)}
 	}
