@@ -46,11 +46,18 @@ const AppBarFront = (props) => {
               onClose={handleClose}
             >
               <MenuItem onClick={props.DarkModeOn}>Dark/Light Mode</MenuItem>
+
           <Link to="/rating" style={{ textDecoration: 'none' }}><MenuItem>Give me a feedback</MenuItem></Link>
-          <Link to="/login" style={{ textDecoration:'none'}}><MenuItem>Login</MenuItem></Link>  
-          <Link to="/signup" style={{ textDecoration:'none'}}><MenuItem>Sign Up</MenuItem></Link>   
-          <Link to="/user_scores" style={{ textDecoration:'none'}}><MenuItem>Mes Scores</MenuItem></Link>  
-           </Menu>
+	  {props.isAuthenticated === false &&        
+	  <>
+		<Link to="/login" style={{ textDecoration:'none'}}><MenuItem>Login</MenuItem></Link>  
+          	<Link to="/signup" style={{ textDecoration:'none'}}><MenuItem>Sign Up</MenuItem></Link>   
+	  </>
+	  }
+	  {props.isAuthenticated === true &&
+	  <Link to="/user_scores" style={{ textDecoration:'none'}}><MenuItem>Mes Scores</MenuItem></Link>  
+	  } 
+		</Menu>
         </Toolbar>
     </Grid>
   );
