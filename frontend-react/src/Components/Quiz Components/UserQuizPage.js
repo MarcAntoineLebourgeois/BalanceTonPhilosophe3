@@ -6,15 +6,26 @@ import SelectionPanel from "../SelectionPanel"
 import BottomBar from "../BottomBar"
 import Quiz from "./Quiz"
 import listQuiz from "../../Data/ListQuiz"
-
+import Loader from 'react-loader-spinner';
 
 const UserQuizPage = (props) => {
-	console.log(props.user)	
+	const [launch,setLaunch] = useState(false)
+	const LoadingIndicator = () => {
+		      return (
+			      <div style={{ width: "100%", height: "100", display: "flex", justifyContent: "center", alignItems: "center"}}>
+			      <Loader type="ThreeDots" color="#ea8f8f" height="100" width="100" />
+			      </div>
+			        );
+		    }
+
+
 	const [response,setResponse] = useState([])
 	const handleFormSubmit = async () => {
-	const envoi1 = await fetch("https://api.balancetonphilosophe.com/user_scores", {method:'POST', headers:{"Content-type":"application/json"},body: JSON.stringify(props.user)});
-	const retour1 = await envoi1.json();
-	setResponse(retour1)
+		setLaunch(true)
+		const envoi1 = await fetch("https://api.balancetonphilosophe.com/user_scores", {method:'POST', headers:{"Content-type":"application/json"},body: JSON.stringify(props.user)});
+		const retour1 = await envoi1.json();
+		setResponse(retour1)
+		setLaunch(false)
 	}
 
 	React.useEffect (()=> {
@@ -27,6 +38,7 @@ const UserQuizPage = (props) => {
         <AppBarFront {...props}/>
         <SelectionPanel {...props}/>
       </Grid>
+	{launch? <LoadingIndicator/> : <></>}
 	{response.length > 0 &&
 	<TableContainer component={Paper}>
 	<Table aria-label="simple table">
