@@ -5,25 +5,39 @@ import { Auth } from "aws-amplify";
 import AppBarFront from "./AppBar"
 import SelectionPanel from "./SelectionPanel"
 import BottomBar from "./BottomBar"
+import Loader from 'react-loader-spinner';
+import { useHistory } from "react-router-dom";
 
 const LoginPage = (props) => {
+
+  const LoadingIndicator = () => {
+	      return (
+		      <div style={{ width: "100%", height: "100", display: "flex", justifyContent: "center", alignItems: "center"}}>
+		      <Loader type="ThreeDots" color="#ea8f8f" height="100" width="100" />
+		      </div>
+		        );
+	    }
+	const history = useHistory();	
 	const [email,setEmail] = useState('')
 	const [password,setPassword] = useState('')
+	const [launch, setLaunch] = useState(false)
   	function validateForm() {
 	      return email.length > 0 && password.length > 0;
 	    }
 
 	async function handleSubmit(event) {
 		  event.preventDefault();
-
+		
 		  try {
+			setLaunch(true)
 			await Auth.signIn(email, password);
 			props.setIsAuthenticated(true)	   
 			props.setUser({user:email})  
+			setLaunch(false) 
+			history.push("/")  
 		  } 
 		  catch (e) {alert(e.message)}
 	}
-
 
 
 	return(
@@ -57,6 +71,7 @@ const LoginPage = (props) => {
 		<Button disabled={!validateForm()} type="submit">Login</Button>
 		</>
 	}
+	{launch? <LoadingIndicator/> :<></>}
 	</Grid>
 	</form>
 	  <BottomBar/> 

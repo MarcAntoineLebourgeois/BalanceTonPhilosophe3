@@ -23,7 +23,11 @@ const DissertPage = (props) => {
   );  
   }
 
-  const handleSubmit = async () =>  {
+useEffect(()=>{
+    trackPromise(handleSubmit());
+	},[props.setDissert])
+
+const handleSubmit = async () =>  {
 
     const envoi1 = await fetch("https://api.balancetonphilosophe.com/SujetDissertation",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify(props.match.params.dissert)})
     const retour1 = await envoi1.json();
@@ -41,11 +45,6 @@ const DissertPage = (props) => {
 	useEffect(()=>{
 		props.setDissert(props.match.params.dissert);
 	},[])
-
-	useEffect(()=>{
-    trackPromise(handleSubmit());
-	},[props.setDissert])
-
 
   if (props.launch){
     trackPromise(fetchdata());
