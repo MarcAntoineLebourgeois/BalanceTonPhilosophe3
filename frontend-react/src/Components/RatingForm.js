@@ -25,8 +25,6 @@ const RatingForm = (props) => {
 	
 	const SendRatingForm = () => {
     fetch("https://api.balancetonphilosophe.com/add_rating",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify({"formRating":formRating})});
-    props.FuncShowRatingForm();
-	console.log(formRating);
   }
 
   return (

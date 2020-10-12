@@ -21,8 +21,7 @@ const QuizResult = (props) => {
     }
 
 	React.useEffect(() => {
-	
-	setQuizScoreForm({username:"marc.antoine.lebourgeois@gmail.com",quiz_name:props.changeQuiz.name,quiz_score:score + "/" + props.quiz.questions.length});
+	setQuizScoreForm({username:props.user.user,quiz_name:props.changeQuiz.name,quiz_score:score + "/" + props.quiz.questions.length});
 	},[])
 
     return(

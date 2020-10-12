@@ -27,7 +27,6 @@ const AppBarFront = (props) => {
             </Typography>
           </Grid>
           
-          <Grid container direction="row" justify="flex-end" alignItems="flex-end">
 	  <IconButton
               aria-label="account of current user"
               aria-controls="menu-appbar"
@@ -47,14 +46,11 @@ const AppBarFront = (props) => {
               onClose={handleClose}
             >
               <MenuItem onClick={props.DarkModeOn}>Dark/Light Mode</MenuItem>
-            <Link to="/rating" style={{ textDecoration: 'none' }}>
-              <MenuItem onClick={props.FuncShowRatingForm}>Note moi!</MenuItem>
-            </Link>
+          <Link to="/rating" style={{ textDecoration: 'none' }}><MenuItem>Give me a feedback</MenuItem></Link>
           <Link to="/login" style={{ textDecoration:'none'}}><MenuItem>Login</MenuItem></Link>  
           <Link to="/signup" style={{ textDecoration:'none'}}><MenuItem>Sign Up</MenuItem></Link>   
           <Link to="/user_scores" style={{ textDecoration:'none'}}><MenuItem>Mes Scores</MenuItem></Link>  
            </Menu>
-	  </Grid>
         </Toolbar>
     </Grid>
   );
