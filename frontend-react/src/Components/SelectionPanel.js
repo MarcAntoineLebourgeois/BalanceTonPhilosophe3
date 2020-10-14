@@ -49,11 +49,11 @@ const SelectionPanel = (props) => {
 	  <Route path='/quiz' render={()=> <InputQuiz {...props} />} />
 
     <Route path='/home' component={()=>
-        <Grid container item  direction="column" alignItems="center" align="justify" >
+        <Grid container item  direction="column" alignItems="center" >
           <p></p>
           <Typography variant="h5" style={{color: '#551A8B'}}> Bienvenue sur BalanceTonPhilosophe!</Typography>
           <p></p>
-          <Grid>
+          <Grid item style={{width:"80%",textAlign:"center"}} >
           <Typography variant="subtitle1" > 
             BTP est un outil pour trouver les sources a tes dissertations.
           </Typography>
