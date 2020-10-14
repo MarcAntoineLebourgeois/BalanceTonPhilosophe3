@@ -73,6 +73,7 @@ const LoginPage = (props) => {
 			onChange={e => setPassword(e.target.value)}  
 			placeholder="Password"
 			label="Password"
+			type="password"
 			style={{width:300}}
 			variant="outlined"/>
 		<Button disabled={!validateForm()} type="submit">Login</Button>

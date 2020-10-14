@@ -96,7 +96,8 @@ async function handleConfirmationSubmit(event) {
 		      				onChange={e => {props.handleFieldChange({...props.fields,password:e.target.value})}}
 			      			placeholder="Password"
 		      				label="Password"
-		      				style={{width:300}}
+		      				type="password"
+			      			style={{width:300}}
 		      				variant="outlined"/>
 					<TextField 
 		      				value={props.fields.confirmPassword}
@@ -104,6 +105,7 @@ async function handleConfirmationSubmit(event) {
 		      				placeholder="confirmation Password"
 		      				label="confirmation Password"
 		      				style={{width:300}}
+		      				type="password"
 		      				variant="outlined"/>
 
 		      			<Button type="submit">Sign Up</Button>
