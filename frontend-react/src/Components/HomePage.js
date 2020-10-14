@@ -5,8 +5,10 @@ import AppBarFront from "./AppBar"
 import SelectionPanel from "./SelectionPanel"
 import ThreeBlocks from "./ThreeBlocks"
 import BottomBar from "./BottomBar"
+import SnackBar from "./snackBar";
 
 const HomePage = (props) => {
+
 	return(
 
 	<>
@@ -14,6 +16,7 @@ const HomePage = (props) => {
       <AppBarFront {...props} />
       <SelectionPanel {...props}  />
     </Grid>
+	{props.launchSnackBar? <SnackBar {...props} contentText={props.snackbarMessage} open={props.launchSnackBar} setOpen={props.setLaunchSnackBar}/> :<></>}
 	  <ThreeBlocks {...props} />
 	  <BottomBar/> 
 	</>  

@@ -7,7 +7,7 @@ import SelectionPanel from "./SelectionPanel"
 import BottomBar from "./BottomBar"
 import Loader from 'react-loader-spinner';
 import { useHistory } from "react-router-dom";
-import SnackBar from "./snackBar";
+
 
 const LoginPage = (props) => {
 
@@ -18,9 +18,6 @@ const LoginPage = (props) => {
 		      </div>
 		        );
 	    }
-
-	const [open,setOpen] = useState(true)
-	const [launchSnackBar,setLaunchSnackBar] = useState(false)
 	
 	const history = useHistory();	
 	const [email,setEmail] = useState('')
@@ -40,8 +37,10 @@ const LoginPage = (props) => {
 			props.setIsAuthenticated(true)	   
 			props.setUser({user:email})  
 			setLaunch(false) 	
-			setLaunchSnackBar(true)  
-		//	history.push("/")  
+
+			history.push("/")  
+			props.setLaunchSnackBar(true)
+    		props.setSnackbarMessage("Logged in!")
 		  } 
 		  catch (e) {alert(e.message)}
 	}
@@ -68,7 +67,7 @@ const LoginPage = (props) => {
 			label="Email"
 			style={{width:300}}
 			variant="outlined"/>
-	        <TextField 
+	    <TextField 
 			value={password} 
 			onChange={e => setPassword(e.target.value)}  
 			placeholder="Password"
@@ -83,7 +82,6 @@ const LoginPage = (props) => {
 	</Grid>
 	</form>
 
-	{launchSnackBar? <SnackBar {...props} contentText={"Logged in!"} open={open} setOpen={setOpen}/> :<></>}
 	  <BottomBar/> 
 	</>  
 		  )

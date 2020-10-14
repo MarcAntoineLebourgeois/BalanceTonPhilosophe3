@@ -7,7 +7,6 @@ import SelectionPanel from "./SelectionPanel"
 import BottomBar from "./BottomBar"
 import { useHistory } from "react-router-dom";
 import Loader from 'react-loader-spinner';
-import SnackBar from "./snackBar";
 
 const SignUpPage = (props) => {
 
@@ -30,7 +29,7 @@ const SignUpPage = (props) => {
 			            props.fields.password.length > 0 &&
 			            props.fields.password === props.fields.confirmPassword
 			          );
-		  props.setUser({user:props.fields.email})
+		  	props.setUser({user:props.fields.email})
 		    }
 
 	  function validateConfirmationForm() {
@@ -56,9 +55,10 @@ async function handleConfirmationSubmit(event) {
 		      await Auth.confirmSignUp(props.fields.email, props.fields.confirmationCode);
 		      await Auth.signIn(props.fields.email, props.fields.password);
 		      setLaunch(false)
-	//	      history.push("/");
+		      history.push("/");
 		      props.setIsAuthenticated(true);
-		      setLaunchSnackBar(true)		    
+			  props.setLaunchSnackBar(true)
+			  props.setSnackbarMessage("Welcome " + props.fields.email + " !")	    
 	  } catch (e) {alert(e)}
 }
   function renderConfirmationForm() {
@@ -125,7 +125,6 @@ async function handleConfirmationSubmit(event) {
 	 
 	<Grid container direction="column" justify="center" alignItems="center">
 		 {newUser === null ? renderForm() : renderConfirmationForm()}
-	      {launchSnackBar? <SnackBar {...props} contentText={"Signed up!"} open={open} setOpen={setOpen}/>:<></>}
 	</Grid>
 	  <BottomBar/> 
 	</>  
