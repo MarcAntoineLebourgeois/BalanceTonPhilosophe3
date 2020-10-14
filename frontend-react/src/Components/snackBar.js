@@ -10,11 +10,8 @@ const SimpleSnackbar = (props) => {
 
 	  useEffect ( () => {
 		
-		async function test() {	
+		//setTimeout(() => {props.setOpen(false)},3000)
 		
-		 await history.push("/")  
-		 await  setTimeout(() => {props.setOpen(false)},1000)
-		}
 	  },[props.open])
 
 	  return (
@@ -22,7 +19,8 @@ const SimpleSnackbar = (props) => {
 		        <Snackbar
 		          anchorOrigin={{ vertical: "bottom",horizontal: "left" }}
 		          open={props.open}
-		          onClose={handleClose}
+				  onClose={handleClose}
+				  autoHideDuration={3000}
 		        >
 		    <SnackbarContent style={{backgroundColor: props.Maintheme.palette.primary.main }}
 		      message={props.contentText}

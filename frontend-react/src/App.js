@@ -98,7 +98,10 @@ const [fields, handleFieldChange] = useState({
 	"confirmPassqord":"",
 	"confirmationCode":""
 })
-console.log(user)
+
+//SnackBar
+const [snackbarMessage,setSnackbarMessage] = useState("")
+const [launchSnackBar,setLaunchSnackBar] = useState(false)
 
 return (
 <MuiThemeProvider theme={Maintheme} >
@@ -113,8 +116,14 @@ return (
 			<Route exact path='/home' render={() => ( <HomePage 
 				user={user}
 				setUser={setUser}
-					isAuthenticated={isAuthenticated}
-					setIsAuthenticated={setIsAuthenticated}
+				snackbarMessage={snackbarMessage}
+				isAuthenticated={isAuthenticated}
+				setIsAuthenticated={setIsAuthenticated}
+				snackbarMessage={snackbarMessage}
+				setSnackbarMessage={setSnackbarMessage}
+				launchSnackBar={launchSnackBar}
+				setLaunchSnackBar={setLaunchSnackBar}
+				Maintheme={Maintheme}
 				/> )}/>
 			
 			<Route exact path='/signup' render={() => ( 
@@ -126,10 +135,18 @@ return (
 					isAuthenticated={isAuthenticated}
 					Maintheme={Maintheme}
 					setIsAuthenticated={setIsAuthenticated}
+					setSnackbarMessage={setSnackbarMessage}
+					launchSnackBar={launchSnackBar}
+					setLaunchSnackBar={setLaunchSnackBar}
 				/> )}/>
 			
 			<Route exact path='/user_scores' render={() => ( 
-				<UserQuizPage user={user} setUser={setUser}
+				<UserQuizPage 
+				user={user} 
+				setUser={setUser}
+				setSnackbarMessage={setSnackbarMessage}
+				launchSnackBar={launchSnackBar}
+				setLaunchSnackBar={setLaunchSnackBar}
 				/> )}/>
 		
 			<Route exact path='/login' render={() => ( 
@@ -139,6 +156,9 @@ return (
 					setUser={setUser}
 					isAuthenticated={isAuthenticated}
 					setIsAuthenticated={setIsAuthenticated}
+					setSnackbarMessage={setSnackbarMessage}
+					launchSnackBar={launchSnackBar}
+					setLaunchSnackBar={setLaunchSnackBar}
 				/> )}/>
 			
 			<Route exact path={["/dissertation", "/philosophe", "/theme","/quiz"]}
@@ -155,6 +175,9 @@ return (
 					isAuthenticated={isAuthenticated}
 					setIsAuthenticated={setIsAuthenticated}
 					setForm={setForm}
+					setSnackbarMessage={setSnackbarMessage}
+					launchSnackBar={launchSnackBar}
+					setLaunchSnackBar={setLaunchSnackBar}
 				/>
 				)}/>
 
@@ -174,6 +197,9 @@ return (
 						reinitForm={reinitForm} 
 						form = {form}
 						setForm={setForm}
+						setSnackbarMessage={setSnackbarMessage}
+						launchSnackBar={launchSnackBar}
+						setLaunchSnackBar={setLaunchSnackBar}
 					/>
 					)}/>
 				))}
@@ -186,9 +212,11 @@ return (
 						reinitForm={reinitForm} 
 						form = {form}
 						setForm={setForm}
-
-					isAuthenticated={isAuthenticated}
-					setIsAuthenticated={setIsAuthenticated}
+						setSnackbarMessage={setSnackbarMessage}
+						isAuthenticated={isAuthenticated}
+						setIsAuthenticated={setIsAuthenticated}
+						launchSnackBar={launchSnackBar}
+						setLaunchSnackBar={setLaunchSnackBar}
 					/>)}
 					/>
 
@@ -209,9 +237,11 @@ return (
 				responseDicts={responseDicts}
 				launch={launch}
 				setLaunch={setLaunch}
-
-					isAuthenticated={isAuthenticated}
-					setIsAuthenticated={setIsAuthenticated}
+				setSnackbarMessage={setSnackbarMessage}
+				isAuthenticated={isAuthenticated}
+				setIsAuthenticated={setIsAuthenticated}
+				launchSnackBar={launchSnackBar}
+				setLaunchSnackBar={setLaunchSnackBar}
 				/>
 			)}/>
 			
@@ -234,9 +264,11 @@ return (
 				responseDicts={responseDicts}
 				launch={launch}
 				setLaunch={setLaunch}
-
-					isAuthenticated={isAuthenticated}
-					setIsAuthenticated={setIsAuthenticated}
+				setSnackbarMessage={setSnackbarMessage}
+				isAuthenticated={isAuthenticated}
+				setIsAuthenticated={setIsAuthenticated}
+				launchSnackBar={launchSnackBar}
+				setLaunchSnackBar={setLaunchSnackBar}
 			/>
 			)}/>
 				
@@ -256,9 +288,11 @@ return (
 				responseDicts={responseDicts}
 				launch={launch}
 				setLaunch={setLaunch}
-
-					isAuthenticated={isAuthenticated}
-					setIsAuthenticated={setIsAuthenticated}
+				setSnackbarMessage={setSnackbarMessage}
+				isAuthenticated={isAuthenticated}
+				setIsAuthenticated={setIsAuthenticated}
+				launchSnackBar={launchSnackBar}
+				setLaunchSnackBar={setLaunchSnackBar}
 				/>
 			)}/>
 

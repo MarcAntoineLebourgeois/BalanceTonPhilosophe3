@@ -4,6 +4,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import { Auth } from "aws-amplify";
 
+
 const AppBarFront = (props) => {
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -11,8 +12,10 @@ const AppBarFront = (props) => {
   const handleMenu = event => {setAnchorEl(event.currentTarget)};
   const handleClose = () => {setAnchorEl(null)};
   const handleLogout = async () => {
-	await Auth.signOut();
-	props.setIsAuthenticated(false);
+    await Auth.signOut();
+    props.setIsAuthenticated(false);
+    props.setLaunchSnackBar(true)
+    props.setSnackbarMessage("Logged out!")
   }
   return (
     <Grid>
@@ -65,6 +68,8 @@ const AppBarFront = (props) => {
 	  } 
 		</Menu>
         </Toolbar>
+
+
     </Grid>
   );
 }

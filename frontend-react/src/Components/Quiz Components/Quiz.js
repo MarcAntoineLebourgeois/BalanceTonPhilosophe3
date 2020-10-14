@@ -22,7 +22,7 @@ const Quiz = (props) => {
             {mode === 'submit' && <QuizResult {...props} changeQuiz={changeQuiz} />} 
             <Grid container direction="row" justify="center" alignItems="center">
                 <Button type="submit" variant="outlined" color="primary" className={classes.button} onClick={() => setMode('submit')}>
-                    Soumettre le quiz
+                    envoyer le quiz
                 </Button>
             </Grid> 
             <p></p>              
