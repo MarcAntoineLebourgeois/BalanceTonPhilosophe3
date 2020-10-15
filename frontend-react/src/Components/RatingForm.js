@@ -1,9 +1,10 @@
 import React,{useState} from "react";
 import Rating from "@material-ui/lab/Rating";
 import {Typography,Button,Icon,Grid,TextField} from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 const RatingForm = (props) => {
-	
+	const history = useHistory();
 	const [formRating, setFormRating] = useState(
       { 
         username: "",
@@ -23,9 +24,12 @@ const RatingForm = (props) => {
 	const Changebugs = bugs => {setFormRating({ ...formRating, bugs: bugs });};
 	const ChangeComment = comment => {setFormRating({ ...formRating, comment: comment });};
 	
-	const SendRatingForm = () => {
-    fetch("https://api.balancetonphilosophe.com/add_rating",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify({"formRating":formRating})});
-  }
+	const SendRatingForm = async () => {
+    await fetch("https://api.balancetonphilosophe.com/add_rating",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify({"formRating":formRating})});
+  	history.push("/");
+	await props.setLaunchSnackBar(true)
+	await props.setSnackbarMessage("Feedback envoye. Merci!")
+	}
 
   return (
     <Grid container item direction='row' alignItems="center" justify="center" 
