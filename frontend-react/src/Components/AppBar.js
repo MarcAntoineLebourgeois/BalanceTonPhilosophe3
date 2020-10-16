@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { Grid,Toolbar,Typography,IconButton,MenuItem,Menu,Button } from "@material-ui/core";
+import { SwipeableDrawer,Divider, List, ListItem, ListItemIcon, ListItemText, Grid,Toolbar,Typography,IconButton,MenuItem,Menu,Button } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import { Auth } from "aws-amplify";
@@ -8,6 +8,7 @@ import { Auth } from "aws-amplify";
 const AppBarFront = (props) => {
 
   const [anchorEl, setAnchorEl] = useState(null);
+  const [openDrawer, setOpenDrawer] = useState(true);
   const open = Boolean(anchorEl);
   const handleMenu = event => {setAnchorEl(event.currentTarget)};
   const handleClose = () => {setAnchorEl(null)};
@@ -68,7 +69,19 @@ const AppBarFront = (props) => {
 	  } 
 		</Menu>
         </Toolbar>
+	<SwipeableDrawer
+	  anchor={'right'}
+	  open={openDrawer}
+	  >
+		<List>
+			<ListItem>
+				<ListItemIcon/>
+	  			<ListItemText primary={"coucou"} />
 
+	  		</ListItem>
+
+	  	</List>
+	</SwipeableDrawer>  
 
     </Grid>
   );

@@ -148,6 +148,7 @@ return (
 				setSnackbarMessage={setSnackbarMessage}
 				launchSnackBar={launchSnackBar}
 				setLaunchSnackBar={setLaunchSnackBar}
+				isAuthenticated={isAuthenticated}
 				/> )}/>
 		
 			<Route exact path='/login' render={() => ( 
@@ -297,7 +298,8 @@ return (
 				/>
 			)}/>
 
-			<Route exact path='/rating' render={()=> <RatingPage/> }/>
+			<Route exact path='/rating' render={()=> <RatingPage	i
+				isAuthenticated={isAuthenticated} />}/>
 
 		</Switch>
 	</Router> 
