@@ -29,7 +29,7 @@ const ThreeBlocks = (props) => {
             alignItems="center" 
             justify="space-around" 
             xs={12} sm={12} md={10} lg={10} xl={10} 
-            style={{margin: "auto"}}
+            style={{margin: "auto", padding:"20px"}}
         >
         
         <Link to='/dissertation' style={{ textDecoration: 'none' }}>

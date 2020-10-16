@@ -103,7 +103,8 @@ function Footer(props) {
 			  	          </Grid>
 			  	            <Grid item xs={12} md={6} lg={4}>
 			  	              <Box display="flex" justifyContent="center">
-			  	              </Box>
+			  	              Coucou
+			  			</Box>
 			  	            </Grid>
 			  	          <Grid item xs={12} md={6} lg={4}>
 			  	            <Typography variant="h6" paragraph className="text-white">
