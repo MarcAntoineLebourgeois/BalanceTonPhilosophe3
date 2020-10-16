@@ -24,17 +24,16 @@ const ThreeBlocks = (props) => {
         <p></p>
         <Grid 
             container 
-            item
-            direction='row'
-            alignItems="center" 
-            justify="space-around" 
-            xs={12} sm={12} md={10} lg={10} xl={10} 
-            style={{margin: "auto", padding:"20px"}}
+	    item
+	    alignItems="center"
+	    justify="center"
+	    spacing={6}
+            style={{margin: "auto", width:"100%"}}
         >
         
-        <Link to='/dissertation' style={{ textDecoration: 'none' }}>
-            <Grid container item style={{width: '280px' }}>
+            <Grid item xs={10} sm={6} lg={3} style={{width: '280px' }}>
 
+        <Link to='/dissertation' style={{ textDecoration: 'none' }}>
                 <Card onClick={props.reinitForm} >
                         <CardActionArea>
                             <CardMedia className={classes.media} image={Background1} />
@@ -53,11 +52,12 @@ const ThreeBlocks = (props) => {
                         </CardActionArea>
                     </Card>
 
-            </Grid>
         </Link>
+            </Grid>
+            <Grid item xs={10} sm={6} lg={3} style={{width: '280px' }}>
+        
         <Link to='/theme' style={{ textDecoration: 'none' }}>
-            <Grid container item style={{width: '280px'}}>
-                <Card onClick={props.reinitForm} >
+		<Card onClick={props.reinitForm} >
                         <CardActionArea>
                             <CardMedia className={classes.media} image={Background2} />
                             <CardContent style={{backgroundColor: "#ea8f8f" }}>
@@ -74,11 +74,13 @@ const ThreeBlocks = (props) => {
                             </CardContent>
                         </CardActionArea>
                     </Card>                
-            </Grid>
+        
         </Link>
+	</Grid>
+            <Grid item xs={10} sm={6} lg={3} style={{width: '280px' }}>
+        
         <Link to='/philosophe' style={{ textDecoration: 'none' }}>
-            <Grid container item style={{width: '280px' }}>
-                <Card onClick={props.reinitForm} >
+	<Card onClick={props.reinitForm} >
                     <CardActionArea>
                         <CardMedia className={classes.media} image={Background3} />
                         <CardContent style={{backgroundColor: "#ea8f8f" }}>
@@ -92,11 +94,13 @@ const ThreeBlocks = (props) => {
                         </CardContent>
                     </CardActionArea>
                 </Card>  
-            </Grid>
+        
         </Link>
+	</Grid>
+            <Grid item xs={10} sm={6} lg={3} style={{width: '280px' }}>
+        
         <Link to='/quiz' style={{ textDecoration: 'none' }}>
-            <Grid container item style={{width: '280px' }}>
-                <Card onClick={props.reinitForm} >
+	<Card onClick={props.reinitForm} >
                     <CardActionArea>
                         <CardMedia className={classes.media} image={Background4} />
                         <CardContent style={{backgroundColor: "#ea8f8f" }}>
@@ -111,8 +115,9 @@ const ThreeBlocks = (props) => {
                         </CardContent>
                     </CardActionArea>
                 </Card>  
-            </Grid>
+        
         </Link>
+	</Grid>
         </Grid>
 
         <p></p>

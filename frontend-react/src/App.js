@@ -25,7 +25,8 @@ const Maintheme = {
             main: '#52CDD1',
           },
         type: 'light'
-    }
+    },
+width:"100%"
 }
 
 
