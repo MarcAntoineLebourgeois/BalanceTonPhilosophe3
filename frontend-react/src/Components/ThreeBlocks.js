@@ -46,7 +46,7 @@ const ThreeBlocks = (props) => {
                                 Elle cherchera les themes qui ressortent en analysant les mots puis te proposera des philosophes.
                             </Typography>
                             <Typography variant="body2" color="textSecondary" align='justify'>    
-                                Attention toutefois, elle peut parfois etre a cote de la plaque :)
+                                EXPERIMENTAL
                             </Typography>
                             </CardContent>
                         </CardActionArea>
@@ -89,7 +89,10 @@ const ThreeBlocks = (props) => {
                             Difficile de trouver un resume convenable de la pensee d'un philosophe sur les themes du bac?
                         </Typography>
                         <Typography variant="body2" color="textSecondary" align='justify'>
-                            Via cette recherche, tu pourras facilement le trouver. C'est aussi plutot pratique pour comparer deux philosophes. 
+                            Via cette recherche, tu pourras facilement le trouver.
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" align='justify'>
+                            C'est aussi plutot pratique pour comparer deux philosophes. 
                         </Typography>
                         </CardContent>
                     </CardActionArea>
