@@ -103,16 +103,16 @@ function Footer(props) {
 			  	          </Grid>
 			  	            <Grid item xs={12} md={6} lg={4}>
 			  	              <Box display="flex" justifyContent="center">
-			  	              Coucou
-			  			</Box>
+			  	            
+			  			      </Box>
 			  	            </Grid>
 			  	          <Grid item xs={12} md={6} lg={4}>
 			  	            <Typography variant="h6" paragraph className="text-white">
-			  	              About the Company
+			  	              A propos du projet
 			  	            </Typography>
 			  	            <Typography style={{ color: "#8f9296" }} paragraph>
-			  	              Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce
-			  	              euismod convallis velit, eu auctor lacus vehicula sit amet.
+			  	              BTP est ne d'une volonte de clarifier et vulgariser les connaissances philosophes afin d'aider les bacheliers.
+							   Cela avec une approche moderne et technologique au service de l'education. 
 			  	            </Typography>
 			  	          </Grid>
 			  	        </Grid>

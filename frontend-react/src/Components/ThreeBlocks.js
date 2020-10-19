@@ -28,7 +28,7 @@ const ThreeBlocks = (props) => {
 	    alignItems="center"
 	    justify="center"
 	    spacing={6}
-            style={{margin: "auto", width:"100%"}}
+            style={{margin: "auto", width:"90%"}}
         >
         
             <Grid item xs={10} sm={6} lg={3} style={{width: '280px' }}>
