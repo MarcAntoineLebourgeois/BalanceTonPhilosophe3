@@ -55,8 +55,9 @@ const SelectionPanel = (props) => {
           <p></p>
           <Grid item style={{width:"80%",textAlign:"center"}} >
           <Typography variant="subtitle1" > 
-            BTP est un outil pour trouver les sources a tes dissertations.
+            Crée un compte pour profiter de toutes les nouvelles fonctionalites.
           </Typography>
+	  <p/>  
           </Grid>
         </Grid>
       }

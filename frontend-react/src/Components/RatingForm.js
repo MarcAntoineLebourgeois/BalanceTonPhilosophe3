@@ -26,8 +26,8 @@ const RatingForm = (props) => {
 	
 	const SendRatingForm = async () => {
     await fetch("https://api.balancetonphilosophe.com/add_rating",{method:'POST',headers: {"Content-type":"application/json"},body: JSON.stringify({"formRating":formRating})});
-  	history.push("/");
-	await props.setLaunchSnackBar(true)
+  	await history.push("/");
+	await props.setLaunchSnackBar(true);
 	await props.setSnackbarMessage("Feedback envoye. Merci!")
 	}
 
@@ -36,37 +36,40 @@ const RatingForm = (props) => {
           xs={12} sm={12} md={10} lg={8} xl={8} style={{margin: "auto", padding: 5}}>
 
 		<Grid container direction="column" justify="center" alignItems="center" style={{padding:10}}>
-			<Typography component="legend">Username</Typography>
+	  		<Typography> Merci d'envoyer un feedback pour m'aider a ameliorer le projet :) </Typography>
+			<p/>
+			<Typography component="legend">Nom</Typography>
 			<TextField size="small" multiline variant="outlined" value={formRating.username} onChange={e => ChangeUsername(e.target.value)}/>
 			
 			<Typography component="legend">Adresse mail (optionelle)</Typography>
 			<TextField size="small" multiline variant="outlined" value={formRating.mail} onChange={e => ChangeMail(e.target.value)} />
 			
-			<Typography component="legend">vitesse_chargementsite</Typography>
+			<Typography component="legend">Vitesse de chargement</Typography>
 			<Rating value={formRating.vitesse_chargementsite} onChange={(event, newValue) => {setFormRating({...formRating,vitesse_chargementsite: newValue})}} />
 			
-			<Typography component="legend">vitesse_queries</Typography>
+			<Typography component="legend">Vitesse des requetes</Typography>
 			<Rating value={formRating.vitesse_queries} onChange={(event, newValue) => {setFormRating({...formRating,vitesse_queries: newValue})}} />
 
-			<Typography component="legend">format_frontpage</Typography>
+			<Typography component="legend">Format general du site</Typography>
 			<Rating value={formRating.format_frontpage} onChange={(event, newValue) => {setFormRating({...formRating,format_frontpage: newValue})}} />
 
-			<Typography component="legend">format_ergonomie</Typography>
+			<Typography component="legend">Format du rendu du contenu</Typography>
 			<Rating value={formRating.format_ergonomie} onChange={(event, newValue) => {setFormRating({...formRating,format_ergonomie: newValue})}} />
 
-			<Typography component="legend">philo_qualite</Typography>
+			<Typography component="legend">Qualite du contenu</Typography>
 			<Rating value={formRating.philo_qualite} onChange={(event, newValue) => {setFormRating({...formRating,philo_qualite: newValue})}} />
 			
-			<Typography component="legend">philo_quantite</Typography>
+			<Typography component="legend">Quantite du contenu</Typography>
 			<Rating value={formRating.philo_quantite} onChange={(event, newValue) => {setFormRating({...formRating,philo_quantite: newValue})}} />		
 			
 			<Typography component="legend">Reporter des bugs</Typography>
 			<TextField size="small" multiline variant="outlined" value={formRating.bugs} onChange={e => Changebugs(e.target.value)} />
 			
-			<Typography component="legend">Commentaires</Typography>
+			<Typography component="legend">Commentaires et idees</Typography>
 			<TextField size="small" multiline variant="outlined" value={formRating.comment} onChange={e => ChangeComment(e.target.value)} />
-
+			<p/>
 			<Button variant="contained"  endIcon={<Icon>send</Icon>} size="small" onClick={SendRatingForm}>
+			Envoyer le feedback
 			</Button>
 
 		</Grid>
