@@ -18,14 +18,18 @@ const Quiz = (props) => {
     return(
         <Grid container direction="column" justify="center" alignItems="center">
             <h1>{props.quiz.description}</h1> 
-            {mode === 'quiz' && <QuizQuestion {...props} changeQuiz={changeQuiz} setChangeQuiz={setChangeQuiz} />}
-            {mode === 'submit' && <QuizResult {...props} changeQuiz={changeQuiz} />} 
+            {mode === 'quiz' && 
+		    <>
+		    <QuizQuestion {...props} changeQuiz={changeQuiz} setChangeQuiz={setChangeQuiz} />
+	  
             <Grid container direction="row" justify="center" alignItems="center">
                 <Button type="submit" variant="outlined" color="primary" className={classes.button} onClick={() => setMode('submit')}>
                     envoyer le quiz
                 </Button>
             </Grid> 
             <p></p>              
+	    </>}
+            {mode === 'submit' && <QuizResult {...props} changeQuiz={changeQuiz} />} 
         </Grid>
         )
 

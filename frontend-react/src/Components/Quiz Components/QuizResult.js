@@ -22,7 +22,7 @@ const QuizResult = (props) => {
 
 	React.useEffect(() => {
            setQuizScoreForm({username:props.user.user,quiz_name:props.changeQuiz.name,quiz_score:score + "/" + props.quiz.questions.length});
-           setLaunch(true)
+        //   setLaunch(true)
     },[])
     
     if (launch){
@@ -54,7 +54,10 @@ const QuizResult = (props) => {
                 </Grid>
             )
         })}
-	<Button onClick={() => handleScoreSubmit()}>Send Form to score API</Button>
+	    {props.isAuthenticated 
+			    ?<Button onClick={() => handleScoreSubmit()}>Sauvegarder le resultat du quiz dans mon compte</Button>
+			    :<Button disabled>Connecte toi a ton compte pour sauvegarder le resultat du quiz</Button>}
+	    <p/>
         </>
     )
 }
