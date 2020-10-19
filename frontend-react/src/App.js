@@ -108,7 +108,6 @@ return (
 <MuiThemeProvider theme={Maintheme} >
 	<Router >
 		<CssBaseline/>
-
 		<Switch>
 			<Route exact path="/">
 				<Redirect to="/home" /> 
@@ -299,7 +298,13 @@ return (
 			)}/>
 
 			<Route exact path='/rating' render={()=> <RatingPage	i
-				isAuthenticated={isAuthenticated} />}/>
+				isAuthenticated={isAuthenticated} 
+
+				setSnackbarMessage={setSnackbarMessage}
+				launchSnackBar={launchSnackBar}
+				setLaunchSnackBar={setLaunchSnackBar}
+
+				/>}/>
 
 		</Switch>
 	</Router> 

@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import "../styles.css";
-import {Grid,Button, TextField} from "@material-ui/core";
+import {Typography,Grid,Button, TextField} from "@material-ui/core";
 import { Auth } from "aws-amplify";
 import AppBarFront from "./AppBar"
 import SelectionPanel from "./SelectionPanel"
@@ -49,7 +49,7 @@ const LoginPage = (props) => {
 	return(
 
 	<>
-    <Grid className="BackgroundPage" style={{padding:10, height: '50vh'}}>
+    <Grid className="BackgroundPage" style={{padding:10}}>
       <AppBarFront {...props} />
       <SelectionPanel {...props}  />
     </Grid>
@@ -60,6 +60,9 @@ const LoginPage = (props) => {
 		?<>
 		</>
 		:<>
+		<p/>
+		<Typography>Formulaire de LogIn</Typography>
+		<p/>
 		<TextField 
 			value={email} 
 			onChange={e => setEmail(e.target.value)}  
@@ -67,7 +70,7 @@ const LoginPage = (props) => {
 			label="Email"
 			style={{width:300}}
 			variant="outlined"/>
-	    <TextField 
+		<TextField 
 			value={password} 
 			onChange={e => setPassword(e.target.value)}  
 			placeholder="Password"
@@ -76,6 +79,7 @@ const LoginPage = (props) => {
 			style={{width:300}}
 			variant="outlined"/>
 		<Button disabled={!validateForm()} type="submit">Login</Button>
+		<p/>
 		</>
 	}
 	{launch? <LoadingIndicator/> :<></>}

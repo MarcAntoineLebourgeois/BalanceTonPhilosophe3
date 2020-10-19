@@ -7,13 +7,11 @@ import BottomBar from "../BottomBar"
 import Quiz from "./Quiz"
 import listQuiz from "../../Data/ListQuiz"
 
-
 const QuizPage = (props) => {
 
   React.useEffect(()=>{
     props.setForm({...props.form,Theme: [props.match.params.theme]});
   },[props.match.params.theme])
-
 	return(
     <>
       <Grid className="BackgroundPage" style={{padding:10, height: '60vh'}}>   
@@ -29,8 +27,7 @@ const QuizPage = (props) => {
               quiz={quiz}
             />
                 )
-        }
-      })}
+        }})}
 
     <BottomBar/>
     </>

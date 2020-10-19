@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import "../styles.css";
-import {Grid,Button, TextField} from "@material-ui/core";
+import {Typography,Grid,Button, TextField} from "@material-ui/core";
 import { Auth } from "aws-amplify";
 import AppBarFront from "./AppBar"
 import SelectionPanel from "./SelectionPanel"
@@ -38,13 +38,15 @@ const SignUpPage = (props) => {
 
 async function handleSubmit(event) {
 	  event.preventDefault();
-	  setLaunch(true)
-		      const newUser = await Auth.signUp({
+	  try {	
+		setLaunch(true)
+		const newUser = await Auth.signUp({
 			            username: props.fields.email,
 			            password: props.fields.password,
 			          });
-		      setNewUser(newUser);
-	  setLaunch(false)
+		setNewUser(newUser);
+	  	setLaunch(false)
+	  } catch(e) {alert(e)}
 	  }
 
 
@@ -66,6 +68,9 @@ async function handleConfirmationSubmit(event) {
 		            <form onSubmit={handleConfirmationSubmit}>
 		      		<Grid container direction="column" justify="center" alignItems="center">      
 		      			{launch? <LoadingIndicator/> : <></>}
+		      			<p/>
+		      			<Typography> Merci d'inscrire le code de confirmation recu par mail </Typography>
+		      			<p/>
 		      			<TextField 
 		      				value={props.fields.confirmationCode}
 		      				onChange={e => {props.handleFieldChange({...props.fields,confirmationCode:e.target.value})}}
@@ -73,7 +78,9 @@ async function handleConfirmationSubmit(event) {
 		      				label="Confirmation Code"
 		      				style={{width:300}}
 		      				variant="outlined"/>
+		      		<p/>
 		      		<Button type="submit">Send Confirmation Code</Button>
+		      		<p/>
 		      		</Grid>
 		      	    </form>
 
@@ -84,6 +91,9 @@ async function handleConfirmationSubmit(event) {
 			            <form onSubmit={handleSubmit}>
 					<Grid container direction="column" justify="center" alignItems="center">
 					{launch? <LoadingIndicator/> : <></>}
+		      			<p/>
+		      			<Typography>Formulaire de SignIn </Typography>
+		      			<p/>
 			      		<TextField 
 		      				value={props.fields.email}
 		      				onChange={e => {props.handleFieldChange({...props.fields,email:e.target.value})}}
@@ -107,8 +117,9 @@ async function handleConfirmationSubmit(event) {
 		      				style={{width:300}}
 		      				type="password"
 		      				variant="outlined"/>
-
+					<p/>
 		      			<Button type="submit">Sign Up</Button>
+			      		<p/>
 			      	</Grid>	
 			      </form>
 
@@ -118,7 +129,7 @@ async function handleConfirmationSubmit(event) {
 	return(
 
 	<>
-    <Grid className="BackgroundPage" style={{padding:10, height: '50vh'}}>
+    <Grid className="BackgroundPage" style={{padding:10}}>
       <AppBarFront {...props} />
       <SelectionPanel {...props}  />
     </Grid>
