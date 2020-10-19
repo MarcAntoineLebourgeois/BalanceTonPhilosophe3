@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { SwipeableDrawer,Divider, List, ListItem, ListItemIcon, ListItemText, Grid,Toolbar,Typography,IconButton,MenuItem,Menu,Button } from "@material-ui/core";
+import { SwipeableDrawer,Divider, List, ListItem,Hidden, ListItemIcon, ListItemText, Grid,Toolbar,Typography,IconButton,MenuItem,Menu,Button } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import { Auth } from "aws-amplify";
@@ -8,7 +8,7 @@ import { Auth } from "aws-amplify";
 const AppBarFront = (props) => {
 
   const [anchorEl, setAnchorEl] = useState(null);
-  const [openDrawer, setOpenDrawer] = useState(true);
+  const [openDrawer, setOpenDrawer] = useState(false);
   const open = Boolean(anchorEl);
   const handleMenu = event => {setAnchorEl(event.currentTarget)};
   const handleClose = () => {setAnchorEl(null)};
@@ -33,7 +33,8 @@ const AppBarFront = (props) => {
                pour trouver les sources a tes disserts !
             </Typography>
           </Grid>
-  
+ 
+	  <Hidden mdUp>
 	  <IconButton
               aria-label="account of current user"
               aria-controls="menu-appbar"
@@ -68,6 +69,24 @@ const AppBarFront = (props) => {
 	  </>
 	  } 
 		</Menu>
+	</ Hidden> 
+	<Hidden smDown>
+
+          <Link to="/rating" style={{ textDecoration: 'none' }}><Button>Give me a feedback</Button></Link>
+	  {props.isAuthenticated === false &&        
+	  <>
+		<Link to="/login" style={{ textDecoration:'none'}}><Button>Login</Button></Link>  
+          	<Link to="/signup" style={{ textDecoration:'none'}}><Button>Sign Up</Button></Link>   
+	  </>
+	  }
+	  {props.isAuthenticated === true &&
+	  <>		  
+	  	<Link to="/user_scores" style={{ textDecoration:'none'}}><Button>Mes Scores</Button></Link>  
+	  	<Link to="/home" onClick={() => handleLogout()} style={{ textDecoration:'none'}}><Button>Log Out</Button></Link>  
+	  </>
+	  } 
+
+	</Hidden>  
         </Toolbar>
 	<SwipeableDrawer
 	  anchor={'right'}
