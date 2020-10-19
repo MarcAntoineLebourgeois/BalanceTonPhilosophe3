@@ -3,9 +3,25 @@ import { SwipeableDrawer,Divider, List, ListItem,Hidden, ListItemIcon, ListItemT
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import { Auth } from "aws-amplify";
-
+import {emphasize,withStyles} from "@material-ui/core/styles";
 
 const AppBarFront = (props) => {
+
+  const StyleButton = withStyles(theme => ({
+	  root: {
+		  backgroundColor:theme.palette.grey[100],
+		  color:theme.palette.grey[800],
+		  fontWeight:theme.typography.fontWeightRegular,
+		  "&:hover,&:focus":{
+			  backgroundColor: theme.palette.grey[300]},
+		  "&:active":{
+			  boxShadow: theme.shadows[1],
+			  backgroundColor:emphasize(theme.palette.grey[300],0.12)},
+		  margin:5,
+		  height:30,
+	  	  width:90}
+  }))(Button);
+
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -55,7 +71,7 @@ const AppBarFront = (props) => {
             >
               <MenuItem onClick={props.DarkModeOn}>Dark/Light Mode</MenuItem>
 
-          <Link to="/rating" style={{ textDecoration: 'none' }}><MenuItem>Give me a feedback</MenuItem></Link>
+          <Link to="/rating" style={{ textDecoration: 'none' }}><MenuItem>Note moi</MenuItem></Link>
 	  {props.isAuthenticated === false &&        
 	  <>
 		<Link to="/login" style={{ textDecoration:'none'}}><MenuItem>Login</MenuItem></Link>  
@@ -72,17 +88,17 @@ const AppBarFront = (props) => {
 	</ Hidden> 
 	<Hidden smDown>
 
-          <Link to="/rating" style={{ textDecoration: 'none' }}><Button>Give me a feedback</Button></Link>
+          <Link to="/rating" style={{ textDecoration: 'none' }}><StyleButton>Note moi</StyleButton></Link>
 	  {props.isAuthenticated === false &&        
 	  <>
-		<Link to="/login" style={{ textDecoration:'none'}}><Button>Login</Button></Link>  
-          	<Link to="/signup" style={{ textDecoration:'none'}}><Button>Sign Up</Button></Link>   
+		<Link to="/login" style={{ textDecoration:'none'}}><StyleButton>Login</StyleButton></Link>  
+          	<Link to="/signup" style={{ textDecoration:'none'}}><StyleButton>Sign Up</StyleButton></Link>   
 	  </>
 	  }
 	  {props.isAuthenticated === true &&
 	  <>		  
-	  	<Link to="/user_scores" style={{ textDecoration:'none'}}><Button>Mes Scores</Button></Link>  
-	  	<Link to="/home" onClick={() => handleLogout()} style={{ textDecoration:'none'}}><Button>Log Out</Button></Link>  
+	  	<Link to="/user_scores" style={{ textDecoration:'none'}}><StyleButton>Mes Scores</StyleButton></Link>  
+	  	<Link to="/home" onClick={() => handleLogout()} style={{ textDecoration:'none'}}><StyleButton>Log Out</StyleButton></Link>  
 	  </>
 	  } 
 
