@@ -4,6 +4,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import { Auth } from "aws-amplify";
 import {emphasize,withStyles} from "@material-ui/core/styles";
+import HowToRegIcon from "@material-ui/icons/HowToReg";
+import LockOpenIcon from "@material-ui/icons/LockOpen";
+import BookIcon from "@material-ui/icons/Book";
 
 const AppBarFront = (props) => {
 
@@ -26,7 +29,9 @@ const AppBarFront = (props) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [openDrawer, setOpenDrawer] = useState(false);
   const open = Boolean(anchorEl);
-  const handleMenu = event => {setAnchorEl(event.currentTarget)};
+  const handleMenu = event => {
+	  setOpenDrawer(true)
+	  setAnchorEl(event.currentTarget)};
   const handleClose = () => {setAnchorEl(null)};
   const handleLogout = async () => {
     await Auth.signOut();
@@ -69,7 +74,6 @@ const AppBarFront = (props) => {
               open={open}
               onClose={handleClose}
             >
-              <MenuItem onClick={props.DarkModeOn}>Dark/Light Mode</MenuItem>
 
           <Link to="/rating" style={{ textDecoration: 'none' }}><MenuItem>Note moi</MenuItem></Link>
 	  {props.isAuthenticated === false &&        
@@ -107,13 +111,39 @@ const AppBarFront = (props) => {
 	<SwipeableDrawer
 	  anchor={'right'}
 	  open={openDrawer}
+	  onClose={() => {setOpenDrawer(false)}}
 	  >
 		<List>
-			<ListItem>
-				<ListItemIcon/>
-	  			<ListItemText primary={"coucou"} />
+		<ListItem>
+	  		<ListItemIcon><BookIcon /></ListItemIcon>
+		        <Link to="/rating" style={{ textDecoration: 'none' }}><MenuItem>Note moi</MenuItem></Link>
+	  	</ListItem>
+	  {props.isAuthenticated === false &&        
+	  <>
+		<ListItem>
+			<ListItemIcon><LockOpenIcon /></ListItemIcon>
+			<Link to="/login" style={{ textDecoration:'none'}}><MenuItem>Login</MenuItem></Link>  
+          	</ListItem>
+		<ListItem>
+			<ListItemIcon><HowToRegIcon /></ListItemIcon>
+		  	<Link to="/signup" style={{ textDecoration:'none'}}><MenuItem>Sign Up</MenuItem></Link>   
+		</ListItem>
+	  </>
+	  }
+	  {props.isAuthenticated === true &&
+	  <>		  
+		<ListItem>
 
-	  		</ListItem>
+	  		<ListItemIcon><BookIcon /></ListItemIcon>
+	  		<Link to="/user_scores" style={{ textDecoration:'none'}}><MenuItem>Mes Scores</MenuItem></Link>  
+	  	</ListItem>
+		<ListItem>
+
+			<ListItemIcon><HowToRegIcon /></ListItemIcon>
+			<Link to="/home" onClick={() => handleLogout()} style={{ textDecoration:'none'}}><MenuItem>Log Out</MenuItem></Link>  
+		</ListItem>
+	  </>
+	  } 
 
 	  	</List>
 	</SwipeableDrawer>  
