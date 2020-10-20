@@ -1,5 +1,5 @@
 import React from "react";
-import {Grid, Chip, Typography} from "@material-ui/core";
+import {Button,Grid, Chip, Typography} from "@material-ui/core";
 import { emphasize, withStyles } from "@material-ui/core/styles";
 import SujetDissertPanel from "./InputDissert";
 import InputTheme from "./InputTheme";
@@ -58,7 +58,9 @@ const SelectionPanel = (props) => {
             Crée un compte pour profiter de toutes les nouvelles fonctionalites.
           </Typography>
 	  <p/>  
-          </Grid>
+         <Link to="/signup" style={{ textDecoration:'none'}}><Button variant="contained" color="primary">Sign Up</Button></Link> 
+	    <p/>
+	    </Grid>
         </Grid>
       }
       />
