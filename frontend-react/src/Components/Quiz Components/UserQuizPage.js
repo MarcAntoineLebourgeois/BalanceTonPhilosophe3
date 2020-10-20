@@ -34,7 +34,7 @@ const UserQuizPage = (props) => {
 
 	return(
     <>
-      <Grid className="BackgroundPage" style={{padding:10, height: '60vh'}}>   
+      <Grid className="BackgroundPage" style={{padding:10}}>   
         <AppBarFront {...props}/>
         <SelectionPanel {...props}/>
       </Grid>

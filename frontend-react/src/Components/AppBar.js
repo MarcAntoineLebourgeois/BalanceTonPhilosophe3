@@ -4,9 +4,6 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import { Auth } from "aws-amplify";
 import {emphasize,withStyles} from "@material-ui/core/styles";
-import HowToRegIcon from "@material-ui/icons/HowToReg";
-import LockOpenIcon from "@material-ui/icons/LockOpen";
-import BookIcon from "@material-ui/icons/Book";
 
 const AppBarFront = (props) => {
 
@@ -65,30 +62,6 @@ const AppBarFront = (props) => {
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{ vertical: "top", horizontal: "right" }}
-              keepMounted
-              transformOrigin={{ vertical: "top", horizontal: "right" }}
-              open={open}
-              onClose={handleClose}
-            >
-
-          <Link to="/rating" style={{ textDecoration: 'none' }}><MenuItem>Note moi</MenuItem></Link>
-	  {props.isAuthenticated === false &&        
-	  <>
-		<Link to="/login" style={{ textDecoration:'none'}}><MenuItem>Login</MenuItem></Link>  
-          	<Link to="/signup" style={{ textDecoration:'none'}}><MenuItem>Sign Up</MenuItem></Link>   
-	  </>
-	  }
-	  {props.isAuthenticated === true &&
-	  <>		  
-	  	<Link to="/user_scores" style={{ textDecoration:'none'}}><MenuItem>Mes Scores</MenuItem></Link>  
-	  	<Link to="/home" onClick={() => handleLogout()} style={{ textDecoration:'none'}}><MenuItem>Log Out</MenuItem></Link>  
-	  </>
-	  } 
-		</Menu>
 	</ Hidden> 
 	<Hidden smDown>
 
@@ -115,32 +88,25 @@ const AppBarFront = (props) => {
 	  >
 		<List>
 		<ListItem>
-	  		<ListItemIcon><BookIcon /></ListItemIcon>
 		        <Link to="/rating" style={{ textDecoration: 'none' }}><MenuItem>Note moi</MenuItem></Link>
 	  	</ListItem>
 	  {props.isAuthenticated === false &&        
 	  <>
 		<ListItem>
-			<ListItemIcon><LockOpenIcon /></ListItemIcon>
-			<Link to="/login" style={{ textDecoration:'none'}}><MenuItem>Login</MenuItem></Link>  
+		<Link to="/login" style={{ textDecoration:'none'}}><MenuItem>Login</MenuItem></Link>  
           	</ListItem>
 		<ListItem>
-			<ListItemIcon><HowToRegIcon /></ListItemIcon>
-		  	<Link to="/signup" style={{ textDecoration:'none'}}><MenuItem>Sign Up</MenuItem></Link>   
+		  <Link to="/signup" style={{ textDecoration:'none'}}><MenuItem>Sign Up</MenuItem></Link>   
 		</ListItem>
 	  </>
 	  }
 	  {props.isAuthenticated === true &&
 	  <>		  
 		<ListItem>
-
-	  		<ListItemIcon><BookIcon /></ListItemIcon>
-	  		<Link to="/user_scores" style={{ textDecoration:'none'}}><MenuItem>Mes Scores</MenuItem></Link>  
+	  	<Link to="/user_scores" style={{ textDecoration:'none'}}><MenuItem>Mes Scores</MenuItem></Link>  
 	  	</ListItem>
 		<ListItem>
-
-			<ListItemIcon><HowToRegIcon /></ListItemIcon>
-			<Link to="/home" onClick={() => handleLogout()} style={{ textDecoration:'none'}}><MenuItem>Log Out</MenuItem></Link>  
+		<Link to="/home" onClick={() => handleLogout()} style={{ textDecoration:'none'}}><MenuItem>Log Out</MenuItem></Link>  
 		</ListItem>
 	  </>
 	  } 
@@ -153,3 +119,29 @@ const AppBarFront = (props) => {
 }
 
 export default AppBarFront;
+/*
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{ vertical: "top", horizontal: "right" }}
+              keepMounted
+              transformOrigin={{ vertical: "top", horizontal: "right" }}
+              open={open}
+              onClose={handleClose}
+            >
+
+          <Link to="/rating" style={{ textDecoration: 'none' }}><MenuItem>Note moi</MenuItem></Link>
+	  {props.isAuthenticated === false &&        
+	  <>
+		<Link to="/login" style={{ textDecoration:'none'}}><MenuItem>Login</MenuItem></Link>  
+          	<Link to="/signup" style={{ textDecoration:'none'}}><MenuItem>Sign Up</MenuItem></Link>   
+	  </>
+	  }
+	  {props.isAuthenticated === true &&
+	  <>		  
+	  	<Link to="/user_scores" style={{ textDecoration:'none'}}><MenuItem>Mes Scores</MenuItem></Link>  
+	  	<Link to="/home" onClick={() => handleLogout()} style={{ textDecoration:'none'}}><MenuItem>Log Out</MenuItem></Link>  
+	  </>
+	  } 
+		</Menu>
+*/
