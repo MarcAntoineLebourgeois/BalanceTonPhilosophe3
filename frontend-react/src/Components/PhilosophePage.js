@@ -16,8 +16,8 @@ const PhilosophePage = (props) => {
       <>
         <Grid className="BackgroundPage" style={{padding:10}}>
           <AppBarFront {...props}/>
-          <SelectionPanel {...props}/>
         </Grid>
+          <SelectionPanel {...props}/>
         <RenduPhilosophe {...props} />
         <BottomBar/>
       </> 

@@ -9,39 +9,11 @@ import { Link,Route } from "react-router-dom";
 
 const SelectionPanel = (props) => {
 
-  const StyledButton = withStyles(theme => ({
-        root: {
-          backgroundColor: theme.palette.grey[100],
-          color: theme.palette.grey[800],
-          fontWeight: theme.typography.fontWeightRegular,
-          "&:hover, &:focus": {
-            backgroundColor: theme.palette.grey[300]
-          },
-          "&:active": {
-            boxShadow: theme.shadows[1],
-            backgroundColor: emphasize(theme.palette.grey[300], 0.12)
-          },
-          margin:5,
-          height:30
-        }
-      }))(Chip);
 
   return (
 
   <Grid item container direction="row" justify="flex-start" alignItems="flex-start" >
 			
-		<Link to='/dissertation' style={{ textDecoration: 'none' }}>
-			<StyledButton label="Disserts?" onClick={props.reinitForm} ></StyledButton>
-		</Link>
-		<Link to='/theme' style={{ textDecoration: 'none' }}>
-			<StyledButton label="Themes?" onClick={props.reinitForm} ></StyledButton>
-		</Link>
-		<Link to='/philosophe' style={{ textDecoration: 'none' }}>
-			<StyledButton label="Philosophes?" onClick={props.reinitForm} ></StyledButton>
-		</Link>
-		<Link to='/quiz' style={{ textDecoration: 'none' }}>
-			<StyledButton label="Quiz" onClick={props.reinitForm} ></StyledButton>
-		</Link>		
 
     <Route path='/dissertation' render={()=><SujetDissertPanel {...props}/>}/>
     <Route path='/philosophe' render={()=><InputPhilosophe {...props}/>}/>

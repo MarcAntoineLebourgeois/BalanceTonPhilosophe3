@@ -14,10 +14,10 @@ const QuizPage = (props) => {
   },[props.match.params.theme])
 	return(
     <>
-      <Grid className="BackgroundPage" style={{padding:10, height: '60vh'}}>   
+      <Grid className="BackgroundPage" style={{padding:10}}>   
         <AppBarFront {...props}/>
-        <SelectionPanel {...props}/>
       </Grid>
+        <SelectionPanel {...props}/>
       {listQuiz.map((quiz, i) => {
         if (props.form.Theme[0] === quiz.name) {
           return(  

@@ -53,10 +53,10 @@ const handleSubmit = async () =>  {
   
 	return(
     <>
-      <Grid className="BackgroundPage" style={{padding:10, height: '60vh'}}>
+      <Grid className="BackgroundPage" style={{padding:10}}>
         <AppBarFront {...props}/>
-        <SelectionPanel {...props}/>
       </Grid>
+        <SelectionPanel {...props}/>
       <LoadingIndicator/>
       <Rendu {...props}/>
       <BottomBar/>

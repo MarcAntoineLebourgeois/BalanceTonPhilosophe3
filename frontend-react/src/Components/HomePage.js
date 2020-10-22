@@ -14,8 +14,9 @@ const HomePage = (props) => {
 	<>
     <Grid className="BackgroundPage" style={{padding:10}}>
       <AppBarFront {...props} />
-      <SelectionPanel {...props}  />
     </Grid>
+
+      <SelectionPanel {...props}  />
 	{props.launchSnackBar? <SnackBar {...props} contentText={props.snackbarMessage} open={props.launchSnackBar} setOpen={props.setLaunchSnackBar}/> :<></>}
 	  <ThreeBlocks {...props} />
 	  <BottomBar/> 
