@@ -16,21 +16,21 @@ import "../styles.css";
 const styles = theme => ({
 		  footerInner: {
 			  	    backgroundColor: theme.palette.common.darkBlack,
-			  	    paddingTop: theme.spacing(8),
+			  	    paddingTop: theme.spacing(2),
 			  	    paddingLeft: theme.spacing(2),
 			  	    paddingRight: theme.spacing(2),
-			  	    paddingBottom: theme.spacing(6),
+			  	    paddingBottom: theme.spacing(2),
 			  	    [theme.breakpoints.up("sm")]: {
-					    	      paddingTop: theme.spacing(10),
+					    	      paddingTop: theme.spacing(6),
 					    	      paddingLeft: theme.spacing(16),
 					    	      paddingRight: theme.spacing(16),
-					    	      paddingBottom: theme.spacing(10)
+					    	      paddingBottom: theme.spacing(6)
 					    	    },
 			  	    [theme.breakpoints.up("md")]: {
-					    	      paddingTop: theme.spacing(10),
+					    	      paddingTop: theme.spacing(6),
 					    	      paddingLeft: theme.spacing(10),
 					    	      paddingRight: theme.spacing(10),
-					    	      paddingBottom: theme.spacing(10)
+					    	      paddingBottom: theme.spacing(6)
 					    	    }
 			  	  },
 		  brandText: {
@@ -74,38 +74,6 @@ function Footer(props) {
 			  	    <footer className="BackgroundBottom">
 			  	      <div className={classes.footerInner}>
 			  	        <Grid container spacing={isWidthUp("md", width) ? 10 : 5}>
-			  	          <Grid item xs={12} md={6} lg={4}>
-			  	            <form>
-			  	              <Box display="flex" flexDirection="column">
-			  	                <Box mb={1}>
-			  	                  <TextField
-			  	                    variant="outlined"
-			  	                    multiline
-			  	                    placeholder="Get in touch with us"
-			  	                    inputProps={{ "aria-label": "Get in Touch" }}
-			  	                    InputProps={{
-							    	                      className: classes.whiteBg
-							    	                    }}
-			  	                    rows={4}
-			  	                    fullWidth
-			  	                    required
-			  	                  />
-			  	                </Box>
-			  	                <Button
-			  	                  color={theme.palette.common.white}
-			  	                  variant="outlined"
-			  	                  type="submit"
-			  	                >
-			  	                  Send Message
-			  	                </Button>
-			  	              </Box>
-			  	            </form>
-			  	          </Grid>
-			  	            <Grid item xs={12} md={6} lg={4}>
-			  	              <Box display="flex" justifyContent="center">
-			  	            
-			  			      </Box>
-			  	            </Grid>
 			  	          <Grid item xs={12} md={6} lg={4}>
 			  	            <Typography variant="h6" paragraph className="text-white">
 			  	              A propos du projet
