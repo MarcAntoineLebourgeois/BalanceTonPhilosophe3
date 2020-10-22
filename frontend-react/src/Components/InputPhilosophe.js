@@ -43,7 +43,7 @@ const InputPhilosophe = (props) => {
       </FormControl>
       <p></p>
 	  <Links to={`/philosophe/${props.form.Philosophe}`} style={{ textDecoration: 'none' }}>
-		  <Button variant="contained" endIcon={<Icon>send</Icon>} size="small"> Balance ce philosophe </Button>
+		  <Button variant="contained" size="small"> Balance ce philosophe </Button>
 	  </Links>
     <p></p>
     <Typography variant="subtitle1" style={{fontSize: 14}}>Cliquer sur l'exemple suivant:</Typography>

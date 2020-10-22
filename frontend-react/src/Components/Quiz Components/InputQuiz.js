@@ -45,7 +45,7 @@ const InputQuiz = (props) => {
       </FormControl>
       <p></p>
 	  <Links to={`/quiz/${props.form.Theme}`} style={{ textDecoration: 'none' }}>
-		  <Button variant="contained" endIcon={<Icon>send</Icon>} size="small"> Commencer le quiz sur {props.form.Theme} </Button>
+		  <Button variant="contained" size="small"> Commencer le quiz sur {props.form.Theme} </Button>
 	  </Links>
     <p></p>
     <Button to="/" component={Link} onClick={ExempleThemes} size="small"> Exemple de Quiz : science </Button> 

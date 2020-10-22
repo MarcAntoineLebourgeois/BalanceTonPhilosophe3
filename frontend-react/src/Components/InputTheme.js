@@ -44,7 +44,7 @@ const InputTheme = (props) => {
       </FormControl>
       <p></p>
 	  <Links to={`/theme/${props.form.Theme}`} style={{ textDecoration: 'none' }}>
-		  <Button variant="contained" endIcon={<Icon>send</Icon>} size="small"> Trouver les sources a mes themes </Button>
+		  <Button variant="contained" size="small"> Trouver les sources a mes themes </Button>
 	  </Links>
       <p></p>
       <Typography variant="subtitle1" style={{fontSize: 14}}>Cliquer sur l'exemple suivant: (sujet Bac ES 2019)</Typography>
