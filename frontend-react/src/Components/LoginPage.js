@@ -51,8 +51,9 @@ const LoginPage = (props) => {
 	<>
     <Grid className="BackgroundPage" style={{padding:10}}>
       <AppBarFront {...props} />
-      <SelectionPanel {...props}  />
+
     </Grid>
+      <SelectionPanel {...props}  />
 	 
 	<form onSubmit={handleSubmit}>
 	<Grid container direction="column" justify="center" alignItems="center">
