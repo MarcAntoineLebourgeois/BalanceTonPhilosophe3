@@ -27,7 +27,7 @@ const ThemePage = (props) => {
   if (props.match.params.theme.includes(','))
        {var ListeThemeUrl = props.match.params.theme.split(',')}
   else {var ListeThemeUrl = [props.match.params.theme]}
-
+console.log(props)
 	useEffect(()=>{
 		props.setForm({...props.form,Theme: ListeThemeUrl});
 		props.setLaunch(true);

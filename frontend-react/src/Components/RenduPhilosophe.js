@@ -1,8 +1,30 @@
 import React from "react";
-import {Grid,Typography,Paper,Avatar} from '@material-ui/core';
+import {Chip,Grid,Typography,Paper,Avatar} from '@material-ui/core';
+import {emphasize,withStyles} from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
+import { useHistory } from 'react-router'
 
 const RenduPhilosophe = (props) => {
-    return(
+    
+const StyledButton = withStyles(theme => ({
+	root: {
+		backgroundColor: theme.palette.grey[100],
+		color: theme.palette.grey[800],
+		fontWeight: theme.typography.fontWeightRegular,
+		"&:hover, &:focus": {
+			backgroundColor: theme.palette.grey[300]
+		},
+		"&:active": {
+			boxShadow: theme.shadows[1],
+			backgroundColor: emphasize(theme.palette.grey[300], 0.12)
+		},
+		margin:5,
+		height:30
+	}
+}))(Chip);
+
+	const history=useHistory()
+	return(
 
 <Grid container direction="column" justify="center" alignItems="center" > 
     <Grid item style={{padding:10,marginTop: 50, marginLeft: 'auto',marginRight: 'auto'}}
@@ -34,7 +56,11 @@ const RenduPhilosophe = (props) => {
         <>
         <Paper style={{padding: "20px"}}>
             <Typography > 
-            Theme: {ListeThemes.map(themes => {return(themes +"/")})}
+            Theme(s): {ListeThemes.map(themes => {return(
+		<Link to={`/theme/${themes}`} onClick={props.reinitForm} style={{ textDecoration: 'none' }} >
+		    <StyledButton label={themes} />
+		</Link>
+	    )})}
             </Typography>
             <p/>
             <Typography variant="body1" align="justify">   
