@@ -20,7 +20,7 @@ const AppBarFront = (props) => {
 		  margin:5,
 		  height:30,
 	  	  width:90}
-  }))(Button);
+  }))(Chip);
 
   const StyledButton = withStyles(theme => ({
 	  root: {
@@ -72,16 +72,16 @@ const AppBarFront = (props) => {
 <Grid item container direction="row" justify="flex-start" alignItems="flex-start" >
 	                          
 	  <Link to='/dissertation' style={{ textDecoration: 'none' }}>
-	  	<StyledButton label="Disserts?" onClick={props.reinitForm} ></StyledButton>
+	  	<StyledButton label="Disserts" onClick={props.reinitForm}/ >
 	  </Link>
 	  <Link to='/theme' style={{ textDecoration: 'none' }}>
-	  	<StyledButton label="Themes?" onClick={props.reinitForm} ></StyledButton>
+	  	<StyledButton label="Themes" onClick={props.reinitForm} />
 	  </Link>
 	  <Link to='/philosophe' style={{ textDecoration: 'none' }}>
-	  	<StyledButton label="Philosophes?" onClick={props.reinitForm} ></StyledButton>
+	  	<StyledButton label="Philosophes" onClick={props.reinitForm}/ >
 	  </Link>
 	  <Link to='/quiz' style={{ textDecoration: 'none' }}>
-	  	<StyledButton label="Quiz" onClick={props.reinitForm} ></StyledButton>
+	  	<StyledButton label="Quiz" onClick={props.reinitForm}/ >
 	  </Link>
 
 </Grid>
@@ -101,17 +101,17 @@ const AppBarFront = (props) => {
 </ Hidden> 
 <Hidden smDown>
 
-  <Link to="/rating" style={{ textDecoration: 'none' }}><StyleButton>Note moi</StyleButton></Link>
+  <Link to="/rating" style={{ textDecoration: 'none' }}><StyleButton label="Ton avis sur le site"/></Link>
   {props.isAuthenticated === false &&        
   <>
-	<Link to="/login" style={{ textDecoration:'none'}}><StyleButton>Login</StyleButton></Link>  
-	<Link to="/signup" style={{ textDecoration:'none'}}><StyleButton>Sign Up</StyleButton></Link>   
+	<Link to="/login" style={{ textDecoration:'none'}}><StyleButton label="LogIn"/></Link>  
+	<Link to="/signup" style={{ textDecoration:'none'}}><StyleButton label="Sign Up" /></Link>   
   </>
   }
   {props.isAuthenticated === true &&
   <>		  
-	<Link to="/user_scores" style={{ textDecoration:'none'}}><StyleButton>Mes Scores</StyleButton></Link>  
-	<Link to="/home" onClick={() => handleLogout()} style={{ textDecoration:'none'}}><StyleButton>Log Out</StyleButton></Link>  
+	<Link to="/user_scores" style={{ textDecoration:'none'}}><StyleButton label="Mes Scores"/></Link>  
+	<Link to="/home" onClick={() => handleLogout()} style={{ textDecoration:'none'}}><StyleButton label="Log Out"/></Link>  
   </>
   } 
 
